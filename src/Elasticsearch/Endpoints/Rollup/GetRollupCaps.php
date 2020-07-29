@@ -19,9 +19,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class GetRollupCaps extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_rollup/data/$id";
@@ -34,7 +34,7 @@ class GetRollupCaps extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

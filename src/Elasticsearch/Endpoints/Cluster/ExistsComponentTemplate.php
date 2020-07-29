@@ -21,9 +21,9 @@ class ExistsComponentTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_component_template/$name";
@@ -39,12 +39,12 @@ class ExistsComponentTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'HEAD';
     }
 
-    public function setName($name): ExistsComponentTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

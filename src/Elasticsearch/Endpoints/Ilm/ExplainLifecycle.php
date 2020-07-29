@@ -20,9 +20,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ExplainLifecycle extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_ilm/explain";
@@ -38,7 +38,7 @@ class ExplainLifecycle extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

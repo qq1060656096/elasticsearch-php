@@ -21,9 +21,9 @@ class DeletePolicy extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_enrich/policy/$name";
@@ -36,12 +36,12 @@ class DeletePolicy extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setName($name): DeletePolicy
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

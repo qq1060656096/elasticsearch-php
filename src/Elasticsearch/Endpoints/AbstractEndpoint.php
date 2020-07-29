@@ -69,12 +69,12 @@ abstract class AbstractEndpoint
     /**
      * @return string
      */
-    abstract public function getURI(): string;
+    abstract public function getURI()
 
     /**
      * @return string
      */
-    abstract public function getMethod(): string;
+    abstract public function getMethod()
 
 
     /**
@@ -103,7 +103,7 @@ abstract class AbstractEndpoint
         return $this->options;
     }
 
-    public function getIndex(): ?string
+    public function getIndex()
     {
         return $this->index;
     }
@@ -130,7 +130,7 @@ abstract class AbstractEndpoint
     /**
      * @deprecated
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->type;
     }
@@ -183,7 +183,7 @@ abstract class AbstractEndpoint
         return $this->body;
     }
 
-    protected function getOptionalURI(string $endpoint): string
+    protected function getOptionalURI($endpoint)
     {
         $uri = [];
         $uri[] = $this->getOptionalIndex();
@@ -194,7 +194,7 @@ abstract class AbstractEndpoint
         return '/' . implode('/', $uri);
     }
 
-    private function getOptionalIndex(): string
+    private function getOptionalIndex()
     {
         if (isset($this->index) === true) {
             return $this->index;
@@ -203,7 +203,7 @@ abstract class AbstractEndpoint
         }
     }
 
-    private function getOptionalType(): string
+    private function getOptionalType()
     {
         if (isset($this->type) === true) {
             return $this->type;

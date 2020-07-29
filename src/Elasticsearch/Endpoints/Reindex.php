@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Reindex extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_reindex";
@@ -39,12 +39,12 @@ class Reindex extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): Reindex
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

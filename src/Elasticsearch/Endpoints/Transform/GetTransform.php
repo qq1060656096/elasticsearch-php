@@ -20,9 +20,9 @@ class GetTransform extends AbstractEndpoint
 {
     protected $transform_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $transform_id = $this->transform_id ?? null;
+        $transform_id = isset($this->transform_id) ? $this->transform_id : null;
 
         if (isset($transform_id)) {
             return "/_transform/$transform_id";
@@ -39,12 +39,12 @@ class GetTransform extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setTransformId($transform_id): GetTransform
+    public function setTransformId($transform_id)
     {
         if (isset($transform_id) !== true) {
             return $this;

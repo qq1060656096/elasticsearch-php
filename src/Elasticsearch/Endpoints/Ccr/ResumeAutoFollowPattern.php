@@ -21,9 +21,9 @@ class ResumeAutoFollowPattern extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_ccr/auto_follow/$name/resume";
@@ -36,12 +36,12 @@ class ResumeAutoFollowPattern extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setName($name): ResumeAutoFollowPattern
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

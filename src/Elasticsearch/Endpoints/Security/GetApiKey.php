@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class GetApiKey extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_security/api_key";
@@ -36,7 +36,7 @@ class GetApiKey extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

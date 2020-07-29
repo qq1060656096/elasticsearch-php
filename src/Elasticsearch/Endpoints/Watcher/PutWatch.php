@@ -20,9 +20,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class PutWatch extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_watcher/watch/$id";
@@ -40,12 +40,12 @@ class PutWatch extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutWatch
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

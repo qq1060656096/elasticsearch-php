@@ -20,10 +20,10 @@ class GetAlias extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
-        $index = $this->index ?? null;
+        $name = isset($this->name) ? $this->name : null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index) && isset($name)) {
             return "/$index/_alias/$name";
@@ -47,12 +47,12 @@ class GetAlias extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetAlias
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

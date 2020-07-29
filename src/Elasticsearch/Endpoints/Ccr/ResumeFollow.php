@@ -20,9 +20,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ResumeFollow extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_ccr/resume_follow";
@@ -35,12 +35,12 @@ class ResumeFollow extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): ResumeFollow
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

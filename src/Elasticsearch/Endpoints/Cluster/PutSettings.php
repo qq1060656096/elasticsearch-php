@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class PutSettings extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_cluster/settings";
@@ -34,12 +34,12 @@ class PutSettings extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutSettings
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

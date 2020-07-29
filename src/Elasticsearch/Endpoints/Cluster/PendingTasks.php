@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class PendingTasks extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_cluster/pending_tasks";
@@ -33,7 +33,7 @@ class PendingTasks extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

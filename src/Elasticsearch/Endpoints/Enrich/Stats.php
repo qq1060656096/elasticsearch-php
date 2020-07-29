@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Stats extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_enrich/_stats";
@@ -30,7 +30,7 @@ class Stats extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

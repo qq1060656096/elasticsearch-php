@@ -20,9 +20,9 @@ class Fielddata extends AbstractEndpoint
 {
     protected $fields;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $fields = $this->fields ?? null;
+        $fields = isset($this->fields) ? $this->fields : null;
 
         if (isset($fields)) {
             return "/_cat/fielddata/$fields";
@@ -43,12 +43,12 @@ class Fielddata extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setFields($fields): Fielddata
+    public function setFields($fields)
     {
         if (isset($fields) !== true) {
             return $this;

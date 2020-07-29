@@ -21,9 +21,9 @@ class DeleteJob extends AbstractEndpoint
 {
     protected $job_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $job_id = $this->job_id ?? null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
 
         if (isset($job_id)) {
             return "/_ml/anomaly_detectors/$job_id";
@@ -39,12 +39,12 @@ class DeleteJob extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setJobId($job_id): DeleteJob
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

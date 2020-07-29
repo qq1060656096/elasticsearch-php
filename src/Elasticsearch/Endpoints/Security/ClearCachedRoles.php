@@ -21,9 +21,9 @@ class ClearCachedRoles extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_security/role/$name/_clear_cache";
@@ -38,12 +38,12 @@ class ClearCachedRoles extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setName($name): ClearCachedRoles
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

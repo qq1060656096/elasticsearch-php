@@ -21,9 +21,9 @@ class PutCalendar extends AbstractEndpoint
 {
     protected $calendar_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $calendar_id = $this->calendar_id ?? null;
+        $calendar_id = isset($this->calendar_id) ? $this->calendar_id : null;
 
         if (isset($calendar_id)) {
             return "/_ml/calendars/$calendar_id";
@@ -36,12 +36,12 @@ class PutCalendar extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutCalendar
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class PutCalendar extends AbstractEndpoint
         return $this;
     }
 
-    public function setCalendarId($calendar_id): PutCalendar
+    public function setCalendarId($calendar_id)
     {
         if (isset($calendar_id) !== true) {
             return $this;

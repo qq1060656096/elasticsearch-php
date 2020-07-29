@@ -95,14 +95,14 @@ printf("Generated %d source examples in %.3f seconds\n", $parsed, $end - $start)
 /**
  * Generate the client source code from the parsed_source field
  */
-function getClientSourceCode(array $parsedSource): string
+function getClientSourceCode(array $parsedSource)
 {
     $tab4 = str_repeat(' ', 4);
     $code = '';
     foreach ($parsedSource as $source) {
         if (isset($source['params']) || isset($source['body'])) {
             $code .= '$params = [' . "\n";
-            $code .= prettyPrintArray($source['params'] ?? [], 4);
+            $code .= isset(prettyPrintArray($source['params']) ? prettyPrintArray($source['params'] : null;
             if (isset($source['body'])) {
                 $code .= sprintf("%s'body' => [\n", $tab4);
                 $code .= prettyPrintArray($source['body'], 8);
@@ -121,7 +121,7 @@ function getClientSourceCode(array $parsedSource): string
  * Print an associative array as source code
  * Note: it removes the number keys in scalar array
  */
-function prettyPrintArray(array $input, int $space): string
+function prettyPrintArray(array $input, $space)
 {
     $output = '';
     $tab = str_repeat(' ', $space);
@@ -150,7 +150,7 @@ function prettyPrintArray(array $input, int $space): string
 /**
  * Normalize the api name for invoking the equivalent endpoint
  */
-function normalizeApiName(string $api): string
+function normalizeApiName($api)
 {
     $result = str_replace('_', '', lcfirst(ucwords($api, '_')));
     return str_replace('.', '()->', $result);
@@ -159,7 +159,7 @@ function normalizeApiName(string $api): string
 /**
  * Check if the generated code has a valid PHP syntax using Elasticsearch\Client
  */
-function checkIfCodeHasValidSyntax(string $code)
+function checkIfCodeHasValidSyntax($code)
 {
     $script = sprintf("require_once '%s/vendor/autoload.php';\n", dirname(__DIR__));
     $script .= '$client = Elasticsearch\ClientBuilder::create()->build();' . "\n";
@@ -178,7 +178,7 @@ function checkIfCodeHasValidSyntax(string $code)
 /**
  * Remove all files in a folder
  */
-function removeAllFiles(string $folder)
+function removeAllFiles($folder)
 {
     $files = glob($folder); 
     foreach($files as $file) { 

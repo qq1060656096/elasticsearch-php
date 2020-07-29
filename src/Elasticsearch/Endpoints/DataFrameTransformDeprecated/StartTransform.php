@@ -21,9 +21,9 @@ class StartTransform extends AbstractEndpoint
 {
     protected $transform_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $transform_id = $this->transform_id ?? null;
+        $transform_id = isset($this->transform_id) ? $this->transform_id : null;
 
         if (isset($transform_id)) {
             return "/_data_frame/transforms/$transform_id/_start";
@@ -38,12 +38,12 @@ class StartTransform extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setTransformId($transform_id): StartTransform
+    public function setTransformId($transform_id)
     {
         if (isset($transform_id) !== true) {
             return $this;

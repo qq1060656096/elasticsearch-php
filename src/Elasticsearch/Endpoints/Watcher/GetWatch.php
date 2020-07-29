@@ -20,9 +20,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class GetWatch extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_watcher/watch/$id";
@@ -37,7 +37,7 @@ class GetWatch extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

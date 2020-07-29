@@ -21,9 +21,9 @@ class CleanupRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $repository = $this->repository ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
 
         if (isset($repository)) {
             return "/_snapshot/$repository/_cleanup";
@@ -39,12 +39,12 @@ class CleanupRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setRepository($repository): CleanupRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

@@ -32,7 +32,7 @@ class StickyRoundRobinSelector implements SelectorInterface
      *
      * @param ConnectionInterface[] $connections Array of connections to choose from
      */
-    public function select(array $connections): ConnectionInterface
+    public function select(array $connections)
     {
         /**
  * @var ConnectionInterface[] $connections

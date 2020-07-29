@@ -22,10 +22,10 @@ class DeleteCalendarJob extends AbstractEndpoint
     protected $calendar_id;
     protected $job_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $calendar_id = $this->calendar_id ?? null;
-        $job_id = $this->job_id ?? null;
+        $calendar_id = isset($this->calendar_id) ? $this->calendar_id : null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
 
         if (isset($calendar_id) && isset($job_id)) {
             return "/_ml/calendars/$calendar_id/jobs/$job_id";
@@ -38,12 +38,12 @@ class DeleteCalendarJob extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setCalendarId($calendar_id): DeleteCalendarJob
+    public function setCalendarId($calendar_id)
     {
         if (isset($calendar_id) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class DeleteCalendarJob extends AbstractEndpoint
         return $this;
     }
 
-    public function setJobId($job_id): DeleteCalendarJob
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

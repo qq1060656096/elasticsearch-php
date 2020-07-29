@@ -56,7 +56,7 @@ class Endpoint
      * @param $content content of the API specification in JSON
      * @param $version Elasticsearch version of the API specification
      */
-    public function __construct(string $fileName, string $content, string $version)
+    public function __construct($fileName,  $content,  $version)
     {
         $this->apiName = basename($fileName, '.json');
         $parts = explode('.', $this->apiName);
@@ -116,12 +116,12 @@ class Endpoint
         return $required;
     }
 
-    public function getDocUrl(): string
+    public function getDocUrl()
     {
         return $this->content['documentation']['url'] ?? '';
     }
 
-    public function renderClass(): string
+    public function renderClass()
     {
         if (isset($this->content['body']['serialize']) &&
             $this->content['body']['serialize'] === 'bulk') {
@@ -195,7 +195,7 @@ class Endpoint
         return $methods;
     }
 
-    private function extractParameters(): string
+    private function extractParameters()
     {
         if (!isset($this->content['params'])) {
             return '';
@@ -209,7 +209,7 @@ class Endpoint
         return "\n". $tab12 . rtrim(trim($result), ',') . "\n". $tab8;
     }
 
-    private function getDeprecatedMessage(string $part): string
+    private function getDeprecatedMessage($part)
     {
         foreach ($this->content['url']['paths'] as $path) {
             if (isset($path['parts'][$part]) && isset($path['parts'][$part]['deprecated']) &&
@@ -220,7 +220,7 @@ class Endpoint
         return '';
     }
 
-    private function extractUrl(array $paths): string
+    private function extractUrl(array $paths)
     {
         $skeleton = file_get_contents(self::REQUIRED_PART_TEMPLATE);
         $checkPart = '';
@@ -240,7 +240,7 @@ class Endpoint
                     );
                     $this->addNamespace('Elasticsearch\Common\Exceptions\RuntimeException');
                 } else {
-                    $params .= sprintf("%s\$%s = \$this->%s ?? null;\n", $tab8, $part, $part);
+                    $params .= isset(sprintf("%s\$%s = \$this->%s) ? sprintf("%s\$%s = \$this->%s : null;
                 }
                 if ($part === 'type') {
                     $deprecated .= str_replace(
@@ -341,18 +341,18 @@ class Endpoint
         return $urls;
     }
 
-    private function getPartsFromUrl(string $url)
+    private function getPartsFromUrl($url)
     {
         preg_match_all('#\{([a-z_]+)\}#', $url, $match);
         return $match[1];
     }
 
-    private function addNamespace(string $namespace)
+    private function addNamespace($namespace)
     {
         $this->useNamespace[$namespace] = sprintf("use %s;", $namespace);
     }
 
-    private function getNamespaces(): string
+    private function getNamespaces()
     {
         if (empty($this->useNamespace)) {
             return '';
@@ -360,7 +360,7 @@ class Endpoint
         return "\n" . implode("\n", $this->useNamespace);
     }
 
-    private function getSetPartList(string $param): string
+    private function getSetPartList($param)
     {
         $setPart = file_get_contents(self::SET_PART_LIST_TEMPLATE);
         $setPart = str_replace(':endpoint', $this->getClassName(), $setPart);
@@ -369,7 +369,7 @@ class Endpoint
         return str_replace(':Part', $this->normalizeName($param), $setPart);
     }
 
-    private function getSetPart(string $param): string
+    private function getSetPart($param)
     {
         $setPart = file_get_contents(self::SET_PART_TEMPLATE);
         $setPart = str_replace(':endpoint', $this->getClassName(), $setPart);
@@ -378,7 +378,7 @@ class Endpoint
         return str_replace(':Part', $this->normalizeName($param), $setPart);
     }
 
-    private function getSetBulkBody(): string
+    private function getSetBulkBody()
     {
         $setPart = file_get_contents(self::SET_BULK_BODY_TEMPLATE);
         $this->addNamespace('Elasticsearch\Common\Exceptions\InvalidArgumentException');
@@ -386,14 +386,14 @@ class Endpoint
         return str_replace(':endpoint', $this->getClassName(), $setPart);
     }
 
-    protected function addProperty(string $name)
+    protected function addProperty($name)
     {
         if (!in_array($name, ['body', 'type', 'index', 'id'])) {
             $this->properties[$name] = sprintf("    protected \$%s;", $name);
         }
     }
 
-    protected function getProperties(): string
+    protected function getProperties()
     {
         if (empty($this->properties)) {
             return '';
@@ -401,12 +401,12 @@ class Endpoint
         return implode("\n", $this->properties) . "\n";
     }
 
-    protected function normalizeName(string $name): string
+    protected function normalizeName($name)
     {
         return str_replace('_', '', ucwords($name, '_'));
     }
 
-    public function getClassName(): string
+    public function getClassName()
     {
         if (in_array(strtolower($this->name), static::PHP_RESERVED_WORDS)) {
             return $this->normalizeName($this->name . ucwords($this->namespace));
@@ -417,7 +417,7 @@ class Endpoint
         return static::BC_CLASS_NAME[$normalizedFullName] ?? $normalizedName;
     }
 
-    public function renderDocParams(): string
+    public function renderDocParams()
     {
         if (!isset($this->content['params']) && empty($this->getParts())) {
             return '';
@@ -453,7 +453,7 @@ class Endpoint
         return $result;
     }
 
-    private function extractBodyDescription(int $space): string
+    private function extractBodyDescription(int $space)
     {
         if (isset($this->content['body']) && isset($this->content['body']['description'])) {
             return sprintf(
@@ -466,7 +466,7 @@ class Endpoint
         return '';
     }
 
-    private function extractPartsDescription(int $space): string
+    private function extractPartsDescription(int $space)
     {
         $result = '';
         if (empty($this->parts)) {
@@ -487,7 +487,7 @@ class Endpoint
         return $result;
     }
 
-    private function extractParamsDescription(int $space): string
+    private function extractParamsDescription(int $space)
     {
         $result = '';
         if (!isset($this->content['params'])) {

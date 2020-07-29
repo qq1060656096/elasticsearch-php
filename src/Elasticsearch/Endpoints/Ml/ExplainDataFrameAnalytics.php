@@ -19,9 +19,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ExplainDataFrameAnalytics extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_ml/data_frame/analytics/$id/_explain";
@@ -34,12 +34,12 @@ class ExplainDataFrameAnalytics extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): ExplainDataFrameAnalytics
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

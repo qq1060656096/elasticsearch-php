@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Reroute extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_cluster/reroute";
@@ -37,12 +37,12 @@ class Reroute extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): Reroute
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

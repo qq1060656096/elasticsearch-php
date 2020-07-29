@@ -52,7 +52,7 @@ class ConnectionFactory implements ConnectionFactoryInterface
         $this->serializer       = $serializer;
     }
 
-    public function create(array $hostDetails): ConnectionInterface
+    public function create(array $hostDetails)
     {
         return new Connection(
             $this->handler,

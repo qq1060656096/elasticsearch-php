@@ -22,10 +22,10 @@ class RevertModelSnapshot extends AbstractEndpoint
     protected $job_id;
     protected $snapshot_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $job_id = $this->job_id ?? null;
-        $snapshot_id = $this->snapshot_id ?? null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
+        $snapshot_id = isset($this->snapshot_id) ? $this->snapshot_id : null;
 
         if (isset($job_id) && isset($snapshot_id)) {
             return "/_ml/anomaly_detectors/$job_id/model_snapshots/$snapshot_id/_revert";
@@ -40,12 +40,12 @@ class RevertModelSnapshot extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): RevertModelSnapshot
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class RevertModelSnapshot extends AbstractEndpoint
         return $this;
     }
 
-    public function setJobId($job_id): RevertModelSnapshot
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;
@@ -65,7 +65,7 @@ class RevertModelSnapshot extends AbstractEndpoint
         return $this;
     }
 
-    public function setSnapshotId($snapshot_id): RevertModelSnapshot
+    public function setSnapshotId($snapshot_id)
     {
         if (isset($snapshot_id) !== true) {
             return $this;

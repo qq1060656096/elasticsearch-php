@@ -19,9 +19,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class RenderSearchTemplate extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_render/template/$id";
@@ -34,12 +34,12 @@ class RenderSearchTemplate extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): RenderSearchTemplate
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

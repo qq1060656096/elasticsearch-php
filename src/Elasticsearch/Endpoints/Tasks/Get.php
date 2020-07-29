@@ -21,9 +21,9 @@ class Get extends AbstractEndpoint
 {
     protected $task_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $task_id = $this->task_id ?? null;
+        $task_id = isset($this->task_id) ? $this->task_id : null;
 
         if (isset($task_id)) {
             return "/_tasks/$task_id";
@@ -39,12 +39,12 @@ class Get extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setTaskId($task_id): Get
+    public function setTaskId($task_id)
     {
         if (isset($task_id) !== true) {
             return $this;

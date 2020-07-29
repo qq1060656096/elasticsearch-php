@@ -21,9 +21,9 @@ class PutTransform extends AbstractEndpoint
 {
     protected $transform_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $transform_id = $this->transform_id ?? null;
+        $transform_id = isset($this->transform_id) ? $this->transform_id : null;
 
         if (isset($transform_id)) {
             return "/_transform/$transform_id";
@@ -38,12 +38,12 @@ class PutTransform extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutTransform
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class PutTransform extends AbstractEndpoint
         return $this;
     }
 
-    public function setTransformId($transform_id): PutTransform
+    public function setTransformId($transform_id)
     {
         if (isset($transform_id) !== true) {
             return $this;

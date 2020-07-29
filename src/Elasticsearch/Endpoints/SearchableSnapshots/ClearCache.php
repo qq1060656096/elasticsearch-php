@@ -19,9 +19,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ClearCache extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_searchable_snapshots/cache/clear";
@@ -39,7 +39,7 @@ class ClearCache extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }

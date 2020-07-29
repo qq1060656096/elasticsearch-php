@@ -30,7 +30,7 @@ class StaticNoPingConnectionPool extends AbstractConnectionPool implements Conne
         parent::__construct($connections, $selector, $factory, $connectionPoolParams);
     }
 
-    public function nextConnection(bool $force = false): ConnectionInterface
+    public function nextConnection($force = false)
     {
         $total = count($this->connections);
         while ($total--) {

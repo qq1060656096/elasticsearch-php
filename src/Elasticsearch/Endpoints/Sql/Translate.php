@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Translate extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_sql/translate";
@@ -32,12 +32,12 @@ class Translate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): Translate
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

@@ -20,10 +20,10 @@ class State extends AbstractEndpoint
 {
     protected $metric;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $metric = $this->metric ?? null;
-        $index = $this->index ?? null;
+        $metric = isset($this->metric) ? $this->metric : null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($metric) && isset($index)) {
             return "/_cluster/state/$metric/$index";
@@ -48,12 +48,12 @@ class State extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setMetric($metric): State
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;

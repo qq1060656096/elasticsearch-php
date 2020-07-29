@@ -21,9 +21,9 @@ class ExistsIndexTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_index_template/$name";
@@ -40,12 +40,12 @@ class ExistsIndexTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'HEAD';
     }
 
-    public function setName($name): ExistsIndexTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

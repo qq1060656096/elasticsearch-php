@@ -21,7 +21,7 @@ class GetFieldMapping extends AbstractEndpoint
 {
     protected $fields;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->fields) !== true) {
             throw new RuntimeException(
@@ -29,8 +29,8 @@ class GetFieldMapping extends AbstractEndpoint
             );
         }
         $fields = $this->fields;
-        $index = $this->index ?? null;
-        $type = $this->type ?? null;
+        $index = isset($this->index) ? $this->index : null;
+        $type = isset($this->type) ? $this->type : null;
         if (isset($type)) {
             @trigger_error('Specifying types in urls has been deprecated', E_USER_DEPRECATED);
         }
@@ -59,12 +59,12 @@ class GetFieldMapping extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setFields($fields): GetFieldMapping
+    public function setFields($fields)
     {
         if (isset($fields) !== true) {
             return $this;

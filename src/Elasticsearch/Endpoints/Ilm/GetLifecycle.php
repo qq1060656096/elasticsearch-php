@@ -20,9 +20,9 @@ class GetLifecycle extends AbstractEndpoint
 {
     protected $policy;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $policy = $this->policy ?? null;
+        $policy = isset($this->policy) ? $this->policy : null;
 
         if (isset($policy)) {
             return "/_ilm/policy/$policy";
@@ -37,12 +37,12 @@ class GetLifecycle extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setPolicy($policy): GetLifecycle
+    public function setPolicy($policy)
     {
         if (isset($policy) !== true) {
             return $this;

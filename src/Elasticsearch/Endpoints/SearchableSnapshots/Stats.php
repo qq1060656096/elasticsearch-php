@@ -19,9 +19,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Stats extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_searchable_snapshots/stats";
@@ -34,7 +34,7 @@ class Stats extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

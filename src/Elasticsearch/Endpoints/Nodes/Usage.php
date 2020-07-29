@@ -21,10 +21,10 @@ class Usage extends AbstractEndpoint
     protected $node_id;
     protected $metric;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $node_id = $this->node_id ?? null;
-        $metric = $this->metric ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
+        $metric = isset($this->metric) ? $this->metric : null;
 
         if (isset($node_id) && isset($metric)) {
             return "/_nodes/$node_id/usage/$metric";
@@ -45,12 +45,12 @@ class Usage extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Usage
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;
@@ -63,7 +63,7 @@ class Usage extends AbstractEndpoint
         return $this;
     }
 
-    public function setMetric($metric): Usage
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;

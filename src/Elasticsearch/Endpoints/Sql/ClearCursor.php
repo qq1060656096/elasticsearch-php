@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ClearCursor extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_sql/close";
@@ -30,12 +30,12 @@ class ClearCursor extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): ClearCursor
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

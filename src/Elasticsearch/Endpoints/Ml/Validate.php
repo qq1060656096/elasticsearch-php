@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Validate extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_ml/anomaly_detectors/_validate";
@@ -32,12 +32,12 @@ class Validate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): Validate
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

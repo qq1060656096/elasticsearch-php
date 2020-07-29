@@ -21,9 +21,9 @@ class PutTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_template/$name";
@@ -41,12 +41,12 @@ class PutTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutTemplate
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -56,7 +56,7 @@ class PutTemplate extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): PutTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

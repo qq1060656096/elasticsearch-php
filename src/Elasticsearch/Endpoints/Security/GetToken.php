@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class GetToken extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_security/oauth2/token";
@@ -32,12 +32,12 @@ class GetToken extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): GetToken
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

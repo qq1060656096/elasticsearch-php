@@ -20,9 +20,9 @@ class GetRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $repository = $this->repository ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
 
         if (isset($repository)) {
             return "/_snapshot/$repository";
@@ -38,12 +38,12 @@ class GetRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setRepository($repository): GetRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

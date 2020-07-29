@@ -20,9 +20,9 @@ class DeleteExpiredData extends AbstractEndpoint
 {
     protected $job_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $job_id = $this->job_id ?? null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
 
         if (isset($job_id)) {
             return "/_ml/_delete_expired_data/$job_id";
@@ -38,12 +38,12 @@ class DeleteExpiredData extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setBody($body): DeleteExpiredData
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class DeleteExpiredData extends AbstractEndpoint
         return $this;
     }
 
-    public function setJobId($job_id): DeleteExpiredData
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

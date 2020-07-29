@@ -21,9 +21,9 @@ class RepositoryStats extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $repository = $this->repository ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
 
         if (isset($repository)) {
             return "/_snapshot/$repository/_stats";
@@ -36,12 +36,12 @@ class RepositoryStats extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setRepository($repository): RepositoryStats
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

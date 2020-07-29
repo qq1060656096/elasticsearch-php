@@ -20,9 +20,9 @@ class Aliases extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_cat/aliases/$name";
@@ -43,12 +43,12 @@ class Aliases extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): Aliases
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

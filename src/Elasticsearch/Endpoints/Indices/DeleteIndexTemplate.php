@@ -21,9 +21,9 @@ class DeleteIndexTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_index_template/$name";
@@ -39,12 +39,12 @@ class DeleteIndexTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setName($name): DeleteIndexTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

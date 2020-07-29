@@ -21,9 +21,9 @@ class PutRole extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_security/role/$name";
@@ -38,12 +38,12 @@ class PutRole extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutRole
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class PutRole extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): PutRole
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

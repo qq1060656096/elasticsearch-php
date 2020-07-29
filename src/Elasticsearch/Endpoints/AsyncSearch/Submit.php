@@ -19,9 +19,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Submit extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_async_search";
@@ -76,12 +76,12 @@ class Submit extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): Submit
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

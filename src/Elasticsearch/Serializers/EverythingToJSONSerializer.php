@@ -25,7 +25,7 @@ class EverythingToJSONSerializer implements SerializerInterface
     /**
      * {@inheritdoc}
      */
-    public function serialize($data): string
+    public function serialize($data)
     {
         $data = json_encode($data, JSON_PRESERVE_ZERO_FRACTION + JSON_INVALID_UTF8_SUBSTITUTE);
         if ($data === false) {

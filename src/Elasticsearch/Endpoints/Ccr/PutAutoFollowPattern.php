@@ -21,9 +21,9 @@ class PutAutoFollowPattern extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_ccr/auto_follow/$name";
@@ -36,12 +36,12 @@ class PutAutoFollowPattern extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutAutoFollowPattern
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class PutAutoFollowPattern extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): PutAutoFollowPattern
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

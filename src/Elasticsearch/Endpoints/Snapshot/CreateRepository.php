@@ -21,9 +21,9 @@ class CreateRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $repository = $this->repository ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
 
         if (isset($repository)) {
             return "/_snapshot/$repository";
@@ -40,12 +40,12 @@ class CreateRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): CreateRepository
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class CreateRepository extends AbstractEndpoint
         return $this;
     }
 
-    public function setRepository($repository): CreateRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

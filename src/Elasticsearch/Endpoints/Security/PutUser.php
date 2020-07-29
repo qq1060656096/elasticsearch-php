@@ -21,9 +21,9 @@ class PutUser extends AbstractEndpoint
 {
     protected $username;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $username = $this->username ?? null;
+        $username = isset($this->username) ? $this->username : null;
 
         if (isset($username)) {
             return "/_security/user/$username";
@@ -38,12 +38,12 @@ class PutUser extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutUser
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class PutUser extends AbstractEndpoint
         return $this;
     }
 
-    public function setUsername($username): PutUser
+    public function setUsername($username)
     {
         if (isset($username) !== true) {
             return $this;

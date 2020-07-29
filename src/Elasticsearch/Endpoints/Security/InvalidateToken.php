@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class InvalidateToken extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_security/oauth2/token";
@@ -32,12 +32,12 @@ class InvalidateToken extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setBody($body): InvalidateToken
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

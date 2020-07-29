@@ -20,9 +20,9 @@ class Stats extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $node_id = $this->node_id ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
 
         if (isset($node_id)) {
             return "/_cluster/stats/nodes/$node_id";
@@ -38,12 +38,12 @@ class Stats extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Stats
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

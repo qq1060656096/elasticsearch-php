@@ -107,7 +107,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return string
      */
-    public static function getHost(): string
+    public static function getHost()
     {
         $host = Utility::getHost();
         if (null == $host) {
@@ -153,7 +153,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @dataProvider yamlProvider
      * @group        sync
      */
-    public function testIntegration($testProcedure, bool $skip, $setupProcedure, $teardownProcedure, string $fileName)
+    public function testIntegration($testProcedure, $skip, $setupProcedure, $teardownProcedure,  $fileName)
     {
         if ($skip) {
             static::markTestIncomplete($testProcedure);
@@ -182,7 +182,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @dataProvider yamlProvider
      * @group        async
      */
-    public function testAsyncIntegration($testProcedure, bool $skip, $setupProcedure, $teardownProcedure, string $fileName)
+    public function testAsyncIntegration($testProcedure, $skip, $setupProcedure, $teardownProcedure,  $fileName)
     {
         if ($skip) {
             static::markTestIncomplete($testProcedure);
@@ -215,7 +215,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param string $fileName
      * @param bool   $async
      */
-    public function processProcedure(array $procedure, string $name, string $fileName, bool $async = false)
+    public function processProcedure(array $procedure,  $name,  $fileName, $async = false)
     {
         $lastOperationResult = null;
         $context = [];
@@ -240,7 +240,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return mixed
      */
-    public function processOperation($operation, $lastOperationResult, array &$context, string $testName, bool $async = false)
+    public function processOperation($operation, $lastOperationResult, array &$context,  $testName, $async = false)
     {
         $operationName = array_keys((array)$operation)[0];
 
@@ -304,7 +304,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return mixed
      */
-    public function operationDo($operation, $lastOperationResult, &$context, string $testName, bool $async = false)
+    public function operationDo($operation, $lastOperationResult, &$context,  $testName, $async = false)
     {
         $expectedError = null;
         $expectedWarnings = null;
@@ -409,7 +409,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array|mixed
      */
-    public function executeRequest($caller, string $method, array $endpointParams, $expectedError, $expectedWarnings, string $testName)
+    public function executeRequest($caller,  $method, array $endpointParams, $expectedError, $expectedWarnings,  $testName)
     {
         try {
             $response = $caller->$method($endpointParams);
@@ -525,7 +525,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array             $context
      * @param string            $testName
      */
-    public function operationIsFalse(string $operation, $lastOperationResult, &$context, string $testName)
+    public function operationIsFalse($operation, $lastOperationResult, &$context,  $testName)
     {
         $value = (bool) $this->resolveValue($lastOperationResult, $operation, $context);
         $msg = "Failed to assert that a value is false in test \"$testName\"\n"
@@ -543,7 +543,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationIsTrue(string $operation, $lastOperationResult, &$context, string $testName)
+    public function operationIsTrue($operation, $lastOperationResult, &$context,  $testName)
     {
         $value = $this->resolveValue($lastOperationResult, $operation, $context);
 
@@ -565,7 +565,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationMatch($operation, $lastOperationResult, &$context, string $testName)
+    public function operationMatch($operation, $lastOperationResult, &$context,  $testName)
     {
         $key = key($operation);
 
@@ -573,7 +573,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
             $match = $lastOperationResult;
         } else {
             if (empty($key)) {
-                $match = $lastOperationResult['_source'] ?? $lastOperationResult;
+                $match = isset($lastOperationResult['_source']) ? $lastOperationResult['_source'] : null;
             } else {
                 $match = $this->resolveValue($lastOperationResult, $key, $context);
             }
@@ -616,10 +616,10 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationGreaterThanOrEqual($operation, $lastOperationResult, &$context, string $testName)
+    public function operationGreaterThanOrEqual($operation, $lastOperationResult, &$context,  $testName)
     {
         $value = $this->resolveValue($lastOperationResult, key($operation), $context);
-        $expected = $context[current($operation)] ?? current($operation);
+        $expected = isset($context[current($operation)]) ? $context[current($operation)] : null;
 
         $this->assertGreaterThanOrEqual($expected, $value, 'Failed to gte in test ' . $testName);
 
@@ -633,10 +633,10 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationGreaterThan($operation, $lastOperationResult, &$context, string $testName)
+    public function operationGreaterThan($operation, $lastOperationResult, &$context,  $testName)
     {
         $value = $this->resolveValue($lastOperationResult, key($operation), $context);
-        $expected = $context[current($operation)] ?? current($operation);
+        $expected = isset($context[current($operation)]) ? $context[current($operation)] : null;
 
         $this->assertGreaterThan($expected, $value, 'Failed to gt in test ' . $testName);
 
@@ -650,10 +650,10 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationLessThanOrEqual($operation, $lastOperationResult, &$context, string $testName)
+    public function operationLessThanOrEqual($operation, $lastOperationResult, &$context,  $testName)
     {
         $value = $this->resolveValue($lastOperationResult, key($operation), $context);
-        $expected = $context[current($operation)] ?? current($operation);
+        $expected = isset($context[current($operation)]) ? $context[current($operation)] : null;
 
         $this->assertLessThanOrEqual($expected, $value, 'Failed to lte in test ' . $testName);
 
@@ -667,10 +667,10 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationLessThan($operation, $lastOperationResult, &$context, string $testName)
+    public function operationLessThan($operation, $lastOperationResult, &$context,  $testName)
     {
         $value = $this->resolveValue($lastOperationResult, key($operation), $context);
-        $expected = $context[current($operation)] ?? current($operation);
+        $expected = isset($context[current($operation)]) ? $context[current($operation)] : null;
 
         $this->assertLessThan($expected, $value, 'Failed to lt in test ' . $testName);
 
@@ -684,7 +684,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationLength($operation, $lastOperationResult, &$context, string $testName)
+    public function operationLength($operation, $lastOperationResult, &$context,  $testName)
     {
         $value = $this->resolveValue($lastOperationResult, key($operation), $context);
         $expected = current($operation);
@@ -702,7 +702,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array             $context
      * @param string            $testName
      */
-    public function operationSet($operation, $lastOperationResult, &$context, string $testName)
+    public function operationSet($operation, $lastOperationResult, &$context,  $testName)
     {
         $key = key($operation);
         $value = $this->resolveValue($lastOperationResult, $key, $context);
@@ -720,7 +720,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      * @param array|string|null $lastOperationResult
      * @param string            $testName
      */
-    public function operationSkip($operation, $lastOperationResult, string $testName)
+    public function operationSkip($operation, $lastOperationResult,  $testName)
     {
         if (is_object($operation) !== true) {
             return $lastOperationResult;
@@ -780,7 +780,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array|null
      */
-    private function assertException(\Exception $exception, string $expectedError, string $testName)
+    private function assertException(\Exception $exception,  $expectedError,  $testName)
     {
         if (is_string($expectedError) && preg_match('#^/.+?/$#', $expectedError)) {
             $this->assertRegExp($expectedError, $exception->getMessage(), 'Failed to catch error in test ' . $testName);
@@ -848,7 +848,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    private function mapEndpoint(string $method, $namespace = null)
+    private function mapEndpoint($method, $namespace = null)
     {
         if (null === $namespace && array_key_exists($method, static::$endpointMapping)) {
             return static::$endpointMapping[$method];
@@ -941,7 +941,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return string
      */
-    private function formatRegex(string $regex): string
+    private function formatRegex($regex)
     {
         $regex = trim($regex);
         $regex = substr($regex, 1, -1);
@@ -959,7 +959,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    private function splitDocument(SplFileInfo $file, string $path, string $filter = null)
+    private function splitDocument(SplFileInfo $file,  $path,  $filter = null)
     {
 
         $fileContent = $file->getContents();
@@ -1084,7 +1084,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
         $this->waitForYellow();
     }
 
-    private function rmDirRecursively(string $dir)
+    private function rmDirRecursively($dir)
     {
         if (!is_dir($dir)) {
             return;

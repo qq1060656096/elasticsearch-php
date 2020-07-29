@@ -21,9 +21,9 @@ class PutTrainedModel extends AbstractEndpoint
 {
     protected $model_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $model_id = $this->model_id ?? null;
+        $model_id = isset($this->model_id) ? $this->model_id : null;
 
         if (isset($model_id)) {
             return "/_ml/inference/$model_id";
@@ -36,12 +36,12 @@ class PutTrainedModel extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutTrainedModel
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class PutTrainedModel extends AbstractEndpoint
         return $this;
     }
 
-    public function setModelId($model_id): PutTrainedModel
+    public function setModelId($model_id)
     {
         if (isset($model_id) !== true) {
             return $this;

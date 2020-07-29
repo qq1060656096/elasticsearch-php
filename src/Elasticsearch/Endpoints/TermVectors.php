@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class TermVectors extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->index) !== true) {
             throw new RuntimeException(
@@ -28,8 +28,8 @@ class TermVectors extends AbstractEndpoint
             );
         }
         $index = $this->index;
-        $id = $this->id ?? null;
-        $type = $this->type ?? null;
+        $id = isset($this->id) ? $this->id : null;
+        $type = isset($this->type) ? $this->type : null;
         if (isset($type)) {
             @trigger_error('Specifying types in urls has been deprecated', E_USER_DEPRECATED);
         }
@@ -63,12 +63,12 @@ class TermVectors extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): TermVectors
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

@@ -20,10 +20,10 @@ class GetSettings extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
-        $name = $this->name ?? null;
+        $index = isset($this->index) ? $this->index : null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($index) && isset($name)) {
             return "/$index/_settings/$name";
@@ -50,12 +50,12 @@ class GetSettings extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetSettings
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

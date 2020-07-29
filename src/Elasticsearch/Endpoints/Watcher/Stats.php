@@ -20,9 +20,9 @@ class Stats extends AbstractEndpoint
 {
     protected $metric;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $metric = $this->metric ?? null;
+        $metric = isset($this->metric) ? $this->metric : null;
 
         if (isset($metric)) {
             return "/_watcher/stats/$metric";
@@ -38,12 +38,12 @@ class Stats extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setMetric($metric): Stats
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;

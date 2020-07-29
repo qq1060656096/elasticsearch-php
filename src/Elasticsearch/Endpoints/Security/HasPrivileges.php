@@ -20,9 +20,9 @@ class HasPrivileges extends AbstractEndpoint
 {
     protected $user;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $user = $this->user ?? null;
+        $user = isset($this->user) ? $this->user : null;
 
         if (isset($user)) {
             return "/_security/user/$user/_has_privileges";
@@ -37,12 +37,12 @@ class HasPrivileges extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): HasPrivileges
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -52,7 +52,7 @@ class HasPrivileges extends AbstractEndpoint
         return $this;
     }
 
-    public function setUser($user): HasPrivileges
+    public function setUser($user)
     {
         if (isset($user) !== true) {
             return $this;

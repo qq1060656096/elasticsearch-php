@@ -22,7 +22,7 @@ class Rollover extends AbstractEndpoint
     protected $alias;
     protected $new_index;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->alias) !== true) {
             throw new RuntimeException(
@@ -30,7 +30,7 @@ class Rollover extends AbstractEndpoint
             );
         }
         $alias = $this->alias;
-        $new_index = $this->new_index ?? null;
+        $new_index = isset($this->new_index) ? $this->new_index : null;
 
         if (isset($new_index)) {
             return "/$alias/_rollover/$new_index";
@@ -49,12 +49,12 @@ class Rollover extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): Rollover
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -64,7 +64,7 @@ class Rollover extends AbstractEndpoint
         return $this;
     }
 
-    public function setAlias($alias): Rollover
+    public function setAlias($alias)
     {
         if (isset($alias) !== true) {
             return $this;
@@ -74,7 +74,7 @@ class Rollover extends AbstractEndpoint
         return $this;
     }
 
-    public function setNewIndex($new_index): Rollover
+    public function setNewIndex($new_index)
     {
         if (isset($new_index) !== true) {
             return $this;

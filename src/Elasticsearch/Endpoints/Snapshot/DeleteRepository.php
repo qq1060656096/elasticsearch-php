@@ -21,9 +21,9 @@ class DeleteRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $repository = $this->repository ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
 
         if (isset($repository)) {
             return "/_snapshot/$repository";
@@ -39,12 +39,12 @@ class DeleteRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setRepository($repository): DeleteRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

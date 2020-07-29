@@ -20,9 +20,9 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ReloadSearchAnalyzers extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_reload_search_analyzers";
@@ -39,7 +39,7 @@ class ReloadSearchAnalyzers extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

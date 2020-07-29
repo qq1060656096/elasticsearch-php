@@ -20,9 +20,9 @@ class DataStreamsStats extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_data_stream/$name/_stats";
@@ -38,12 +38,12 @@ class DataStreamsStats extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): DataStreamsStats
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

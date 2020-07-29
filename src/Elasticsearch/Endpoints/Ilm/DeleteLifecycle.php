@@ -21,9 +21,9 @@ class DeleteLifecycle extends AbstractEndpoint
 {
     protected $policy;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $policy = $this->policy ?? null;
+        $policy = isset($this->policy) ? $this->policy : null;
 
         if (isset($policy)) {
             return "/_ilm/policy/$policy";
@@ -38,12 +38,12 @@ class DeleteLifecycle extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setPolicy($policy): DeleteLifecycle
+    public function setPolicy($policy)
     {
         if (isset($policy) !== true) {
             return $this;

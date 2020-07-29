@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class InvalidateApiKey extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_security/api_key";
@@ -30,12 +30,12 @@ class InvalidateApiKey extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setBody($body): InvalidateApiKey
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

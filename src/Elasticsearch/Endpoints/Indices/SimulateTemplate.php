@@ -20,9 +20,9 @@ class SimulateTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_index_template/_simulate/$name";
@@ -39,12 +39,12 @@ class SimulateTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): SimulateTemplate
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -54,7 +54,7 @@ class SimulateTemplate extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): SimulateTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

@@ -20,9 +20,9 @@ class GetTrainedModels extends AbstractEndpoint
 {
     protected $model_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $model_id = $this->model_id ?? null;
+        $model_id = isset($this->model_id) ? $this->model_id : null;
 
         if (isset($model_id)) {
             return "/_ml/inference/$model_id";
@@ -43,12 +43,12 @@ class GetTrainedModels extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setModelId($model_id): GetTrainedModels
+    public function setModelId($model_id)
     {
         if (isset($model_id) !== true) {
             return $this;

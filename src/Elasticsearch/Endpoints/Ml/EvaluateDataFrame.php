@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class EvaluateDataFrame extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_ml/data_frame/_evaluate";
@@ -30,12 +30,12 @@ class EvaluateDataFrame extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): EvaluateDataFrame
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

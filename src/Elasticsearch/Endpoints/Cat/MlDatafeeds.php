@@ -20,9 +20,9 @@ class MlDatafeeds extends AbstractEndpoint
 {
     protected $datafeed_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $datafeed_id = $this->datafeed_id ?? null;
+        $datafeed_id = isset($this->datafeed_id) ? $this->datafeed_id : null;
 
         if (isset($datafeed_id)) {
             return "/_cat/ml/datafeeds/$datafeed_id";
@@ -43,12 +43,12 @@ class MlDatafeeds extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setDatafeedId($datafeed_id): MlDatafeeds
+    public function setDatafeedId($datafeed_id)
     {
         if (isset($datafeed_id) !== true) {
             return $this;

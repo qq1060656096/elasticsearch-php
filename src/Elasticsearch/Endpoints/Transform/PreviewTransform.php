@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class PreviewTransform extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_transform/_preview";
@@ -30,12 +30,12 @@ class PreviewTransform extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): PreviewTransform
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

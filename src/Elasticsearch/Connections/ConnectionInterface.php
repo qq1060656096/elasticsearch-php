@@ -22,12 +22,12 @@ interface ConnectionInterface
     /**
      * Get the transport schema for this connection
      */
-    public function getTransportSchema(): string;
+    public function getTransportSchema()
 
     /**
      * Get the hostname for this connection
      */
-    public function getHost(): string;
+    public function getHost()
 
     /**
      * Get the port for this connection
@@ -39,12 +39,12 @@ interface ConnectionInterface
     /**
      * Get the username:password string for this connection, null if not set
      */
-    public function getUserPass(): ?string;
+    public function getUserPass()
 
     /**
      * Get the URL path suffix, null if not set
      */
-    public function getPath(): ?string;
+    public function getPath()
 
     /**
      * Check to see if this instance is marked as 'alive'
@@ -70,5 +70,5 @@ interface ConnectionInterface
      * @param  null $body
      * @return mixed
      */
-    public function performRequest(string $method, string $uri, array $params = [], $body = null, array $options = [], Transport $transport = null);
+    public function performRequest($method,  $uri, array $params = [], $body = null, array $options = [], Transport $transport = null);
 }

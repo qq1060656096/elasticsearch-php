@@ -21,9 +21,9 @@ class EnableUser extends AbstractEndpoint
 {
     protected $username;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $username = $this->username ?? null;
+        $username = isset($this->username) ? $this->username : null;
 
         if (isset($username)) {
             return "/_security/user/$username/_enable";
@@ -38,12 +38,12 @@ class EnableUser extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setUsername($username): EnableUser
+    public function setUsername($username)
     {
         if (isset($username) !== true) {
             return $this;

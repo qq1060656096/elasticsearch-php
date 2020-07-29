@@ -1423,119 +1423,119 @@ class Client
 
         return $this->performRequest($endpoint);
     }
-    public function cat(): CatNamespace
+    public function cat()
     {
         return $this->cat;
     }
-    public function cluster(): ClusterNamespace
+    public function cluster()
     {
         return $this->cluster;
     }
-    public function danglingIndices(): DanglingIndicesNamespace
+    public function danglingIndices()
     {
         return $this->danglingIndices;
     }
-    public function indices(): IndicesNamespace
+    public function indices()
     {
         return $this->indices;
     }
-    public function ingest(): IngestNamespace
+    public function ingest()
     {
         return $this->ingest;
     }
-    public function nodes(): NodesNamespace
+    public function nodes()
     {
         return $this->nodes;
     }
-    public function snapshot(): SnapshotNamespace
+    public function snapshot()
     {
         return $this->snapshot;
     }
-    public function tasks(): TasksNamespace
+    public function tasks()
     {
         return $this->tasks;
     }
-    public function asyncSearch(): AsyncSearchNamespace
+    public function asyncSearch()
     {
         return $this->asyncSearch;
     }
-    public function autoscaling(): AutoscalingNamespace
+    public function autoscaling()
     {
         return $this->autoscaling;
     }
-    public function ccr(): CcrNamespace
+    public function ccr()
     {
         return $this->ccr;
     }
-    public function dataFrameTransformDeprecated(): DataFrameTransformDeprecatedNamespace
+    public function dataFrameTransformDeprecated()
     {
         return $this->dataFrameTransformDeprecated;
     }
-    public function enrich(): EnrichNamespace
+    public function enrich()
     {
         return $this->enrich;
     }
-    public function eql(): EqlNamespace
+    public function eql()
     {
         return $this->eql;
     }
-    public function graph(): GraphNamespace
+    public function graph()
     {
         return $this->graph;
     }
-    public function ilm(): IlmNamespace
+    public function ilm()
     {
         return $this->ilm;
     }
-    public function license(): LicenseNamespace
+    public function license()
     {
         return $this->license;
     }
-    public function migration(): MigrationNamespace
+    public function migration()
     {
         return $this->migration;
     }
-    public function ml(): MlNamespace
+    public function ml()
     {
         return $this->ml;
     }
-    public function monitoring(): MonitoringNamespace
+    public function monitoring()
     {
         return $this->monitoring;
     }
-    public function rollup(): RollupNamespace
+    public function rollup()
     {
         return $this->rollup;
     }
-    public function searchableSnapshots(): SearchableSnapshotsNamespace
+    public function searchableSnapshots()
     {
         return $this->searchableSnapshots;
     }
-    public function security(): SecurityNamespace
+    public function security()
     {
         return $this->security;
     }
-    public function slm(): SlmNamespace
+    public function slm()
     {
         return $this->slm;
     }
-    public function sql(): SqlNamespace
+    public function sql()
     {
         return $this->sql;
     }
-    public function ssl(): SslNamespace
+    public function ssl()
     {
         return $this->ssl;
     }
-    public function transform(): TransformNamespace
+    public function transform()
     {
         return $this->transform;
     }
-    public function watcher(): WatcherNamespace
+    public function watcher()
     {
         return $this->watcher;
     }
-    public function xpack(): XpackNamespace
+    public function xpack()
     {
         return $this->xpack;
     }
@@ -1546,7 +1546,7 @@ class Client
      * @return object
      * @throws BadMethodCallException if the namespace cannot be found
      */
-    public function __call(string $name, array $arguments)
+    public function __call($name, array $arguments)
     {
         if (isset($this->registeredNamespaces[$name])) {
             return $this->registeredNamespaces[$name];
@@ -1557,7 +1557,7 @@ class Client
     /**
      * @return null|mixed
      */
-    public function extractArgument(array &$params, string $arg)
+    public function extractArgument(array &$params,  $arg)
     {
         if (array_key_exists($arg, $params) === true) {
             $value = $params[$arg];

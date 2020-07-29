@@ -21,9 +21,9 @@ class UpdateByQueryRethrottle extends AbstractEndpoint
 {
     protected $task_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $task_id = $this->task_id ?? null;
+        $task_id = isset($this->task_id) ? $this->task_id : null;
 
         if (isset($task_id)) {
             return "/_update_by_query/$task_id/_rethrottle";
@@ -38,12 +38,12 @@ class UpdateByQueryRethrottle extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setTaskId($task_id): UpdateByQueryRethrottle
+    public function setTaskId($task_id)
     {
         if (isset($task_id) !== true) {
             return $this;

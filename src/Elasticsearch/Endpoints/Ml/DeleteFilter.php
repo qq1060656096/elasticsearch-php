@@ -21,9 +21,9 @@ class DeleteFilter extends AbstractEndpoint
 {
     protected $filter_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $filter_id = $this->filter_id ?? null;
+        $filter_id = isset($this->filter_id) ? $this->filter_id : null;
 
         if (isset($filter_id)) {
             return "/_ml/filters/$filter_id";
@@ -36,12 +36,12 @@ class DeleteFilter extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setFilterId($filter_id): DeleteFilter
+    public function setFilterId($filter_id)
     {
         if (isset($filter_id) !== true) {
             return $this;

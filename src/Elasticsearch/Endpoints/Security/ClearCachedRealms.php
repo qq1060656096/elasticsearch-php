@@ -21,9 +21,9 @@ class ClearCachedRealms extends AbstractEndpoint
 {
     protected $realms;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $realms = $this->realms ?? null;
+        $realms = isset($this->realms) ? $this->realms : null;
 
         if (isset($realms)) {
             return "/_security/realm/$realms/_clear_cache";
@@ -38,12 +38,12 @@ class ClearCachedRealms extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setRealms($realms): ClearCachedRealms
+    public function setRealms($realms)
     {
         if (isset($realms) !== true) {
             return $this;

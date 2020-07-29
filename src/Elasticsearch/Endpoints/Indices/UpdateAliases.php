@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class UpdateAliases extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_aliases";
@@ -33,12 +33,12 @@ class UpdateAliases extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): UpdateAliases
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

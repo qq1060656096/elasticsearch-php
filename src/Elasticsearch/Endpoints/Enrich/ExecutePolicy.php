@@ -21,9 +21,9 @@ class ExecutePolicy extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_enrich/policy/$name/_execute";
@@ -38,12 +38,12 @@ class ExecutePolicy extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setName($name): ExecutePolicy
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

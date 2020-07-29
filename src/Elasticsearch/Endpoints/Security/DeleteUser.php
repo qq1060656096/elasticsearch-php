@@ -21,9 +21,9 @@ class DeleteUser extends AbstractEndpoint
 {
     protected $username;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $username = $this->username ?? null;
+        $username = isset($this->username) ? $this->username : null;
 
         if (isset($username)) {
             return "/_security/user/$username";
@@ -38,12 +38,12 @@ class DeleteUser extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setUsername($username): DeleteUser
+    public function setUsername($username)
     {
         if (isset($username) !== true) {
             return $this;

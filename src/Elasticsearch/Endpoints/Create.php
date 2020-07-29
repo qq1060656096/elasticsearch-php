@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Create extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->id) !== true) {
             throw new RuntimeException(
@@ -34,7 +34,7 @@ class Create extends AbstractEndpoint
             );
         }
         $index = $this->index;
-        $type = $this->type ?? null;
+        $type = isset($this->type) ? $this->type : null;
         if (isset($type)) {
             @trigger_error('Specifying types in urls has been deprecated', E_USER_DEPRECATED);
         }
@@ -58,12 +58,12 @@ class Create extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): Create
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

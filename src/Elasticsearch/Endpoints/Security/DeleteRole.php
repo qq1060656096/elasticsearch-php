@@ -21,9 +21,9 @@ class DeleteRole extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_security/role/$name";
@@ -38,12 +38,12 @@ class DeleteRole extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setName($name): DeleteRole
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

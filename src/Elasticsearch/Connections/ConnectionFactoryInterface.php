@@ -15,5 +15,5 @@ namespace Elasticsearch\Connections;
  */
 interface ConnectionFactoryInterface
 {
-    public function create(array $hostDetails): ConnectionInterface;
+    public function create(array $hostDetails);
 }

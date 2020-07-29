@@ -20,9 +20,9 @@ class ReloadSecureSettings extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $node_id = $this->node_id ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
 
         if (isset($node_id)) {
             return "/_nodes/$node_id/reload_secure_settings";
@@ -37,12 +37,12 @@ class ReloadSecureSettings extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): ReloadSecureSettings
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -52,7 +52,7 @@ class ReloadSecureSettings extends AbstractEndpoint
         return $this;
     }
 
-    public function setNodeId($node_id): ReloadSecureSettings
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

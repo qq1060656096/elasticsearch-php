@@ -20,9 +20,9 @@ class GetIndexTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_index_template/$name";
@@ -39,12 +39,12 @@ class GetIndexTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetIndexTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

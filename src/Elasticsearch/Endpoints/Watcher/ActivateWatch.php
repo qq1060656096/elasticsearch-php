@@ -21,9 +21,9 @@ class ActivateWatch extends AbstractEndpoint
 {
     protected $watch_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $watch_id = $this->watch_id ?? null;
+        $watch_id = isset($this->watch_id) ? $this->watch_id : null;
 
         if (isset($watch_id)) {
             return "/_watcher/watch/$watch_id/_activate";
@@ -36,12 +36,12 @@ class ActivateWatch extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setWatchId($watch_id): ActivateWatch
+    public function setWatchId($watch_id)
     {
         if (isset($watch_id) !== true) {
             return $this;

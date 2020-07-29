@@ -22,10 +22,10 @@ class DeleteCalendarEvent extends AbstractEndpoint
     protected $calendar_id;
     protected $event_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $calendar_id = $this->calendar_id ?? null;
-        $event_id = $this->event_id ?? null;
+        $calendar_id = isset($this->calendar_id) ? $this->calendar_id : null;
+        $event_id = isset($this->event_id) ? $this->event_id : null;
 
         if (isset($calendar_id) && isset($event_id)) {
             return "/_ml/calendars/$calendar_id/events/$event_id";
@@ -38,12 +38,12 @@ class DeleteCalendarEvent extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setCalendarId($calendar_id): DeleteCalendarEvent
+    public function setCalendarId($calendar_id)
     {
         if (isset($calendar_id) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class DeleteCalendarEvent extends AbstractEndpoint
         return $this;
     }
 
-    public function setEventId($event_id): DeleteCalendarEvent
+    public function setEventId($event_id)
     {
         if (isset($event_id) !== true) {
             return $this;

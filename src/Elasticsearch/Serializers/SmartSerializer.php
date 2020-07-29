@@ -26,7 +26,7 @@ class SmartSerializer implements SerializerInterface
     /**
      * {@inheritdoc}
      */
-    public function serialize($data): string
+    public function serialize($data)
     {
         if (is_string($data) === true) {
             return $data;
@@ -80,7 +80,7 @@ class SmartSerializer implements SerializerInterface
                 $result = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
                 return $result;
             } catch (\JsonException $e) {
-                $result = $result ?? [];
+                $result = isset($result) ? $result : null;
                 throw new JsonErrorException($e->getCode(), $data, $result);
             }
         }

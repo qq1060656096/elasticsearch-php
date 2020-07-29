@@ -22,7 +22,7 @@ class DeleteForecast extends AbstractEndpoint
     protected $job_id;
     protected $forecast_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->job_id) !== true) {
             throw new RuntimeException(
@@ -30,7 +30,7 @@ class DeleteForecast extends AbstractEndpoint
             );
         }
         $job_id = $this->job_id;
-        $forecast_id = $this->forecast_id ?? null;
+        $forecast_id = isset($this->forecast_id) ? $this->forecast_id : null;
 
         if (isset($forecast_id)) {
             return "/_ml/anomaly_detectors/$job_id/_forecast/$forecast_id";
@@ -46,12 +46,12 @@ class DeleteForecast extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setJobId($job_id): DeleteForecast
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;
@@ -61,7 +61,7 @@ class DeleteForecast extends AbstractEndpoint
         return $this;
     }
 
-    public function setForecastId($forecast_id): DeleteForecast
+    public function setForecastId($forecast_id)
     {
         if (isset($forecast_id) !== true) {
             return $this;

@@ -21,9 +21,9 @@ class PutLifecycle extends AbstractEndpoint
 {
     protected $policy_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $policy_id = $this->policy_id ?? null;
+        $policy_id = isset($this->policy_id) ? $this->policy_id : null;
 
         if (isset($policy_id)) {
             return "/_slm/policy/$policy_id";
@@ -38,12 +38,12 @@ class PutLifecycle extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutLifecycle
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class PutLifecycle extends AbstractEndpoint
         return $this;
     }
 
-    public function setPolicyId($policy_id): PutLifecycle
+    public function setPolicyId($policy_id)
     {
         if (isset($policy_id) !== true) {
             return $this;

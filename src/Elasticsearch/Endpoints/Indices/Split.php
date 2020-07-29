@@ -21,10 +21,10 @@ class Split extends AbstractEndpoint
 {
     protected $target;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
-        $target = $this->target ?? null;
+        $index = isset($this->index) ? $this->index : null;
+        $target = isset($this->target) ? $this->target : null;
 
         if (isset($index) && isset($target)) {
             return "/$index/_split/$target";
@@ -42,12 +42,12 @@ class Split extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): Split
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -57,7 +57,7 @@ class Split extends AbstractEndpoint
         return $this;
     }
 
-    public function setTarget($target): Split
+    public function setTarget($target)
     {
         if (isset($target) !== true) {
             return $this;

@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class EstimateModelMemory extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_ml/anomaly_detectors/_estimate_model_memory";
@@ -32,12 +32,12 @@ class EstimateModelMemory extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): EstimateModelMemory
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

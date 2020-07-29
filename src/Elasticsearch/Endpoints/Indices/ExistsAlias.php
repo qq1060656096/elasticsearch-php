@@ -21,7 +21,7 @@ class ExistsAlias extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->name) !== true) {
             throw new RuntimeException(
@@ -29,7 +29,7 @@ class ExistsAlias extends AbstractEndpoint
             );
         }
         $name = $this->name;
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_alias/$name";
@@ -47,12 +47,12 @@ class ExistsAlias extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'HEAD';
     }
 
-    public function setName($name): ExistsAlias
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

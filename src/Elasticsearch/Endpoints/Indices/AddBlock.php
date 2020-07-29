@@ -21,10 +21,10 @@ class AddBlock extends AbstractEndpoint
 {
     protected $block;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index = $this->index ?? null;
-        $block = $this->block ?? null;
+        $index = isset($this->index) ? $this->index : null;
+        $block = isset($this->block) ? $this->block : null;
 
         if (isset($index) && isset($block)) {
             return "/$index/_block/$block";
@@ -43,12 +43,12 @@ class AddBlock extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBlock($block): AddBlock
+    public function setBlock($block)
     {
         if (isset($block) !== true) {
             return $this;

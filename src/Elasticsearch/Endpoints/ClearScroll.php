@@ -20,9 +20,9 @@ class ClearScroll extends AbstractEndpoint
 {
     protected $scroll_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $scroll_id = $this->scroll_id ?? null;
+        $scroll_id = isset($this->scroll_id) ? $this->scroll_id : null;
         if (isset($scroll_id)) {
             @trigger_error('A scroll id can be quite large and should be specified as part of the body', E_USER_DEPRECATED);
         }
@@ -40,12 +40,12 @@ class ClearScroll extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setBody($body): ClearScroll
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class ClearScroll extends AbstractEndpoint
         return $this;
     }
 
-    public function setScrollId($scroll_id): ClearScroll
+    public function setScrollId($scroll_id)
     {
         if (isset($scroll_id) !== true) {
             return $this;

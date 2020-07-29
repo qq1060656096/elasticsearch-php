@@ -56,7 +56,7 @@ class Transport
      * @param ConnectionPool\AbstractConnectionPool $connectionPool
      * @param \Psr\Log\LoggerInterface              $log            Monolog logger object
      */
-    public function __construct(int $retries, AbstractConnectionPool $connectionPool, LoggerInterface $log, bool $sniffOnStart = false)
+    public function __construct(int $retries, AbstractConnectionPool $connectionPool, LoggerInterface $log, $sniffOnStart = false)
     {
         $this->log            = $log;
         $this->connectionPool = $connectionPool;
@@ -72,7 +72,7 @@ class Transport
      * Returns a single connection from the connection pool
      * Potentially performs a sniffing step before returning
      */
-    public function getConnection(): ConnectionInterface
+    public function getConnection()
     {
         return $this->connectionPool->nextConnection();
     }
@@ -88,7 +88,7 @@ class Transport
      *
      * @throws Common\Exceptions\NoNodesAvailableException|\Exception
      */
-    public function performRequest(string $method, string $uri, array $params = null, $body = null, array $options = []): FutureArrayInterface
+    public function performRequest($method,  $uri, array $params = null, $body = null, array $options = [])
     {
         try {
             $connection  = $this->getConnection();
@@ -162,7 +162,7 @@ class Transport
      * Returns the last used connection so that it may be inspected.  Mainly
      * for debugging/testing purposes.
      */
-    public function getLastConnection(): ConnectionInterface
+    public function getLastConnection()
     {
         return $this->lastConnection;
     }

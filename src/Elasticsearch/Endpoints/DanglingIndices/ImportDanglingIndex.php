@@ -21,9 +21,9 @@ class ImportDanglingIndex extends AbstractEndpoint
 {
     protected $index_uuid;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $index_uuid = $this->index_uuid ?? null;
+        $index_uuid = isset($this->index_uuid) ? $this->index_uuid : null;
 
         if (isset($index_uuid)) {
             return "/_dangling/$index_uuid";
@@ -40,12 +40,12 @@ class ImportDanglingIndex extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setIndexUuid($index_uuid): ImportDanglingIndex
+    public function setIndexUuid($index_uuid)
     {
         if (isset($index_uuid) !== true) {
             return $this;

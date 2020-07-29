@@ -21,9 +21,9 @@ class CreateDataStream extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_data_stream/$name";
@@ -38,12 +38,12 @@ class CreateDataStream extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): CreateDataStream
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class CreateDataStream extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): CreateDataStream
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

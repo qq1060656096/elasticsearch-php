@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class CreateApiKey extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_security/api_key";
@@ -32,12 +32,12 @@ class CreateApiKey extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): CreateApiKey
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

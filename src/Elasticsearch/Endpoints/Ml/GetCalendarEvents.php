@@ -21,9 +21,9 @@ class GetCalendarEvents extends AbstractEndpoint
 {
     protected $calendar_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $calendar_id = $this->calendar_id ?? null;
+        $calendar_id = isset($this->calendar_id) ? $this->calendar_id : null;
 
         if (isset($calendar_id)) {
             return "/_ml/calendars/$calendar_id/events";
@@ -42,12 +42,12 @@ class GetCalendarEvents extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setCalendarId($calendar_id): GetCalendarEvents
+    public function setCalendarId($calendar_id)
     {
         if (isset($calendar_id) !== true) {
             return $this;

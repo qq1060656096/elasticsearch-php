@@ -27,9 +27,9 @@ class Bulk extends AbstractEndpoint
         $this->serializer = $serializer;
     }
 
-    public function getURI(): string
+    public function getURI()
     {
-        $type = $this->type ?? null;
+        $type = isset($this->type) ? $this->type : null;
         if (isset($type)) {
             @trigger_error('Specifying types in urls has been deprecated', E_USER_DEPRECATED);
         }
@@ -49,12 +49,12 @@ class Bulk extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
     
-    public function setBody($body): Bulk
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

@@ -20,9 +20,9 @@ class Cancel extends AbstractEndpoint
 {
     protected $task_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $task_id = $this->task_id ?? null;
+        $task_id = isset($this->task_id) ? $this->task_id : null;
 
         if (isset($task_id)) {
             return "/_tasks/$task_id/_cancel";
@@ -40,12 +40,12 @@ class Cancel extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setTaskId($task_id): Cancel
+    public function setTaskId($task_id)
     {
         if (isset($task_id) !== true) {
             return $this;

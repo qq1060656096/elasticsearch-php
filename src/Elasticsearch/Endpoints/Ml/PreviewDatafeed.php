@@ -21,9 +21,9 @@ class PreviewDatafeed extends AbstractEndpoint
 {
     protected $datafeed_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $datafeed_id = $this->datafeed_id ?? null;
+        $datafeed_id = isset($this->datafeed_id) ? $this->datafeed_id : null;
 
         if (isset($datafeed_id)) {
             return "/_ml/datafeeds/$datafeed_id/_preview";
@@ -36,12 +36,12 @@ class PreviewDatafeed extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setDatafeedId($datafeed_id): PreviewDatafeed
+    public function setDatafeedId($datafeed_id)
     {
         if (isset($datafeed_id) !== true) {
             return $this;

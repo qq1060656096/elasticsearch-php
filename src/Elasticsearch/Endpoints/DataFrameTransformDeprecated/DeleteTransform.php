@@ -21,9 +21,9 @@ class DeleteTransform extends AbstractEndpoint
 {
     protected $transform_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $transform_id = $this->transform_id ?? null;
+        $transform_id = isset($this->transform_id) ? $this->transform_id : null;
 
         if (isset($transform_id)) {
             return "/_data_frame/transforms/$transform_id";
@@ -38,12 +38,12 @@ class DeleteTransform extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setTransformId($transform_id): DeleteTransform
+    public function setTransformId($transform_id)
     {
         if (isset($transform_id) !== true) {
             return $this;

@@ -22,10 +22,10 @@ class Delete extends AbstractEndpoint
     protected $repository;
     protected $snapshot;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $repository = $this->repository ?? null;
-        $snapshot = $this->snapshot ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
+        $snapshot = isset($this->snapshot) ? $this->snapshot : null;
 
         if (isset($repository) && isset($snapshot)) {
             return "/_snapshot/$repository/$snapshot";
@@ -40,12 +40,12 @@ class Delete extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setRepository($repository): Delete
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class Delete extends AbstractEndpoint
         return $this;
     }
 
-    public function setSnapshot($snapshot): Delete
+    public function setSnapshot($snapshot)
     {
         if (isset($snapshot) !== true) {
             return $this;

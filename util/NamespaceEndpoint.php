@@ -23,13 +23,13 @@ class NamespaceEndpoint
     protected $endpointNames = [];
     protected $version; /* Elasticsearch version used to generate the class */
 
-    public function __construct(string $name, string $version)
+    public function __construct($name,  $version)
     {
         $this->name = $name;
         $this->version = $version;
     }
 
-    public function renderClass(): string
+    public function renderClass()
     {
         if (empty($this->endpoints)) {
             throw new Exception("No endpoints has been added. I cannot render the class");
@@ -55,7 +55,7 @@ class NamespaceEndpoint
         return str_replace(':version', $this->version, $class);
     }
 
-    public function addEndpoint(Endpoint $endpoint): NamespaceEndpoint
+    public function addEndpoint(Endpoint $endpoint)
     {
         if (in_array($endpoint->name, $this->endpointNames)) {
             throw new Exception(sprintf(
@@ -69,7 +69,7 @@ class NamespaceEndpoint
         return $this;
     }
 
-    protected function renderEndpoint(Endpoint $endpoint): string
+    protected function renderEndpoint(Endpoint $endpoint)
     {
         $code = file_get_contents(
             $endpoint->getMethod() === ['HEAD']
@@ -106,17 +106,17 @@ class NamespaceEndpoint
         return str_replace(':EndpointClass', $endpointClass, $code);
     }
 
-    public static function normalizeName(string $name): string
+    public static function normalizeName($name)
     {
         return str_replace('_', '', ucwords($name, '_'));
     }
 
-    public function getNamespaceName(): string
+    public function getNamespaceName()
     {
         return $this->normalizeName($this->name);
     }
 
-    protected function getEndpointName(string $name): string
+    protected function getEndpointName($name)
     {
         return preg_replace_callback(
             '/_(.?)/',
@@ -127,7 +127,7 @@ class NamespaceEndpoint
         );
     }
 
-    protected function getAliasesProxy(): string
+    protected function getAliasesProxy()
     {
         return <<<'EOD'
     
@@ -144,7 +144,7 @@ class NamespaceEndpoint
 EOD;
     }
 
-    protected function tasksListProxy(): string
+    protected function tasksListProxy()
     {
         return <<<'EOD'
 

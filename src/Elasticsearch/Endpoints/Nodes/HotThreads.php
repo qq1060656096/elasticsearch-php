@@ -20,9 +20,9 @@ class HotThreads extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $node_id = $this->node_id ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
 
         if (isset($node_id)) {
             return "/_nodes/$node_id/hot_threads";
@@ -42,12 +42,12 @@ class HotThreads extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): HotThreads
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

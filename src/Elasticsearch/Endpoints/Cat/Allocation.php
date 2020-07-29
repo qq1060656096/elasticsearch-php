@@ -20,9 +20,9 @@ class Allocation extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $node_id = $this->node_id ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
 
         if (isset($node_id)) {
             return "/_cat/allocation/$node_id";
@@ -44,12 +44,12 @@ class Allocation extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Allocation
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

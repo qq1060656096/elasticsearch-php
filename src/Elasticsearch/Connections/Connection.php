@@ -188,7 +188,7 @@ class Connection implements ConnectionInterface
      * @param  Transport $transport
      * @return mixed
      */
-    public function performRequest(string $method, string $uri, ?array $params = [], $body = null, array $options = [], Transport $transport = null)
+    public function performRequest($method,  $uri, ?array $params = [], $body = null, array $options = [], Transport $transport = null)
     {
         if ($body !== null) {
             $body = $this->serializer->serialize($body);
@@ -229,7 +229,7 @@ class Connection implements ConnectionInterface
         return $future;
     }
 
-    public function getTransportSchema(): string
+    public function getTransportSchema()
     {
         return $this->transportSchema;
     }
@@ -239,7 +239,7 @@ class Connection implements ConnectionInterface
         return $this->lastRequest;
     }
 
-    private function wrapHandler(callable $handler): callable
+    private function wrapHandler(callable $handler)
     {
         return function (array $request, Connection $connection, Transport $transport = null, $options) use ($handler) {
 
@@ -308,15 +308,15 @@ class Connection implements ConnectionInterface
                     }
 
                     if ($response['status'] >= 400 && $response['status'] < 500) {
-                        $ignore = $request['client']['ignore'] ?? [];
+                        $ignore = isset($request['client']['ignore']) ? $request['client']['ignore'] : null;
                         // Skip 404 if succeeded true in the body (e.g. clear_scroll)
-                        $body = $response['body'] ?? '';
+                        $body = isset($response['body']) ? $response['body'] : null;
                         if (strpos($body, '"succeeded":true') !== false) {
                              $ignore[] = 404;
                         }
                         $this->process4xxError($request, $response, $ignore);
                     } elseif ($response['status'] >= 500) {
-                        $ignore = $request['client']['ignore'] ?? [];
+                        $ignore = isset($request['client']['ignore']) ? $request['client']['ignore'] : null;
                         $this->process5xxError($request, $response, $ignore);
                     }
 
@@ -332,7 +332,7 @@ class Connection implements ConnectionInterface
         };
     }
 
-    private function getURI(string $uri, ?array $params): string
+    private function getURI($uri, ?array $params)
     {
         if (isset($params) === true && !empty($params)) {
             array_walk(
@@ -519,17 +519,17 @@ class Connection implements ConnectionInterface
         return $this->failedPings;
     }
 
-    public function getHost(): string
+    public function getHost()
     {
         return $this->host;
     }
 
-    public function getUserPass(): ?string
+    public function getUserPass()
     {
         return $this->connectionParams['client']['curl'][CURLOPT_USERPWD] ?? null;
     }
 
-    public function getPath(): ?string
+    public function getPath()
     {
         return $this->path;
     }
@@ -542,7 +542,7 @@ class Connection implements ConnectionInterface
         return $this->port;
     }
 
-    protected function getCurlRetryException(array $request, array $response): ElasticsearchException
+    protected function getCurlRetryException(array $request, array $response)
     {
         $exception = null;
         $message = $response['error']->getMessage();
@@ -568,7 +568,7 @@ class Connection implements ConnectionInterface
      *
      * @see  https://github.com/elastic/elasticsearch-php/issues/922
      */
-    private function getOSVersion(): string
+    private function getOSVersion()
     {
         if ($this->OSVersion === null) {
             $this->OSVersion = strpos(strtolower(ini_get('disable_functions')), 'php_uname') !== false
@@ -581,7 +581,7 @@ class Connection implements ConnectionInterface
     /**
      * Construct a string cURL command
      */
-    private function buildCurlCommand(string $method, string $uri, ?string $body): string
+    private function buildCurlCommand($method,  $uri, ?string $body)
     {
         if (strpos($uri, '?') === false) {
             $uri .= '?pretty=true';
@@ -599,7 +599,7 @@ class Connection implements ConnectionInterface
         return $curlCommand;
     }
 
-    private function process4xxError(array $request, array $response, array $ignore): ?ElasticsearchException
+    private function process4xxError(array $request, array $response, array $ignore)
     {
         $statusCode = $response['status'];
         $responseBody = $response['body'];
@@ -637,7 +637,7 @@ class Connection implements ConnectionInterface
         throw $exception;
     }
 
-    private function process5xxError(array $request, array $response, array $ignore): ?ElasticsearchException
+    private function process5xxError(array $request, array $response, array $ignore)
     {
         $statusCode = (int) $response['status'];
         $responseBody = $response['body'];
@@ -670,17 +670,17 @@ class Connection implements ConnectionInterface
         throw $exception;
     }
 
-    private function tryDeserialize400Error(array $response): ElasticsearchException
+    private function tryDeserialize400Error(array $response)
     {
         return $this->tryDeserializeError($response, BadRequest400Exception::class);
     }
 
-    private function tryDeserialize500Error(array $response): ElasticsearchException
+    private function tryDeserialize500Error(array $response)
     {
         return $this->tryDeserializeError($response, ServerErrorResponseException::class);
     }
 
-    private function tryDeserializeError(array $response, string $errorClass): ElasticsearchException
+    private function tryDeserializeError(array $response,  $errorClass)
     {
         $error = $this->serializer->deserialize($response['body'], $response['transfer_stats']);
         if (is_array($error) === true) {

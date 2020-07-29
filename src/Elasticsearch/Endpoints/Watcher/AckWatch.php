@@ -22,7 +22,7 @@ class AckWatch extends AbstractEndpoint
     protected $watch_id;
     protected $action_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->watch_id) !== true) {
             throw new RuntimeException(
@@ -30,7 +30,7 @@ class AckWatch extends AbstractEndpoint
             );
         }
         $watch_id = $this->watch_id;
-        $action_id = $this->action_id ?? null;
+        $action_id = isset($this->action_id) ? $this->action_id : null;
 
         if (isset($action_id)) {
             return "/_watcher/watch/$watch_id/_ack/$action_id";
@@ -43,12 +43,12 @@ class AckWatch extends AbstractEndpoint
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setWatchId($watch_id): AckWatch
+    public function setWatchId($watch_id)
     {
         if (isset($watch_id) !== true) {
             return $this;
@@ -58,7 +58,7 @@ class AckWatch extends AbstractEndpoint
         return $this;
     }
 
-    public function setActionId($action_id): AckWatch
+    public function setActionId($action_id)
     {
         if (isset($action_id) !== true) {
             return $this;

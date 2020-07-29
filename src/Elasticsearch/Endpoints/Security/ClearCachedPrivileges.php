@@ -21,9 +21,9 @@ class ClearCachedPrivileges extends AbstractEndpoint
 {
     protected $application;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $application = $this->application ?? null;
+        $application = isset($this->application) ? $this->application : null;
 
         if (isset($application)) {
             return "/_security/privilege/$application/_clear_cache";
@@ -38,12 +38,12 @@ class ClearCachedPrivileges extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setApplication($application): ClearCachedPrivileges
+    public function setApplication($application)
     {
         if (isset($application) !== true) {
             return $this;

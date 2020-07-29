@@ -21,10 +21,10 @@ class GetPrivileges extends AbstractEndpoint
     protected $application;
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
-        $application = $this->application ?? null;
-        $name = $this->name ?? null;
+        $application = isset($this->application) ? $this->application : null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($application) && isset($name)) {
             return "/_security/privilege/$application/$name";
@@ -42,12 +42,12 @@ class GetPrivileges extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setApplication($application): GetPrivileges
+    public function setApplication($application)
     {
         if (isset($application) !== true) {
             return $this;
@@ -57,7 +57,7 @@ class GetPrivileges extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): GetPrivileges
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

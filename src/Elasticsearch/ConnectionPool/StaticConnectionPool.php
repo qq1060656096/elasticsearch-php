@@ -31,7 +31,7 @@ class StaticConnectionPool extends AbstractConnectionPool implements ConnectionP
         $this->scheduleCheck();
     }
 
-    public function nextConnection(bool $force = false): ConnectionInterface
+    public function nextConnection($force = false)
     {
         $skipped = [];
 
