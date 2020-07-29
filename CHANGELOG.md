@@ -139,3 +139,15 @@ Woo!
 - [TEST] Support headers in yaml runner, do some bad-comment cleaning [[57b5489]](http://github.com/elasticsearch/elasticsearch-php/commit/57b5489)
 - [TEST] fix handling of format for Cat tests [[a24b7d1]](http://github.com/elasticsearch/elasticsearch-php/commit/a24b7d1)
 - [TEST] test files are now .yml instead of .yaml [[ceac5bd]](http://github.com/elasticsearch/elasticsearch-php/commit/ceac5bd)
+
+## Release 6.5.x-php5.6
+
+- change composer php version from "^7.0" to  "5.6.*"
+- remove composer package phpstan/phpstan-shim
+- change composer pckage ext-json version from ">=1.3.7" to "*"
+- change composer pckage doctrine/inflector version from "^1.1" to "*"
+- php7 syntax changed to php5.6
+
+### Docs
+
+### Testing
