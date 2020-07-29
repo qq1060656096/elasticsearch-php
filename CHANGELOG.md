@@ -147,7 +147,14 @@ Woo!
 - change composer pckage ext-json version from ">=1.3.7" to "*"
 - change composer pckage doctrine/inflector version from "^1.1" to "*"
 - php7 syntax changed to php5.6
+- add phpunit5.7.27 "build/phpunit5.7.27-php5.6"
+- change code file src/Elasticsearch/Transport.php
 
 ### Docs
 
 ### Testing
+
+use php5.6 phpunit5.7.27
+/usr/local/Cellar/php@5.6/5.6.40/bin/php /usr/local/bin/composer install -vvv
+/usr/local/Cellar/php@5.6/5.6.40/bin/php build/phpunit5.7.27-php5.6 --bootstrap ./tests/bootstrap.php tests/Elasticsearch
+- [TEST] 

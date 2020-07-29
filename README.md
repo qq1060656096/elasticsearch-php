@@ -87,6 +87,17 @@ The recommended method to install _Elasticsearch-PHP_ is through [Composer](http
 
         $client = ClientBuilder::create()->build();
     ```
+    use username password authenticated
+    ```php
+       <?php
+       use Elasticsearch\ClientBuilder;
+       require 'vendor/autoload.php';
+    
+       $config = [
+           'Hosts' => ['Http://useranme:password@host:port'],
+       ];
+       $client = ClientBuilder::fromConfig($config);
+    ```
 You can find out more on how to install Composer, configure autoloading, and other best-practices for defining dependencies at [getcomposer.org](http://getcomposer.org).
 
 PHP Version Requirement
