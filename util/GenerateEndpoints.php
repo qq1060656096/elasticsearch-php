@@ -4,7 +4,7 @@
  *
  * @author Enrico Zimuel (enrico.zimuel@elastic.co)
  */
-declare(strict_types = 1);
+
 
 use GitWrapper\GitWrapper;
 use Elasticsearch\Util\ClientEndpoint;
