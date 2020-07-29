@@ -404,3 +404,7 @@ LGPL v2.1 Notice:
 >You should have received a copy of the GNU Lesser General Public
 >License along with this library; if not, write to the Free Software
 >Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+
+/usr/local/Cellar/php@5.6/5.6.40/bin/php /usr/local/bin/composer install -vvv
+/usr/local/Cellar/php@5.6/5.6.40/bin/php build/phpunit5.7.27-php5.6 --bootstrap=tests/bootstrap tests/Elasticsearch
