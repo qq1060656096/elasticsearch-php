@@ -10,7 +10,7 @@ class AbstractEndpointTest extends \PHPUnit\Framework\TestCase
 {
     private $endpoint;
 
-    public static function invalidParameters(): array
+    public static function invalidParameters()
     {
         return [
             [['invalid' => 10]],
