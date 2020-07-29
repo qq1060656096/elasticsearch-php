@@ -30,7 +30,7 @@ class ChangePassword extends AbstractEndpoint
         return "/_security/user/_password";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh'

@@ -25,7 +25,7 @@ class RemoteInfo extends AbstractEndpoint
         return "/_remote/info";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

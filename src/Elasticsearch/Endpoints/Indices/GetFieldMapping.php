@@ -47,7 +47,7 @@ class GetFieldMapping extends AbstractEndpoint
         return "/_mapping/field/$fields";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',

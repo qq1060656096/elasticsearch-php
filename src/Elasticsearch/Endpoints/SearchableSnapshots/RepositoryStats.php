@@ -31,7 +31,7 @@ class RepositoryStats extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint searchable_snapshots.repository_stats');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

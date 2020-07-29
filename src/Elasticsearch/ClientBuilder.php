@@ -159,7 +159,7 @@ class ClientBuilder
      *
      * @return NamespaceBuilderInterface[]
      */
-    public function getRegisteredNamespacesBuilders(): array
+    public function getRegisteredNamespacesBuilders()
     {
         return $this->registeredNamespacesBuilders;
     }
@@ -584,7 +584,7 @@ class ClientBuilder
         return new Client($transport, $endpoint, $registeredNamespaces);
     }
 
-    private function buildLoggers(): void
+    private function buildLoggers()
     {
         if (is_null($this->logger)) {
             $this->logger = new NullLogger();
@@ -595,7 +595,7 @@ class ClientBuilder
         }
     }
 
-    private function buildTransport(): void
+    private function buildTransport()
     {
         $connections = $this->buildConnectionsFromHosts($this->hosts);
 
@@ -624,7 +624,7 @@ class ClientBuilder
         }
     }
 
-    private function parseStringOrObject($arg, &$destination, $interface): void
+    private function parseStringOrObject($arg, &$destination, $interface)
     {
         if (is_string($arg)) {
             $destination = new $arg;
@@ -635,7 +635,7 @@ class ClientBuilder
         }
     }
 
-    private function getDefaultHost(): array
+    private function getDefaultHost()
     {
         return ['localhost:9200'];
     }
@@ -644,7 +644,7 @@ class ClientBuilder
      * @return \Elasticsearch\Connections\Connection[]
      * @throws RuntimeException
      */
-    private function buildConnectionsFromHosts(array $hosts): array
+    private function buildConnectionsFromHosts(array $hosts)
     {
         $connections = [];
         foreach ($hosts as $host) {
@@ -667,7 +667,7 @@ class ClientBuilder
     /**
      * @throws RuntimeException
      */
-    private function normalizeExtendedHost(array $host): array
+    private function normalizeExtendedHost(array $host)
     {
         if (isset($host['host']) === false) {
             $this->logger->error("Required 'host' was not defined in extended format: ".print_r($host, true));
@@ -686,7 +686,7 @@ class ClientBuilder
     /**
      * @throws InvalidArgumentException
      */
-    private function extractURIParts(string $host): array
+    private function extractURIParts(string $host)
     {
         $parts = parse_url($host);
 

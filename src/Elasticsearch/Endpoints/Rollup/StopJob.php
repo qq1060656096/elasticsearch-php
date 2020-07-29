@@ -30,7 +30,7 @@ class StopJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint rollup.stop_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_completion',

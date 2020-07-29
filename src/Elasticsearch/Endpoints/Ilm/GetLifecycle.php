@@ -30,7 +30,7 @@ class GetLifecycle extends AbstractEndpoint
         return "/_ilm/policy";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

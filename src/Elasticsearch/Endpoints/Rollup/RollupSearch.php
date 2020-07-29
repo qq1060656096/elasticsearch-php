@@ -39,7 +39,7 @@ class RollupSearch extends AbstractEndpoint
         return "/$index/_rollup_search";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'typed_keys',

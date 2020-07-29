@@ -37,7 +37,7 @@ class PutScript extends AbstractEndpoint
         return "/_scripts/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',

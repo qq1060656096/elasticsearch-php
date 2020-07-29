@@ -38,7 +38,7 @@ class DeleteForecast extends AbstractEndpoint
         return "/_ml/anomaly_detectors/$job_id/_forecast";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_forecasts',

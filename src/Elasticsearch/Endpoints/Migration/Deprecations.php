@@ -29,7 +29,7 @@ class Deprecations extends AbstractEndpoint
         return "/_migration/deprecations";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

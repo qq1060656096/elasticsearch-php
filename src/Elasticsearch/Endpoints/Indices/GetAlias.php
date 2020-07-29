@@ -37,7 +37,7 @@ class GetAlias extends AbstractEndpoint
         return "/_alias";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

@@ -31,7 +31,7 @@ class DeleteTransform extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint data_frame_transform_deprecated.delete_transform');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'force'

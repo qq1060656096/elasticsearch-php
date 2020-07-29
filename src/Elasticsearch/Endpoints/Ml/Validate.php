@@ -25,7 +25,7 @@ class Validate extends AbstractEndpoint
         return "/_ml/anomaly_detectors/_validate";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

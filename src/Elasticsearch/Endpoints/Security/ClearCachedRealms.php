@@ -31,7 +31,7 @@ class ClearCachedRealms extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.clear_cached_realms');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'usernames'

@@ -818,7 +818,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    public function yamlProvider(): array
+    public function yamlProvider()
     {
         $this->yaml = new Yaml();
         $path = __DIR__ . '/../../../util/elasticsearch/rest-api-spec/src/main/resources/rest-api-spec/test';
@@ -848,7 +848,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    private function mapEndpoint(string $method, $namespace = null): array
+    private function mapEndpoint(string $method, $namespace = null)
     {
         if (null === $namespace && array_key_exists($method, static::$endpointMapping)) {
             return static::$endpointMapping[$method];
@@ -959,7 +959,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
      *
      * @return array
      */
-    private function splitDocument(SplFileInfo $file, string $path, string $filter = null): array
+    private function splitDocument(SplFileInfo $file, string $path, string $filter = null)
     {
 
         $fileContent = $file->getContents();
@@ -1133,7 +1133,7 @@ class YamlRunnerTest extends \PHPUnit\Framework\TestCase
         curl_close($ch);
     }
 
-    private function formatHeaders($headers): array
+    private function formatHeaders($headers)
     {
         $result = (array) $headers;
         foreach ($result as $key => $value) {

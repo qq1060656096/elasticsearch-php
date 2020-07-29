@@ -32,7 +32,7 @@ class Split extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.split');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'copy_settings',

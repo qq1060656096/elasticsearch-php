@@ -31,7 +31,7 @@ class ClearCachedRoles extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.clear_cached_roles');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

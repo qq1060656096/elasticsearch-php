@@ -30,7 +30,7 @@ class FollowStats extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.follow_stats');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

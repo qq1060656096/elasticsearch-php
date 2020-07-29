@@ -25,7 +25,7 @@ class Stop extends AbstractEndpoint
         return "/_watcher/_stop";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

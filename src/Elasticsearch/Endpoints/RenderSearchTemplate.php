@@ -29,7 +29,7 @@ class RenderSearchTemplate extends AbstractEndpoint
         return "/_render/template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

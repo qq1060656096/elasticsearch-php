@@ -25,7 +25,7 @@ class PostStartBasic extends AbstractEndpoint
         return "/_license/start_basic";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'acknowledge'

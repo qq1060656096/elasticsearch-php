@@ -30,7 +30,7 @@ class GetDatafeedStats extends AbstractEndpoint
         return "/_ml/datafeeds/_stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_datafeeds'

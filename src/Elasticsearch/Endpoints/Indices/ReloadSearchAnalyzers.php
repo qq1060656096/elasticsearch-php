@@ -30,7 +30,7 @@ class ReloadSearchAnalyzers extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.reload_search_analyzers');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

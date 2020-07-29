@@ -31,7 +31,7 @@ class PutTrainedModel extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_trained_model');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

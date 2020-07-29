@@ -30,7 +30,7 @@ class GetScript extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint get_script');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout'

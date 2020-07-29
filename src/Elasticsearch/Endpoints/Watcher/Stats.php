@@ -30,7 +30,7 @@ class Stats extends AbstractEndpoint
         return "/_watcher/stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'metric',

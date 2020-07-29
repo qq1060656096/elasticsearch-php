@@ -30,7 +30,7 @@ class StartJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint rollup.start_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

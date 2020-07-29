@@ -46,7 +46,7 @@ class TermVectors extends AbstractEndpoint
         return "/$index/_termvectors";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'term_statistics',

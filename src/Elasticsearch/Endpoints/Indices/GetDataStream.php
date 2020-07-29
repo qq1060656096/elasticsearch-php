@@ -30,7 +30,7 @@ class GetDataStream extends AbstractEndpoint
         return "/_data_stream";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

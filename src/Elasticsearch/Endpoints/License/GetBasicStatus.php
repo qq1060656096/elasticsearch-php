@@ -25,7 +25,7 @@ class GetBasicStatus extends AbstractEndpoint
         return "/_license/basic_status";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

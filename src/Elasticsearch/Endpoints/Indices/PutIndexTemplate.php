@@ -31,7 +31,7 @@ class PutIndexTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.put_index_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'create',

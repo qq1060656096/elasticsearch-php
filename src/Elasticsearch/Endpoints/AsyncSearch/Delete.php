@@ -30,7 +30,7 @@ class Delete extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint async_search.delete');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

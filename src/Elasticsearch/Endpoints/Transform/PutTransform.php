@@ -31,7 +31,7 @@ class PutTransform extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint transform.put_transform');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'defer_validation'

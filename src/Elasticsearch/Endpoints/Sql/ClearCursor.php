@@ -25,7 +25,7 @@ class ClearCursor extends AbstractEndpoint
         return "/_sql/close";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

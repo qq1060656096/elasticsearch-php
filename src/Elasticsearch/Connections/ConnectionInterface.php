@@ -49,22 +49,22 @@ interface ConnectionInterface
     /**
      * Check to see if this instance is marked as 'alive'
      */
-    public function isAlive(): bool;
+    public function isAlive();
 
     /**
      * Mark this instance as 'alive'
      */
-    public function markAlive(): void;
+    public function markAlive();
 
     /**
      * Mark this instance as 'dead'
      */
-    public function markDead(): void;
+    public function markDead();
 
     /**
      * Return an associative array of information about the last request
      */
-    public function getLastRequestInfo(): array;
+    public function getLastRequestInfo();
 
     /**
      * @param  null $body

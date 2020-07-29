@@ -29,7 +29,7 @@ class Stats extends AbstractEndpoint
         return "/_searchable_snapshots/stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

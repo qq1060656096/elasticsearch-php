@@ -33,7 +33,7 @@ class DeletePrivileges extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.delete_privileges');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh'

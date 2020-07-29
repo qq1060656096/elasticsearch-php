@@ -25,7 +25,7 @@ class PostStartTrial extends AbstractEndpoint
         return "/_license/start_trial";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'type',

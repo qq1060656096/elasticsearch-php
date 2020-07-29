@@ -30,7 +30,7 @@ class GetFilters extends AbstractEndpoint
         return "/_ml/filters";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',

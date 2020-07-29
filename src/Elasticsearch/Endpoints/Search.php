@@ -36,7 +36,7 @@ class Search extends AbstractEndpoint
         return "/_search";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'analyzer',

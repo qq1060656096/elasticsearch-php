@@ -31,7 +31,7 @@ class OpenJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.open_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

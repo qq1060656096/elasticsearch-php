@@ -30,7 +30,7 @@ class GetTransform extends AbstractEndpoint
         return "/_data_frame/transforms";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',

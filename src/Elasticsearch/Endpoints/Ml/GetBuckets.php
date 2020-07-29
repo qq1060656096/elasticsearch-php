@@ -38,7 +38,7 @@ class GetBuckets extends AbstractEndpoint
         return "/_ml/anomaly_detectors/$job_id/results/buckets";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'expand',

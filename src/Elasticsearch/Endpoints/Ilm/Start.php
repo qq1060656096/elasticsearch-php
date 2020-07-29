@@ -25,7 +25,7 @@ class Start extends AbstractEndpoint
         return "/_ilm/start";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

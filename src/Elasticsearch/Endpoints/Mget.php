@@ -36,7 +36,7 @@ class Mget extends AbstractEndpoint
         return "/_mget";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'stored_fields',

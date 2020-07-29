@@ -31,7 +31,7 @@ class DeletePolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint enrich.delete_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

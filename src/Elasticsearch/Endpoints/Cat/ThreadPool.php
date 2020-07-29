@@ -30,7 +30,7 @@ class ThreadPool extends AbstractEndpoint
         return "/_cat/thread_pool";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

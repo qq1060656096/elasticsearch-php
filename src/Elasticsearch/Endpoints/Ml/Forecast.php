@@ -31,7 +31,7 @@ class Forecast extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.forecast');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'duration',

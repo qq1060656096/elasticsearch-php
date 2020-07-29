@@ -30,7 +30,7 @@ class HotThreads extends AbstractEndpoint
         return "/_nodes/hot_threads";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'interval',

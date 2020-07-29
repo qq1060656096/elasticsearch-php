@@ -31,7 +31,7 @@ class DeleteAutoscalingPolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint autoscaling.delete_autoscaling_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

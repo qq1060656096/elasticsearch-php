@@ -32,7 +32,7 @@ class Shrink extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.shrink');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'copy_settings',

@@ -31,7 +31,7 @@ class DeleteComponentTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint cluster.delete_component_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',

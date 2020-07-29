@@ -39,7 +39,7 @@ class DeleteByQuery extends AbstractEndpoint
         return "/$index/_delete_by_query";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'analyzer',

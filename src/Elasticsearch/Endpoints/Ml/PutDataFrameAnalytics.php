@@ -30,7 +30,7 @@ class PutDataFrameAnalytics extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_data_frame_analytics');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

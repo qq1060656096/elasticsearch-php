@@ -25,7 +25,7 @@ class Usage extends AbstractEndpoint
         return "/_xpack/usage";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout'

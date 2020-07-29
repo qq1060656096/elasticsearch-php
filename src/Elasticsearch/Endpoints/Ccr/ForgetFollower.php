@@ -30,7 +30,7 @@ class ForgetFollower extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.forget_follower');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

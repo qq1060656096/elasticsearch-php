@@ -33,7 +33,7 @@ class DeleteCalendarEvent extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_calendar_event');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

@@ -25,7 +25,7 @@ class GetScriptContext extends AbstractEndpoint
         return "/_script_context";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

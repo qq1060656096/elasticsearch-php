@@ -25,7 +25,7 @@ class Reindex extends AbstractEndpoint
         return "/_reindex";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh',

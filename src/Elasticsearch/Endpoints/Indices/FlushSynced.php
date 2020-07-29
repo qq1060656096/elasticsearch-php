@@ -29,7 +29,7 @@ class FlushSynced extends AbstractEndpoint
         return "/_flush/synced";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

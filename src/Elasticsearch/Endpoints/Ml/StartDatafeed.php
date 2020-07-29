@@ -31,7 +31,7 @@ class StartDatafeed extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.start_datafeed');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'start',

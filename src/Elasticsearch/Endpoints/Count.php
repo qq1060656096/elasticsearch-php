@@ -36,7 +36,7 @@ class Count extends AbstractEndpoint
         return "/_count";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

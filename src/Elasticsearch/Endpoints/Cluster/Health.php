@@ -29,7 +29,7 @@ class Health extends AbstractEndpoint
         return "/_cluster/health";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'expand_wildcards',

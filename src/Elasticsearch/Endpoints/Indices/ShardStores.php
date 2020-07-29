@@ -29,7 +29,7 @@ class ShardStores extends AbstractEndpoint
         return "/_shard_stores";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'status',

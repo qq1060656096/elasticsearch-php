@@ -31,7 +31,7 @@ class GetAutoscalingPolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint autoscaling.get_autoscaling_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

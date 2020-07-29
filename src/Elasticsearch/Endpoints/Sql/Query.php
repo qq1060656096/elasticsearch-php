@@ -25,7 +25,7 @@ class Query extends AbstractEndpoint
         return "/_sql";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format'

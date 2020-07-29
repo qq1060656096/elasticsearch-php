@@ -30,7 +30,7 @@ class GetAutoFollowPattern extends AbstractEndpoint
         return "/_ccr/auto_follow";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

@@ -40,7 +40,7 @@ class PutMapping extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.put_mapping');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',

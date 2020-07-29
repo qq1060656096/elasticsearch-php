@@ -31,7 +31,7 @@ class PutPolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint enrich.put_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

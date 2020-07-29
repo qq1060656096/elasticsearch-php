@@ -31,7 +31,7 @@ class ReindexRethrottle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint reindex_rethrottle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'requests_per_second'

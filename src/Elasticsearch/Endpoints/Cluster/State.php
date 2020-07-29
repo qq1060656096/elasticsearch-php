@@ -34,7 +34,7 @@ class State extends AbstractEndpoint
         return "/_cluster/state";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'local',

@@ -25,7 +25,7 @@ class PutSettings extends AbstractEndpoint
         return "/_cluster/settings";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flat_settings',

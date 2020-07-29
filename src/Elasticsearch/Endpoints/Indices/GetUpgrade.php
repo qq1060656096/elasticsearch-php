@@ -29,7 +29,7 @@ class GetUpgrade extends AbstractEndpoint
         return "/_upgrade";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

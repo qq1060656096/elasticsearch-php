@@ -29,7 +29,7 @@ class GetDataFrameAnalytics extends AbstractEndpoint
         return "/_ml/data_frame/analytics";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_match',

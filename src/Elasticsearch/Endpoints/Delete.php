@@ -45,7 +45,7 @@ class Delete extends AbstractEndpoint
         return "/$index/_doc/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_active_shards',

@@ -30,7 +30,7 @@ class RemovePolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ilm.remove_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

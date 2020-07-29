@@ -25,7 +25,7 @@ class SimpleConnectionPool extends AbstractConnectionPool implements ConnectionP
         return $this->selector->select($this->connections);
     }
 
-    public function scheduleCheck(): void
+    public function scheduleCheck()
     {
     }
 }

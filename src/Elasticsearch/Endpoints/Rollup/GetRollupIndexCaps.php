@@ -30,7 +30,7 @@ class GetRollupIndexCaps extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint rollup.get_rollup_index_caps');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

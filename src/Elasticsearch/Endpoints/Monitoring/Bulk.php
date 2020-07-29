@@ -40,7 +40,7 @@ class Bulk extends AbstractEndpoint
         return "/_monitoring/bulk";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'system_id',

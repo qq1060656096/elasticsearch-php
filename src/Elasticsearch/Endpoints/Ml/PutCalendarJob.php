@@ -33,7 +33,7 @@ class PutCalendarJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_calendar_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

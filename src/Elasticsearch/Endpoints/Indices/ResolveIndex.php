@@ -31,7 +31,7 @@ class ResolveIndex extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.resolve_index');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'expand_wildcards'

@@ -29,7 +29,7 @@ class Simulate extends AbstractEndpoint
         return "/_ingest/pipeline/_simulate";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'verbose'

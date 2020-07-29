@@ -30,7 +30,7 @@ class DeleteWatch extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint watcher.delete_watch');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

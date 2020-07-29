@@ -29,7 +29,7 @@ class RankEval extends AbstractEndpoint
         return "/_rank_eval";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

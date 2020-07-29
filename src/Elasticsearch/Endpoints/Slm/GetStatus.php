@@ -25,7 +25,7 @@ class GetStatus extends AbstractEndpoint
         return "/_slm/status";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

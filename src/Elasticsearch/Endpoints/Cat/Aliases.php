@@ -30,7 +30,7 @@ class Aliases extends AbstractEndpoint
         return "/_cat/aliases";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

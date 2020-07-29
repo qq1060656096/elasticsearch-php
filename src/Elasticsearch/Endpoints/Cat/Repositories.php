@@ -25,7 +25,7 @@ class Repositories extends AbstractEndpoint
         return "/_cat/repositories";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

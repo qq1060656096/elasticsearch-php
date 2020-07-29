@@ -25,7 +25,7 @@ class Delete extends AbstractEndpoint
         return "/_license";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

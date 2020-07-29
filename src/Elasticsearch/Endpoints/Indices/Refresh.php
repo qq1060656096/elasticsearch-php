@@ -29,7 +29,7 @@ class Refresh extends AbstractEndpoint
         return "/_refresh";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

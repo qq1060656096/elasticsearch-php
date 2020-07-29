@@ -29,7 +29,7 @@ class Flush extends AbstractEndpoint
         return "/_flush";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'force',

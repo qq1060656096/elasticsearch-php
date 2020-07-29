@@ -30,7 +30,7 @@ class GetComponentTemplate extends AbstractEndpoint
         return "/_component_template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

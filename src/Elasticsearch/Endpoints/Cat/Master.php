@@ -25,7 +25,7 @@ class Master extends AbstractEndpoint
         return "/_cat/master";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

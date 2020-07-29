@@ -25,7 +25,7 @@ class ExecuteRetention extends AbstractEndpoint
         return "/_slm/_execute_retention";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

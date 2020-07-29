@@ -30,7 +30,7 @@ class PutPipeline extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ingest.put_pipeline');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

@@ -31,7 +31,7 @@ class PutTransform extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint data_frame_transform_deprecated.put_transform');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'defer_validation'

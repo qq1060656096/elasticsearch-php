@@ -25,7 +25,7 @@ class Stats extends AbstractEndpoint
         return "/_ccr/stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

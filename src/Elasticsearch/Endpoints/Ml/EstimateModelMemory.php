@@ -25,7 +25,7 @@ class EstimateModelMemory extends AbstractEndpoint
         return "/_ml/anomaly_detectors/_estimate_model_memory";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

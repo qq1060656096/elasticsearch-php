@@ -25,7 +25,7 @@ class PendingTasks extends AbstractEndpoint
         return "/_cluster/pending_tasks";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'local',

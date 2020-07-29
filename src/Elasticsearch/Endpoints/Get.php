@@ -45,7 +45,7 @@ class Get extends AbstractEndpoint
         return "/$index/_doc/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'stored_fields',

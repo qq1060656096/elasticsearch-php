@@ -31,7 +31,7 @@ class PutDatafeed extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_datafeed');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

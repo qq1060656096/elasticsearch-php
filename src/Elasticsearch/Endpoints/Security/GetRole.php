@@ -30,7 +30,7 @@ class GetRole extends AbstractEndpoint
         return "/_security/role";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

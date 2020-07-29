@@ -33,7 +33,7 @@ class Create extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint snapshot.create');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

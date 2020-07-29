@@ -29,7 +29,7 @@ class SearchShards extends AbstractEndpoint
         return "/_search_shards";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'preference',

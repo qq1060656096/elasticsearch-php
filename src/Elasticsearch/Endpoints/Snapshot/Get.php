@@ -33,7 +33,7 @@ class Get extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint snapshot.get');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

@@ -30,7 +30,7 @@ class GetCalendars extends AbstractEndpoint
         return "/_ml/calendars";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',

@@ -30,7 +30,7 @@ class GetJobStats extends AbstractEndpoint
         return "/_ml/anomaly_detectors/_stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_jobs'

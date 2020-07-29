@@ -30,7 +30,7 @@ class DataStreamsStats extends AbstractEndpoint
         return "/_data_stream/_stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'expand_wildcards',

@@ -25,7 +25,7 @@ class Help extends AbstractEndpoint
         return "/_cat";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'help',

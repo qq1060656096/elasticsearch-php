@@ -33,7 +33,7 @@ class Mount extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint searchable_snapshots.mount');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

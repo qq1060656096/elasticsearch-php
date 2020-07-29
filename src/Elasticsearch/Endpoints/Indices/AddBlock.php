@@ -32,7 +32,7 @@ class AddBlock extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.add_block');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',

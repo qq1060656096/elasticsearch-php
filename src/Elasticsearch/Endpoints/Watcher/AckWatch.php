@@ -38,7 +38,7 @@ class AckWatch extends AbstractEndpoint
         return "/_watcher/watch/$watch_id/_ack";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

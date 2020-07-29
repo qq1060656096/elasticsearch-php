@@ -25,7 +25,7 @@ class Stats extends AbstractEndpoint
         return "/_enrich/_stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

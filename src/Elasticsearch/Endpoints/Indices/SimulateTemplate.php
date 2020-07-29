@@ -30,7 +30,7 @@ class SimulateTemplate extends AbstractEndpoint
         return "/_index_template/_simulate";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'create',

@@ -39,7 +39,7 @@ class PostData extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.post_data');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'reset_start',

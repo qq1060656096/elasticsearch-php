@@ -234,7 +234,7 @@ class Connection implements ConnectionInterface
         return $this->transportSchema;
     }
 
-    public function getLastRequestInfo(): array
+    public function getLastRequestInfo()
     {
         return $this->lastRequest;
     }
@@ -356,12 +356,12 @@ class Connection implements ConnectionInterface
         return $uri ?? '';
     }
 
-    public function getHeaders(): array
+    public function getHeaders()
     {
         return $this->headers;
     }
 
-    public function logWarning(array $request, array $response): void
+    public function logWarning(array $request, array $response)
     {
         $this->log->warning('Deprecation', $response['headers']['Warning']);
     }
@@ -373,7 +373,7 @@ class Connection implements ConnectionInterface
      * @param array $response
      * @return void
      */
-    public function logRequestSuccess(array $request, array $response): void
+    public function logRequestSuccess(array $request, array $response)
     {
         $this->log->debug('Request Body', array($request['body']));
         $this->log->info(
@@ -413,7 +413,7 @@ class Connection implements ConnectionInterface
      *
      * @return void
      */
-    public function logRequestFail(array $request, array $response, \Exception $exception): void
+    public function logRequestFail(array $request, array $response, \Exception $exception)
     {
         $this->log->debug('Request Body', array($request['body']));
         
@@ -446,7 +446,7 @@ class Connection implements ConnectionInterface
         );
     }
 
-    public function ping(): bool
+    public function ping()
     {
         $options = [
             'client' => [
@@ -490,31 +490,31 @@ class Connection implements ConnectionInterface
         return $this->performRequest('GET', '/_nodes/', null, null, $options);
     }
 
-    public function isAlive(): bool
+    public function isAlive()
     {
         return $this->isAlive;
     }
 
-    public function markAlive(): void
+    public function markAlive()
     {
         $this->failedPings = 0;
         $this->isAlive = true;
         $this->lastPing = time();
     }
 
-    public function markDead(): void
+    public function markDead()
     {
         $this->isAlive = false;
         $this->failedPings += 1;
         $this->lastPing = time();
     }
 
-    public function getLastPing(): int
+    public function getLastPing()
     {
         return $this->lastPing;
     }
 
-    public function getPingFailures(): int
+    public function getPingFailures()
     {
         return $this->failedPings;
     }

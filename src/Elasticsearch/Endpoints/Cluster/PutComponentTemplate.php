@@ -31,7 +31,7 @@ class PutComponentTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint cluster.put_component_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'create',

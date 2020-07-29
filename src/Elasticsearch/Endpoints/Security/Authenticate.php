@@ -25,7 +25,7 @@ class Authenticate extends AbstractEndpoint
         return "/_security/_authenticate";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

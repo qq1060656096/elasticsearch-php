@@ -25,7 +25,7 @@ class GetBuiltinPrivileges extends AbstractEndpoint
         return "/_security/privilege/_builtin";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

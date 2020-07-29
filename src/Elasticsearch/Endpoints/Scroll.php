@@ -33,7 +33,7 @@ class Scroll extends AbstractEndpoint
         return "/_search/scroll";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'scroll',

@@ -30,7 +30,7 @@ class FollowInfo extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.follow_info');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

@@ -29,7 +29,7 @@ class Upgrade extends AbstractEndpoint
         return "/_upgrade";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_indices',

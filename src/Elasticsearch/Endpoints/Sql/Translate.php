@@ -25,7 +25,7 @@ class Translate extends AbstractEndpoint
         return "/_sql/translate";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

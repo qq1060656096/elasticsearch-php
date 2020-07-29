@@ -25,7 +25,7 @@ class Stop extends AbstractEndpoint
         return "/_ilm/stop";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

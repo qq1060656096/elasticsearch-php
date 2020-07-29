@@ -31,7 +31,7 @@ class CloseJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.close_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_jobs',

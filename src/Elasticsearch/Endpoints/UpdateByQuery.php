@@ -39,7 +39,7 @@ class UpdateByQuery extends AbstractEndpoint
         return "/$index/_update_by_query";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'analyzer',

@@ -25,7 +25,7 @@ class AllocationExplain extends AbstractEndpoint
         return "/_cluster/allocation/explain";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_yes_decisions',

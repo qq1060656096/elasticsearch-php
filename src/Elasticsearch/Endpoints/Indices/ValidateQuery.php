@@ -36,7 +36,7 @@ class ValidateQuery extends AbstractEndpoint
         return "/_validate/query";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'explain',

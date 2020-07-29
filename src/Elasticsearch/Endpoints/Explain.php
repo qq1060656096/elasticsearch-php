@@ -45,7 +45,7 @@ class Explain extends AbstractEndpoint
         return "/$index/_explain/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'analyze_wildcard',

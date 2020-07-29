@@ -31,7 +31,7 @@ class PutLifecycle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint slm.put_lifecycle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

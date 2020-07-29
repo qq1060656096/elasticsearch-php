@@ -29,7 +29,7 @@ class ExecuteWatch extends AbstractEndpoint
         return "/_watcher/watch/_execute";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'debug'

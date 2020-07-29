@@ -25,7 +25,7 @@ class GetScriptLanguages extends AbstractEndpoint
         return "/_script_language";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

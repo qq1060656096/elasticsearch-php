@@ -29,7 +29,7 @@ class Count extends AbstractEndpoint
         return "/_cat/count";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

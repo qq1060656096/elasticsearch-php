@@ -31,7 +31,7 @@ class GetTransformStats extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint data_frame_transform_deprecated.get_transform_stats');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',

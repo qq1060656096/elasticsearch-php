@@ -30,7 +30,7 @@ class Unfollow extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.unfollow');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

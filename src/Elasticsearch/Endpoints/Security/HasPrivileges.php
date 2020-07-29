@@ -30,7 +30,7 @@ class HasPrivileges extends AbstractEndpoint
         return "/_security/user/_has_privileges";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

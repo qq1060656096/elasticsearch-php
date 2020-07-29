@@ -30,7 +30,7 @@ class GetTemplate extends AbstractEndpoint
         return "/_template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',

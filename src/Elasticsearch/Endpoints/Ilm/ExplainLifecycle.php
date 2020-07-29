@@ -30,7 +30,7 @@ class ExplainLifecycle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ilm.explain_lifecycle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'only_managed',

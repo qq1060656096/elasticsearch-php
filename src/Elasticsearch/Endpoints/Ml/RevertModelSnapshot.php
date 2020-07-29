@@ -33,7 +33,7 @@ class RevertModelSnapshot extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.revert_model_snapshot');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'delete_intervening_results'

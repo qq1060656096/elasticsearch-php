@@ -30,7 +30,7 @@ class Unfreeze extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.unfreeze');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',

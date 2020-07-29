@@ -31,7 +31,7 @@ class ClearCachedPrivileges extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.clear_cached_privileges');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

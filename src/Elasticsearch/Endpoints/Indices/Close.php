@@ -30,7 +30,7 @@ class Close extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.close');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',

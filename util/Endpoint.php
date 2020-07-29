@@ -87,12 +87,12 @@ class Endpoint
         $this->requiredParts = $this->getRequiredParts($this->content);
     }
 
-    public function getParts(): array
+    public function getParts()
     {
         return $this->parts;
     }
 
-    private function getPartsFromContent(array $content): array
+    private function getPartsFromContent(array $content)
     {
         $parts = [];
         foreach ($content['url']['paths'] as $url) {
@@ -103,7 +103,7 @@ class Endpoint
         return $parts;
     }
 
-    private function getRequiredParts(array $content): array
+    private function getRequiredParts(array $content)
     {
         $required = [];
         // Get the list of required parts
@@ -186,7 +186,7 @@ class Endpoint
         return str_replace(':apiname', $this->apiName, $class);
     }
 
-    public function getMethod(): array
+    public function getMethod()
     {
         $methods = $this->content['url']['paths'][0]['methods'];
         foreach ($this->content['url']['paths'] as $path) {
@@ -305,7 +305,7 @@ class Endpoint
         return $checkPart . $params . $deprecated . $urls . $else;
     }
 
-    private function removePathWithSameParts(array $paths): array
+    private function removePathWithSameParts(array $paths)
     {
         $urls = [];
         $parsed = [];
@@ -330,7 +330,7 @@ class Endpoint
         return $urls;
     }
 
-    private function extractPaths(array $paths): array
+    private function extractPaths(array $paths)
     {
         $urls = $this->removePathWithSameParts($paths);
         // Order the url based on descendant length
@@ -341,13 +341,13 @@ class Endpoint
         return $urls;
     }
 
-    private function getPartsFromUrl(string $url): array
+    private function getPartsFromUrl(string $url)
     {
         preg_match_all('#\{([a-z_]+)\}#', $url, $match);
         return $match[1];
     }
 
-    private function addNamespace(string $namespace): void
+    private function addNamespace(string $namespace)
     {
         $this->useNamespace[$namespace] = sprintf("use %s;", $namespace);
     }
@@ -511,7 +511,7 @@ class Endpoint
         return $result;
     }
 
-    private function getMaxLengthBodyPartsParams(): int
+    private function getMaxLengthBodyPartsParams()
     {
         $max = isset($this->content['body']) ? 4 : 0;
         if (!empty($this->parts)) {
@@ -533,7 +533,7 @@ class Endpoint
         return $max;
     }
 
-    public function isBodyNull(): bool
+    public function isBodyNull()
     {
         return empty($this->content['body']);
     }

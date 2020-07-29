@@ -31,7 +31,7 @@ class DeleteRepository extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint snapshot.delete_repository');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

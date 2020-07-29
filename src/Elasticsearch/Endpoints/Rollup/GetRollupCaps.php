@@ -29,7 +29,7 @@ class GetRollupCaps extends AbstractEndpoint
         return "/_rollup/data/";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

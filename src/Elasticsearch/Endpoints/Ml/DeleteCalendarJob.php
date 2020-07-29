@@ -33,7 +33,7 @@ class DeleteCalendarJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_calendar_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

@@ -33,7 +33,7 @@ class Restore extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint snapshot.restore');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

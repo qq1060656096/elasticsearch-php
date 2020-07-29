@@ -38,7 +38,7 @@ class Info extends AbstractEndpoint
         return "/_nodes";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flat_settings',

@@ -44,7 +44,7 @@ class MsearchTemplate extends AbstractEndpoint
         return "/_msearch/template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'search_type',

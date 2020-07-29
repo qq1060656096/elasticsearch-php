@@ -31,7 +31,7 @@ class StopTransform extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint data_frame_transform_deprecated.stop_transform');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_completion',

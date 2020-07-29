@@ -30,7 +30,7 @@ class GetIndexTemplate extends AbstractEndpoint
         return "/_index_template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flat_settings',

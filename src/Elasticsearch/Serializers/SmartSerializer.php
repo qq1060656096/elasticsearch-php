@@ -69,7 +69,7 @@ class SmartSerializer implements SerializerInterface
      * @return array
      * @throws JsonErrorException
      */
-    private function decode(?string $data): array
+    private function decode(?string $data)
     {
         if ($data === null || strlen($data) === 0) {
             return [];

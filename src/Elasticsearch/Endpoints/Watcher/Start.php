@@ -25,7 +25,7 @@ class Start extends AbstractEndpoint
         return "/_watcher/_start";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

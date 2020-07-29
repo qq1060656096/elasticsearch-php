@@ -45,7 +45,7 @@ class Update extends AbstractEndpoint
         return "/$index/_update/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_active_shards',

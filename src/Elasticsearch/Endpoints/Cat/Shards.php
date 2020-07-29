@@ -29,7 +29,7 @@ class Shards extends AbstractEndpoint
         return "/_cat/shards";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

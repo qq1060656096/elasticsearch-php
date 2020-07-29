@@ -30,7 +30,7 @@ class ResumeFollow extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.resume_follow');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

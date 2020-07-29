@@ -30,7 +30,7 @@ class PauseFollow extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.pause_follow');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

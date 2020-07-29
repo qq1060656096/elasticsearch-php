@@ -147,7 +147,7 @@ class Transport
         return $result;
     }
 
-    public function shouldRetry(array $request): bool
+    public function shouldRetry(array $request)
     {
         if ($this->retryAttempts < $this->retries) {
             $this->retryAttempts += 1;

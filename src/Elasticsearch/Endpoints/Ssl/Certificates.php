@@ -25,7 +25,7 @@ class Certificates extends AbstractEndpoint
         return "/_ssl/certificates";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

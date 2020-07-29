@@ -31,7 +31,7 @@ class DisableUser extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.disable_user');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh'

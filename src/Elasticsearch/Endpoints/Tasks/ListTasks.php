@@ -25,7 +25,7 @@ class ListTasks extends AbstractEndpoint
         return "/_tasks";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'nodes',

@@ -31,7 +31,7 @@ class GetOverallBuckets extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.get_overall_buckets');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'top_n',

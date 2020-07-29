@@ -30,7 +30,7 @@ class GetTrainedModels extends AbstractEndpoint
         return "/_ml/inference";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_match',

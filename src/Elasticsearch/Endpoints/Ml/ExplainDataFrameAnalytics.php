@@ -29,7 +29,7 @@ class ExplainDataFrameAnalytics extends AbstractEndpoint
         return "/_ml/data_frame/analytics/_explain";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

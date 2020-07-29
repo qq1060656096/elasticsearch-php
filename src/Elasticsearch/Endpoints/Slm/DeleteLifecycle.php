@@ -31,7 +31,7 @@ class DeleteLifecycle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint slm.delete_lifecycle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

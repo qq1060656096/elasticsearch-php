@@ -36,7 +36,7 @@ class MTermVectors extends AbstractEndpoint
         return "/_mtermvectors";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ids',

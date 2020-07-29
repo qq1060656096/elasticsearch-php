@@ -30,7 +30,7 @@ class GetUser extends AbstractEndpoint
         return "/_security/user";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

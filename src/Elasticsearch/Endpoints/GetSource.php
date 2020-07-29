@@ -45,7 +45,7 @@ class GetSource extends AbstractEndpoint
         return "/$index/_source/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'preference',

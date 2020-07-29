@@ -31,7 +31,7 @@ class GetRecords extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.get_records');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'exclude_interim',

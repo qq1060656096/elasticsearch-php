@@ -30,7 +30,7 @@ class GetPolicy extends AbstractEndpoint
         return "/_enrich/policy/";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

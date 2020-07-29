@@ -25,7 +25,7 @@ class EvaluateDataFrame extends AbstractEndpoint
         return "/_ml/data_frame/_evaluate";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

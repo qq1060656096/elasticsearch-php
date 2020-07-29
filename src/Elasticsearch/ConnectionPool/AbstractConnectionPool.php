@@ -83,5 +83,5 @@ abstract class AbstractConnectionPool implements ConnectionPoolInterface
 
     abstract public function nextConnection(bool $force = false): ConnectionInterface;
 
-    abstract public function scheduleCheck(): void;
+    abstract public function scheduleCheck();
 }

@@ -29,7 +29,7 @@ class Recovery extends AbstractEndpoint
         return "/_recovery";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'detailed',

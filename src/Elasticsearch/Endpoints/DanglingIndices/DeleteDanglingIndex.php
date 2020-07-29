@@ -31,7 +31,7 @@ class DeleteDanglingIndex extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint dangling_indices.delete_dangling_index');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'accept_data_loss',

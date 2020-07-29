@@ -31,7 +31,7 @@ class ExistsTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.exists_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flat_settings',

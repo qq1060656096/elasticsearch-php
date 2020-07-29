@@ -30,7 +30,7 @@ class GetRepository extends AbstractEndpoint
         return "/_snapshot";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

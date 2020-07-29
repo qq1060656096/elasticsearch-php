@@ -29,7 +29,7 @@ class Submit extends AbstractEndpoint
         return "/_async_search";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_completion_timeout',

@@ -25,7 +25,7 @@ class DeleteVotingConfigExclusions extends AbstractEndpoint
         return "/_cluster/voting_config_exclusions";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_removal'

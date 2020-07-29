@@ -25,7 +25,7 @@ class SetUpgradeMode extends AbstractEndpoint
         return "/_ml/set_upgrade_mode";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'enabled',

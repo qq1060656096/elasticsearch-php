@@ -29,7 +29,7 @@ class PutSettings extends AbstractEndpoint
         return "/_settings";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

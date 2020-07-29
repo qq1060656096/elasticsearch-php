@@ -29,7 +29,7 @@ class ForceMerge extends AbstractEndpoint
         return "/_forcemerge";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flush',

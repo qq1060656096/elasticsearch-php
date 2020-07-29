@@ -29,7 +29,7 @@ class Analyze extends AbstractEndpoint
         return "/_analyze";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'index'

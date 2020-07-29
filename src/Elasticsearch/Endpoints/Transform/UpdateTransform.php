@@ -31,7 +31,7 @@ class UpdateTransform extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint transform.update_transform');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'defer_validation'

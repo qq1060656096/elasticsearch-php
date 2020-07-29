@@ -30,7 +30,7 @@ class Retry extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ilm.retry');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

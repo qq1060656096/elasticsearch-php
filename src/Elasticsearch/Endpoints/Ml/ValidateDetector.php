@@ -25,7 +25,7 @@ class ValidateDetector extends AbstractEndpoint
         return "/_ml/anomaly_detectors/_validate/detector";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

@@ -36,7 +36,7 @@ class SearchTemplate extends AbstractEndpoint
         return "/_search/template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

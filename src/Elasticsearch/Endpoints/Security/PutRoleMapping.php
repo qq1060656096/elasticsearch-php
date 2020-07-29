@@ -31,7 +31,7 @@ class PutRoleMapping extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.put_role_mapping');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh'

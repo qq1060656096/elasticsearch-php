@@ -25,7 +25,7 @@ class InvalidateToken extends AbstractEndpoint
         return "/_security/oauth2/token";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

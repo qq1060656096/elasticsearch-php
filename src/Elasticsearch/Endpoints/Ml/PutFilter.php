@@ -31,7 +31,7 @@ class PutFilter extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_filter');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

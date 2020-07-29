@@ -30,7 +30,7 @@ class Snapshots extends AbstractEndpoint
         return "/_cat/snapshots";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

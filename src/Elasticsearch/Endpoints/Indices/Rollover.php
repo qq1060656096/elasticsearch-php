@@ -38,7 +38,7 @@ class Rollover extends AbstractEndpoint
         return "/$alias/_rollover";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',

@@ -30,7 +30,7 @@ class DeleteExpiredData extends AbstractEndpoint
         return "/_ml/_delete_expired_data";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'requests_per_second',

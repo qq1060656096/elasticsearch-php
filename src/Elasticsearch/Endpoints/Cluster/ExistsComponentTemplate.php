@@ -31,7 +31,7 @@ class ExistsComponentTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint cluster.exists_component_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

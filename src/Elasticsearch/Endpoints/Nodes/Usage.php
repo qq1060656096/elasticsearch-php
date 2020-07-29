@@ -38,7 +38,7 @@ class Usage extends AbstractEndpoint
         return "/_nodes/usage";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout'

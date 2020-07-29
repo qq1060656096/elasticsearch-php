@@ -25,7 +25,7 @@ class Info extends AbstractEndpoint
         return "/_ml/info";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

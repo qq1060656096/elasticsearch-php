@@ -31,7 +31,7 @@ class DeleteDatafeed extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_datafeed');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'force'

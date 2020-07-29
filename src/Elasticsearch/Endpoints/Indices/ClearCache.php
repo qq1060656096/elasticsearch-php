@@ -29,7 +29,7 @@ class ClearCache extends AbstractEndpoint
         return "/_cache/clear";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'fielddata',

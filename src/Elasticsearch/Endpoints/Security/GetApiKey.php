@@ -25,7 +25,7 @@ class GetApiKey extends AbstractEndpoint
         return "/_security/api_key";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'id',

@@ -25,7 +25,7 @@ class Info extends AbstractEndpoint
         return "/_xpack";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'categories',

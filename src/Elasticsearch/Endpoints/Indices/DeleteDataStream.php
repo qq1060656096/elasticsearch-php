@@ -31,7 +31,7 @@ class DeleteDataStream extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.delete_data_stream');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

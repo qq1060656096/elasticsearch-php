@@ -25,7 +25,7 @@ class PreviewTransform extends AbstractEndpoint
         return "/_transform/_preview";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

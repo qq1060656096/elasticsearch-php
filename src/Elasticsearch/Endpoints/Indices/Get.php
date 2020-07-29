@@ -30,7 +30,7 @@ class Get extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.get');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',

@@ -31,7 +31,7 @@ class GetTransformStats extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint transform.get_transform_stats');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',

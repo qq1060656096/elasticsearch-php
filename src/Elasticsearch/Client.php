@@ -539,7 +539,7 @@ class Client
      * @return bool
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-get.html
      */
-    public function exists(array $params = []): bool
+    public function exists(array $params = [])
     {
         $id = $this->extractArgument($params, 'id');
         $index = $this->extractArgument($params, 'index');
@@ -575,7 +575,7 @@ class Client
      * @return bool
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-get.html
      */
-    public function existsSource(array $params = []): bool
+    public function existsSource(array $params = [])
     {
         $id = $this->extractArgument($params, 'id');
         $index = $this->extractArgument($params, 'index');
@@ -966,7 +966,7 @@ class Client
      * @return bool
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
      */
-    public function ping(array $params = []): bool
+    public function ping(array $params = [])
     {
 
         // manually make this verbose so we can check status code

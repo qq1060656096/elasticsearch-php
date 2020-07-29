@@ -30,7 +30,7 @@ class MoveToStep extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ilm.move_to_step');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

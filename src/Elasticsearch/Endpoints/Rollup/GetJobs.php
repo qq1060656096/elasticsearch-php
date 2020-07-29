@@ -29,7 +29,7 @@ class GetJobs extends AbstractEndpoint
         return "/_rollup/job/";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

@@ -25,7 +25,7 @@ class GetStats extends AbstractEndpoint
         return "/_slm/stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

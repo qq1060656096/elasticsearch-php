@@ -30,7 +30,7 @@ class Fielddata extends AbstractEndpoint
         return "/_cat/fielddata";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

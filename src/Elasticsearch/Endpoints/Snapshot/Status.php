@@ -35,7 +35,7 @@ class Status extends AbstractEndpoint
         return "/_snapshot/_status";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',

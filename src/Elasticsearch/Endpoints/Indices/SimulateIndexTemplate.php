@@ -31,7 +31,7 @@ class SimulateIndexTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.simulate_index_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'create',

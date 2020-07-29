@@ -45,7 +45,7 @@ class Create extends AbstractEndpoint
         return "/$index/_create/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_active_shards',

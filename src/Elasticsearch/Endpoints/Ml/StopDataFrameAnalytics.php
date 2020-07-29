@@ -30,7 +30,7 @@ class StopDataFrameAnalytics extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.stop_data_frame_analytics');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_match',

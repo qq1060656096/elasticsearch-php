@@ -33,7 +33,7 @@ class FindFileStructure extends AbstractEndpoint
         return "/_ml/find_file_structure";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'lines_to_sample',

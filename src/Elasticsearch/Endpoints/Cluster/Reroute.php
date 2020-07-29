@@ -25,7 +25,7 @@ class Reroute extends AbstractEndpoint
         return "/_cluster/reroute";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'dry_run',

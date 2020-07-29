@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class SmartSerializerTest extends TestCase
 {
-    public function setUp(): void
+    public function setUp()
     {
         $this->serializer = new SmartSerializer();
     }

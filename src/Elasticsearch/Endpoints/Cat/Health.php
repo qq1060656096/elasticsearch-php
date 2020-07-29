@@ -25,7 +25,7 @@ class Health extends AbstractEndpoint
         return "/_cat/health";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

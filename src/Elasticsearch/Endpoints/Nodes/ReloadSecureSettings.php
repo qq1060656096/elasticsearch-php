@@ -30,7 +30,7 @@ class ReloadSecureSettings extends AbstractEndpoint
         return "/_nodes/reload_secure_settings";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout'

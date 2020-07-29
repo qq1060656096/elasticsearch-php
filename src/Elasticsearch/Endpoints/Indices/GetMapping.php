@@ -39,7 +39,7 @@ class GetMapping extends AbstractEndpoint
         return "/_mapping";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',

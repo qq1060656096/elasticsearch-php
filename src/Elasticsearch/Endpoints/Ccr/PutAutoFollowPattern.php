@@ -31,7 +31,7 @@ class PutAutoFollowPattern extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.put_auto_follow_pattern');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

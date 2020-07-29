@@ -44,7 +44,7 @@ class Bulk extends AbstractEndpoint
         return "/_bulk";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_active_shards',

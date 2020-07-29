@@ -159,7 +159,7 @@ function normalizeApiName(string $api): string
 /**
  * Check if the generated code has a valid PHP syntax using Elasticsearch\Client
  */
-function checkIfCodeHasValidSyntax(string $code): void
+function checkIfCodeHasValidSyntax(string $code)
 {
     $script = sprintf("require_once '%s/vendor/autoload.php';\n", dirname(__DIR__));
     $script .= '$client = Elasticsearch\ClientBuilder::create()->build();' . "\n";
@@ -178,7 +178,7 @@ function checkIfCodeHasValidSyntax(string $code): void
 /**
  * Remove all files in a folder
  */
-function removeAllFiles(string $folder): void
+function removeAllFiles(string $folder)
 {
     $files = glob($folder); 
     foreach($files as $file) { 
@@ -191,7 +191,7 @@ function removeAllFiles(string $folder): void
 /**
  * Print the usage message in console
  */
-function printUsageMsg(): void
+function printUsageMsg()
 {
     printf("Usage: php %s <PATH_TO_JSON>\n", basename(__FILE__));
     printf("where <PATH_TO_JSON> is the `alternatives_report.spec.json` path file\n");

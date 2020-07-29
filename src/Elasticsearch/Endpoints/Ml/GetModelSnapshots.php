@@ -38,7 +38,7 @@ class GetModelSnapshots extends AbstractEndpoint
         return "/_ml/anomaly_detectors/$job_id/model_snapshots";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',

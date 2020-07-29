@@ -30,7 +30,7 @@ class DeleteScript extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint delete_script');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',

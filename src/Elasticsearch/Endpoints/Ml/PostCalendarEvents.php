@@ -31,7 +31,7 @@ class PostCalendarEvents extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.post_calendar_events');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

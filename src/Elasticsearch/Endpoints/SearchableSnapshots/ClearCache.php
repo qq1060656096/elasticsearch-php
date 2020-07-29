@@ -29,7 +29,7 @@ class ClearCache extends AbstractEndpoint
         return "/_searchable_snapshots/cache/clear";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',

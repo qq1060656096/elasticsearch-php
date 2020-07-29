@@ -31,7 +31,7 @@ class DeleteByQueryRethrottle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint delete_by_query_rethrottle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'requests_per_second'

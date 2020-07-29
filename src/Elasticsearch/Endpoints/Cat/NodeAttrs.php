@@ -25,7 +25,7 @@ class NodeAttrs extends AbstractEndpoint
         return "/_cat/nodeattrs";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

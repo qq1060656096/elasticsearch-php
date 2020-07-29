@@ -46,7 +46,7 @@ class Index extends AbstractEndpoint
         return "/$index/_doc";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_active_shards',

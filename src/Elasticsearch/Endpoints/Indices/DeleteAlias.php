@@ -39,7 +39,7 @@ class DeleteAlias extends AbstractEndpoint
         return "/$index/_alias/$name";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',

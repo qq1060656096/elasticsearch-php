@@ -33,7 +33,7 @@ class DeleteModelSnapshot extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_model_snapshot');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

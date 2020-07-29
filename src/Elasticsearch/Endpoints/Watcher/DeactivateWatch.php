@@ -31,7 +31,7 @@ class DeactivateWatch extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint watcher.deactivate_watch');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

@@ -31,7 +31,7 @@ class GetInfluencers extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.get_influencers');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'exclude_interim',

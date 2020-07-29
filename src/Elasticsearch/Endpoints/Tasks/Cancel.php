@@ -30,7 +30,7 @@ class Cancel extends AbstractEndpoint
         return "/_tasks/_cancel";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'nodes',

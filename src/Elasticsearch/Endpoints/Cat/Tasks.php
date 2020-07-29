@@ -25,7 +25,7 @@ class Tasks extends AbstractEndpoint
         return "/_cat/tasks";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

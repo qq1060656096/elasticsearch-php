@@ -25,7 +25,7 @@ class Plugins extends AbstractEndpoint
         return "/_cat/plugins";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

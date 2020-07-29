@@ -30,7 +30,7 @@ class Templates extends AbstractEndpoint
         return "/_cat/templates";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

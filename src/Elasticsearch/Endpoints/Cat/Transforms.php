@@ -30,7 +30,7 @@ class Transforms extends AbstractEndpoint
         return "/_cat/transforms";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',

@@ -19,5 +19,5 @@ interface ConnectionPoolInterface
 {
     public function nextConnection(bool $force = false): ConnectionInterface;
 
-    public function scheduleCheck(): void;
+    public function scheduleCheck();
 }

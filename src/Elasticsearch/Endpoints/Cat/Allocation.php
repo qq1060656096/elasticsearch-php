@@ -30,7 +30,7 @@ class Allocation extends AbstractEndpoint
         return "/_cat/allocation";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

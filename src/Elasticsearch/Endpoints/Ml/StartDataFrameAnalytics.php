@@ -30,7 +30,7 @@ class StartDataFrameAnalytics extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.start_data_frame_analytics');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout'

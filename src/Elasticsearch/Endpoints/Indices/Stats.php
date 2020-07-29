@@ -37,7 +37,7 @@ class Stats extends AbstractEndpoint
         return "/_stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'completion_fields',

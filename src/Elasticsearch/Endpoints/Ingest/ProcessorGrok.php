@@ -25,7 +25,7 @@ class ProcessorGrok extends AbstractEndpoint
         return "/_ingest/processor/grok";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             

@@ -25,7 +25,7 @@ class Nodes extends AbstractEndpoint
         return "/_cat/nodes";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'bytes',

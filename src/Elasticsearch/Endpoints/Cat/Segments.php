@@ -29,7 +29,7 @@ class Segments extends AbstractEndpoint
         return "/_cat/segments";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',

@@ -50,11 +50,11 @@ class StaticNoPingConnectionPool extends AbstractConnectionPool implements Conne
         throw new NoNodesAvailableException("No alive nodes found in your cluster");
     }
 
-    public function scheduleCheck(): void
+    public function scheduleCheck()
     {
     }
 
-    private function readyToRevive(Connection $connection): bool
+    private function readyToRevive(Connection $connection)
     {
         $timeout = min(
             $this->pingTimeout * pow(2, $connection->getPingFailures()),

@@ -39,7 +39,7 @@ class Explore extends AbstractEndpoint
         return "/$index/_graph/explore";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'routing',

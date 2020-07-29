@@ -25,7 +25,7 @@ class GetAutoscalingDecision extends AbstractEndpoint
         return "/_autoscaling/decision";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }

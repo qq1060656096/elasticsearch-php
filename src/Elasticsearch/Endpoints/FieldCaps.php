@@ -29,7 +29,7 @@ class FieldCaps extends AbstractEndpoint
         return "/_field_caps";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'fields',
