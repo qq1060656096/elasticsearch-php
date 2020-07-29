@@ -407,4 +407,4 @@ LGPL v2.1 Notice:
 
 
 /usr/local/Cellar/php@5.6/5.6.40/bin/php /usr/local/bin/composer install -vvv
-/usr/local/Cellar/php@5.6/5.6.40/bin/php build/phpunit5.7.27-php5.6 --bootstrap=tests/bootstrap tests/Elasticsearch
+/usr/local/Cellar/php@5.6/5.6.40/bin/php build/phpunit5.7.27-php5.6 --bootstrap ./tests/bootstrap.php tests/Elasticsearch
