@@ -26,10 +26,10 @@ Features
 
 Version Matrix
 --------------
-
 | Elasticsearch Version | Elasticsearch-PHP Branch |
 | --------------------- | ------------------------ |
 | >= 6.6, <= 6.7        | 6.7                      |
+| >= 6.0, <= 6.5        | 6.5.x-php5.6             |
 | >= 6.0, <= 6.5        | 6.5                      |
 | >= 5.0, < 6.0         | 5.0                      |
 | >= 2.0, < 5.0         | 1.0 or 2.0               |
@@ -37,6 +37,7 @@ Version Matrix
 | <= 0.90.x             | 0.4                      |
 
  - If you are using Elasticsearch 6.6 or 6.7, use Elasticsearch-PHP 6.7 branch.
+ - If you are using Elasticsearch 6.0 to 6.5, use Elasticsearch-PHP 6.5.x-php5.6 branch.
  - If you are using Elasticsearch 6.0 to 6.5, use Elasticsearch-PHP 6.5 branch.
  - If you are using Elasticsearch 5.x, use Elasticsearch-PHP 5.0 branch.
  - If you are using Elasticsearch 1.x or 2.x, prefer using the Elasticsearch-PHP 2.0 branch.  The 1.0 branch is compatible however.
@@ -96,6 +97,7 @@ extension to be version 1.3.7 or higher.
 | Elasticsearch-PHP Branch | PHP Version |
 | ----------- | ------------------------ |
 | 6.0         | >= 7.0.0                 |
+| 6.5.x-php5.6         | >= 5.6.6                 |
 | 5.0         | >= 5.6.6                 |
 | 2.0         | >= 5.4.0                 |
 | 0.4, 1.0    | >= 5.3.9                 |
