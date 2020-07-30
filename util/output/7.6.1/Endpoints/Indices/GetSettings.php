@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -20,7 +20,7 @@ class GetSettings extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
         $name = $this->name ?? null;
@@ -37,7 +37,7 @@ class GetSettings extends AbstractEndpoint
         return "/_settings";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -50,12 +50,12 @@ class GetSettings extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetSettings
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

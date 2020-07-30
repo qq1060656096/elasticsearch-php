@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -64,17 +64,17 @@ abstract class AbstractEndpoint
     /**
      * @return string[]
      */
-    abstract public function getParamWhitelist(): array;
+    abstract public function getParamWhitelist();
 
     /**
      * @return string
      */
-    abstract public function getURI(): string;
+    abstract public function getURI();
 
     /**
      * @return string
      */
-    abstract public function getMethod(): string;
+    abstract public function getMethod();
 
 
     /**
@@ -93,17 +93,17 @@ abstract class AbstractEndpoint
         return $this;
     }
 
-    public function getParams(): array
+    public function getParams()
     {
         return $this->params;
     }
 
-    public function getOptions(): array
+    public function getOptions()
     {
         return $this->options;
     }
 
-    public function getIndex(): ?string
+    public function getIndex()
     {
         return $this->index;
     }
@@ -130,7 +130,7 @@ abstract class AbstractEndpoint
     /**
      * @deprecated
      */
-    public function getType(): ?string
+    public function getType()
     {
         return $this->type;
     }
@@ -183,7 +183,7 @@ abstract class AbstractEndpoint
         return $this->body;
     }
 
-    protected function getOptionalURI(string $endpoint): string
+    protected function getOptionalURI(string $endpoint)
     {
         $uri = [];
         $uri[] = $this->getOptionalIndex();
@@ -194,7 +194,7 @@ abstract class AbstractEndpoint
         return '/' . implode('/', $uri);
     }
 
-    private function getOptionalIndex(): string
+    private function getOptionalIndex()
     {
         if (isset($this->index) === true) {
             return $this->index;
@@ -203,7 +203,7 @@ abstract class AbstractEndpoint
         }
     }
 
-    private function getOptionalType(): string
+    private function getOptionalType()
     {
         if (isset($this->type) === true) {
             return $this->type;
@@ -273,7 +273,7 @@ abstract class AbstractEndpoint
         }
     }
 
-    private function convertCustom(array $params): array
+    private function convertCustom(array $params)
     {
         if (isset($params['custom']) === true) {
             foreach ($params['custom'] as $k => $v) {
@@ -285,7 +285,7 @@ abstract class AbstractEndpoint
         return $params;
     }
 
-    private function convertArraysToStrings(array $params): array
+    private function convertArraysToStrings(array $params)
     {
         foreach ($params as $key => &$value) {
             if (!($key === 'client' || $key == 'custom') && is_array($value) === true) {
@@ -298,7 +298,7 @@ abstract class AbstractEndpoint
         return $params;
     }
 
-    private function isNestedArray(array $a): bool
+    private function isNestedArray(array $a)
     {
         foreach ($a as $v) {
             if (is_array($v)) {

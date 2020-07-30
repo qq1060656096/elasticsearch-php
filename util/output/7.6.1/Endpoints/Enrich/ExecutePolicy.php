@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Enrich;
 
@@ -21,7 +21,7 @@ class ExecutePolicy extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,19 +31,19 @@ class ExecutePolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint enrich.execute_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_completion'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setName($name): ExecutePolicy
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

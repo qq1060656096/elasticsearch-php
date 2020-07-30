@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cluster;
 
@@ -20,7 +20,7 @@ class Stats extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $node_id = $this->node_id ?? null;
 
@@ -30,7 +30,7 @@ class Stats extends AbstractEndpoint
         return "/_cluster/stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flat_settings',
@@ -38,12 +38,12 @@ class Stats extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Stats
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class MTermVectors extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
         $type = $this->type ?? null;
@@ -36,7 +36,7 @@ class MTermVectors extends AbstractEndpoint
         return "/_mtermvectors";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ids',
@@ -54,12 +54,12 @@ class MTermVectors extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): MTermVectors
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

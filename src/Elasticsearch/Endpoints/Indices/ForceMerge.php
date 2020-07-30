@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ForceMerge extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
 
@@ -29,7 +29,7 @@ class ForceMerge extends AbstractEndpoint
         return "/_forcemerge";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flush',
@@ -41,7 +41,7 @@ class ForceMerge extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }

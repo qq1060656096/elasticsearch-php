@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -20,7 +20,7 @@ class GetTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -30,7 +30,7 @@ class GetTemplate extends AbstractEndpoint
         return "/_template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',
@@ -40,12 +40,12 @@ class GetTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

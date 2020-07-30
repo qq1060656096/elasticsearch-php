@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Snapshot;
 
@@ -21,7 +21,7 @@ class CreateRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
         $repository = $this->repository ?? null;
 
@@ -31,7 +31,7 @@ class CreateRepository extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint snapshot.create_repository');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -40,12 +40,12 @@ class CreateRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): CreateRepository
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class CreateRepository extends AbstractEndpoint
         return $this;
     }
 
-    public function setRepository($repository): CreateRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

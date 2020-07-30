@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Nodes;
 
@@ -21,7 +21,7 @@ class Usage extends AbstractEndpoint
     protected $node_id;
     protected $metric;
 
-    public function getURI(): string
+    public function getURI()
     {
         $node_id = $this->node_id ?? null;
         $metric = $this->metric ?? null;
@@ -38,19 +38,19 @@ class Usage extends AbstractEndpoint
         return "/_nodes/usage";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Usage
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;
@@ -63,7 +63,7 @@ class Usage extends AbstractEndpoint
         return $this;
     }
 
-    public function setMetric($metric): Usage
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;

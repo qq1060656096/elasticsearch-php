@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class GetCalendarEvents extends AbstractEndpoint
 {
     protected $calendar_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $calendar_id = $this->calendar_id ?? null;
 
@@ -31,7 +31,7 @@ class GetCalendarEvents extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.get_calendar_events');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'job_id',
@@ -42,12 +42,12 @@ class GetCalendarEvents extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setCalendarId($calendar_id): GetCalendarEvents
+    public function setCalendarId($calendar_id)
     {
         if (isset($calendar_id) !== true) {
             return $this;

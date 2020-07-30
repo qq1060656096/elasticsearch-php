@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class ExistsSource extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->id) !== true) {
             throw new RuntimeException(
@@ -45,7 +45,7 @@ class ExistsSource extends AbstractEndpoint
         return "/$index/_source/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'preference',
@@ -60,12 +60,12 @@ class ExistsSource extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'HEAD';
     }
 
-    public function setId($id): ExistsSource
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

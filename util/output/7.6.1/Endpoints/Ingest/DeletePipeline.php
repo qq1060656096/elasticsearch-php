@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ingest;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class DeletePipeline extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -30,7 +30,7 @@ class DeletePipeline extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ingest.delete_pipeline');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -38,12 +38,12 @@ class DeletePipeline extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setId($id): DeletePipeline
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

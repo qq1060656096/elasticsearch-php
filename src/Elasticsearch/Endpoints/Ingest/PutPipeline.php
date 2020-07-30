@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ingest;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class PutPipeline extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -30,7 +30,7 @@ class PutPipeline extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ingest.put_pipeline');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -38,12 +38,12 @@ class PutPipeline extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutPipeline
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

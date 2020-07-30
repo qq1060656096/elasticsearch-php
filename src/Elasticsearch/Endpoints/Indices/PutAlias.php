@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -21,7 +21,7 @@ class PutAlias extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->index) !== true) {
             throw new RuntimeException(
@@ -39,7 +39,7 @@ class PutAlias extends AbstractEndpoint
         return "/$index/_alias/$name";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',
@@ -47,12 +47,12 @@ class PutAlias extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutAlias
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -62,7 +62,7 @@ class PutAlias extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): PutAlias
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

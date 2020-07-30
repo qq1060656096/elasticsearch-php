@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Watcher;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class DeleteWatch extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -30,17 +30,17 @@ class DeleteWatch extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint watcher.delete_watch');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setId($id): DeleteWatch
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

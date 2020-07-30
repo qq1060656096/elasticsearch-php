@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Namespaces;
 
@@ -287,7 +287,7 @@ class IndicesNamespace extends AbstractNamespace
      * @return bool
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html
      */
-    public function exists(array $params = []): bool
+    public function exists(array $params = [])
     {
         $index = $this->extractArgument($params, 'index');
 
@@ -313,7 +313,7 @@ class IndicesNamespace extends AbstractNamespace
      * @return bool
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html
      */
-    public function existsAlias(array $params = []): bool
+    public function existsAlias(array $params = [])
     {
         $name = $this->extractArgument($params, 'name');
         $index = $this->extractArgument($params, 'index');
@@ -342,7 +342,7 @@ class IndicesNamespace extends AbstractNamespace
      * @note This API is EXPERIMENTAL and may be changed or removed completely in a future release
      *
      */
-    public function existsIndexTemplate(array $params = []): bool
+    public function existsIndexTemplate(array $params = [])
     {
         $name = $this->extractArgument($params, 'name');
 
@@ -366,7 +366,7 @@ class IndicesNamespace extends AbstractNamespace
      * @return bool
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html
      */
-    public function existsTemplate(array $params = []): bool
+    public function existsTemplate(array $params = [])
     {
         $name = $this->extractArgument($params, 'name');
 
@@ -392,7 +392,7 @@ class IndicesNamespace extends AbstractNamespace
      * @return bool
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-types-exists.html
      */
-    public function existsType(array $params = []): bool
+    public function existsType(array $params = [])
     {
         $index = $this->extractArgument($params, 'index');
         $type = $this->extractArgument($params, 'type');

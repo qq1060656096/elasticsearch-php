@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Connections;
 
@@ -229,17 +229,17 @@ class Connection implements ConnectionInterface
         return $future;
     }
 
-    public function getTransportSchema(): string
+    public function getTransportSchema()
     {
         return $this->transportSchema;
     }
 
-    public function getLastRequestInfo(): array
+    public function getLastRequestInfo()
     {
         return $this->lastRequest;
     }
 
-    private function wrapHandler(callable $handler): callable
+    private function wrapHandler(callable $handler)
     {
         return function (array $request, Connection $connection, Transport $transport = null, $options) use ($handler) {
 
@@ -332,7 +332,7 @@ class Connection implements ConnectionInterface
         };
     }
 
-    private function getURI(string $uri, ?array $params): string
+    private function getURI(string $uri, ?array $params)
     {
         if (isset($params) === true && !empty($params)) {
             array_walk(
@@ -356,12 +356,12 @@ class Connection implements ConnectionInterface
         return $uri ?? '';
     }
 
-    public function getHeaders(): array
+    public function getHeaders()
     {
         return $this->headers;
     }
 
-    public function logWarning(array $request, array $response): void
+    public function logWarning(array $request, array $response)
     {
         $this->log->warning('Deprecation', $response['headers']['Warning']);
     }
@@ -373,7 +373,7 @@ class Connection implements ConnectionInterface
      * @param array $response
      * @return void
      */
-    public function logRequestSuccess(array $request, array $response): void
+    public function logRequestSuccess(array $request, array $response)
     {
         $this->log->debug('Request Body', array($request['body']));
         $this->log->info(
@@ -413,7 +413,7 @@ class Connection implements ConnectionInterface
      *
      * @return void
      */
-    public function logRequestFail(array $request, array $response, \Exception $exception): void
+    public function logRequestFail(array $request, array $response, \Exception $exception)
     {
         $this->log->debug('Request Body', array($request['body']));
         
@@ -446,7 +446,7 @@ class Connection implements ConnectionInterface
         );
     }
 
-    public function ping(): bool
+    public function ping()
     {
         $options = [
             'client' => [
@@ -490,46 +490,46 @@ class Connection implements ConnectionInterface
         return $this->performRequest('GET', '/_nodes/', null, null, $options);
     }
 
-    public function isAlive(): bool
+    public function isAlive()
     {
         return $this->isAlive;
     }
 
-    public function markAlive(): void
+    public function markAlive()
     {
         $this->failedPings = 0;
         $this->isAlive = true;
         $this->lastPing = time();
     }
 
-    public function markDead(): void
+    public function markDead()
     {
         $this->isAlive = false;
         $this->failedPings += 1;
         $this->lastPing = time();
     }
 
-    public function getLastPing(): int
+    public function getLastPing()
     {
         return $this->lastPing;
     }
 
-    public function getPingFailures(): int
+    public function getPingFailures()
     {
         return $this->failedPings;
     }
 
-    public function getHost(): string
+    public function getHost()
     {
         return $this->host;
     }
 
-    public function getUserPass(): ?string
+    public function getUserPass()
     {
         return $this->connectionParams['client']['curl'][CURLOPT_USERPWD] ?? null;
     }
 
-    public function getPath(): ?string
+    public function getPath()
     {
         return $this->path;
     }
@@ -542,7 +542,7 @@ class Connection implements ConnectionInterface
         return $this->port;
     }
 
-    protected function getCurlRetryException(array $request, array $response): ElasticsearchException
+    protected function getCurlRetryException(array $request, array $response)
     {
         $exception = null;
         $message = $response['error']->getMessage();
@@ -568,7 +568,7 @@ class Connection implements ConnectionInterface
      *
      * @see  https://github.com/elastic/elasticsearch-php/issues/922
      */
-    private function getOSVersion(): string
+    private function getOSVersion()
     {
         if ($this->OSVersion === null) {
             $this->OSVersion = strpos(strtolower(ini_get('disable_functions')), 'php_uname') !== false
@@ -581,7 +581,7 @@ class Connection implements ConnectionInterface
     /**
      * Construct a string cURL command
      */
-    private function buildCurlCommand(string $method, string $uri, ?string $body): string
+    private function buildCurlCommand(string $method, string $uri, ?string $body)
     {
         if (strpos($uri, '?') === false) {
             $uri .= '?pretty=true';
@@ -599,7 +599,7 @@ class Connection implements ConnectionInterface
         return $curlCommand;
     }
 
-    private function process4xxError(array $request, array $response, array $ignore): ?ElasticsearchException
+    private function process4xxError(array $request, array $response, array $ignore)
     {
         $statusCode = $response['status'];
         $responseBody = $response['body'];
@@ -637,7 +637,7 @@ class Connection implements ConnectionInterface
         throw $exception;
     }
 
-    private function process5xxError(array $request, array $response, array $ignore): ?ElasticsearchException
+    private function process5xxError(array $request, array $response, array $ignore)
     {
         $statusCode = (int) $response['status'];
         $responseBody = $response['body'];
@@ -670,17 +670,17 @@ class Connection implements ConnectionInterface
         throw $exception;
     }
 
-    private function tryDeserialize400Error(array $response): ElasticsearchException
+    private function tryDeserialize400Error(array $response)
     {
         return $this->tryDeserializeError($response, BadRequest400Exception::class);
     }
 
-    private function tryDeserialize500Error(array $response): ElasticsearchException
+    private function tryDeserialize500Error(array $response)
     {
         return $this->tryDeserializeError($response, ServerErrorResponseException::class);
     }
 
-    private function tryDeserializeError(array $response, string $errorClass): ElasticsearchException
+    private function tryDeserializeError(array $response, string $errorClass)
     {
         $error = $this->serializer->deserialize($response['body'], $response['transfer_stats']);
         if (is_array($error) === true) {

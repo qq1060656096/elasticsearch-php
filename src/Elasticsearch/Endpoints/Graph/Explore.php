@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Graph;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Explore extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->index) !== true) {
             throw new RuntimeException(
@@ -39,7 +39,7 @@ class Explore extends AbstractEndpoint
         return "/$index/_graph/explore";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'routing',
@@ -47,12 +47,12 @@ class Explore extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): Explore
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

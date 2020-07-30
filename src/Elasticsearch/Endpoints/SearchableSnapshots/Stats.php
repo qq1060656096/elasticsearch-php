@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\SearchableSnapshots;
 
@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Stats extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
 
@@ -29,12 +29,12 @@ class Stats extends AbstractEndpoint
         return "/_searchable_snapshots/stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

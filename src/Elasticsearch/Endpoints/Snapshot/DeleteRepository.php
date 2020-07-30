@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Snapshot;
 
@@ -21,7 +21,7 @@ class DeleteRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
         $repository = $this->repository ?? null;
 
@@ -31,7 +31,7 @@ class DeleteRepository extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint snapshot.delete_repository');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -39,12 +39,12 @@ class DeleteRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setRepository($repository): DeleteRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

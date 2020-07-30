@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ilm;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class MoveToStep extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
 
@@ -30,19 +30,19 @@ class MoveToStep extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ilm.move_to_step');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): MoveToStep
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

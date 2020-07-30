@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Nodes;
 
@@ -20,7 +20,7 @@ class ReloadSecureSettings extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $node_id = $this->node_id ?? null;
 
@@ -30,19 +30,19 @@ class ReloadSecureSettings extends AbstractEndpoint
         return "/_nodes/reload_secure_settings";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setNodeId($node_id): ReloadSecureSettings
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

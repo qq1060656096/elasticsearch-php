@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class PutCalendar extends AbstractEndpoint
 {
     protected $calendar_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $calendar_id = $this->calendar_id ?? null;
 
@@ -31,17 +31,17 @@ class PutCalendar extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_calendar');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutCalendar
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class PutCalendar extends AbstractEndpoint
         return $this;
     }
 
-    public function setCalendarId($calendar_id): PutCalendar
+    public function setCalendarId($calendar_id)
     {
         if (isset($calendar_id) !== true) {
             return $this;

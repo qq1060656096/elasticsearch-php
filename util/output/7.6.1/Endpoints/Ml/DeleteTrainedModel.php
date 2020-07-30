@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class DeleteTrainedModel extends AbstractEndpoint
 {
     protected $model_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $model_id = $this->model_id ?? null;
 
@@ -31,17 +31,17 @@ class DeleteTrainedModel extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_trained_model');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setModelId($model_id): DeleteTrainedModel
+    public function setModelId($model_id)
     {
         if (isset($model_id) !== true) {
             return $this;

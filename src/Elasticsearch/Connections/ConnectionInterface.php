@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Connections;
 
@@ -22,12 +22,12 @@ interface ConnectionInterface
     /**
      * Get the transport schema for this connection
      */
-    public function getTransportSchema(): string;
+    public function getTransportSchema();
 
     /**
      * Get the hostname for this connection
      */
-    public function getHost(): string;
+    public function getHost();
 
     /**
      * Get the port for this connection
@@ -39,32 +39,32 @@ interface ConnectionInterface
     /**
      * Get the username:password string for this connection, null if not set
      */
-    public function getUserPass(): ?string;
+    public function getUserPass();
 
     /**
      * Get the URL path suffix, null if not set
      */
-    public function getPath(): ?string;
+    public function getPath();
 
     /**
      * Check to see if this instance is marked as 'alive'
      */
-    public function isAlive(): bool;
+    public function isAlive();
 
     /**
      * Mark this instance as 'alive'
      */
-    public function markAlive(): void;
+    public function markAlive();
 
     /**
      * Mark this instance as 'dead'
      */
-    public function markDead(): void;
+    public function markDead();
 
     /**
      * Return an associative array of information about the last request
      */
-    public function getLastRequestInfo(): array;
+    public function getLastRequestInfo();
 
     /**
      * @param  null $body

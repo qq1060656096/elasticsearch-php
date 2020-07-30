@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Tasks;
 
@@ -21,7 +21,7 @@ class Get extends AbstractEndpoint
 {
     protected $task_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $task_id = $this->task_id ?? null;
 
@@ -31,7 +31,7 @@ class Get extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint tasks.get');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_completion',
@@ -39,12 +39,12 @@ class Get extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setTaskId($task_id): Get
+    public function setTaskId($task_id)
     {
         if (isset($task_id) !== true) {
             return $this;

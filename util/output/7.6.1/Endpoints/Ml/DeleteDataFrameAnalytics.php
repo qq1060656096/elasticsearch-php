@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class DeleteDataFrameAnalytics extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -30,19 +30,19 @@ class DeleteDataFrameAnalytics extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_data_frame_analytics');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'force'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setId($id): DeleteDataFrameAnalytics
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Rollup;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class GetRollupIndexCaps extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
 
@@ -30,12 +30,12 @@ class GetRollupIndexCaps extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint rollup.get_rollup_index_caps');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

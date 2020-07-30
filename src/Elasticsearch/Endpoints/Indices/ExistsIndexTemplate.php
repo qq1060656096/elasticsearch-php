@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -21,7 +21,7 @@ class ExistsIndexTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,7 +31,7 @@ class ExistsIndexTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.exists_index_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flat_settings',
@@ -40,12 +40,12 @@ class ExistsIndexTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'HEAD';
     }
 
-    public function setName($name): ExistsIndexTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

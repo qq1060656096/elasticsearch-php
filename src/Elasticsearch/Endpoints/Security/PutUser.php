@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -21,7 +21,7 @@ class PutUser extends AbstractEndpoint
 {
     protected $username;
 
-    public function getURI(): string
+    public function getURI()
     {
         $username = $this->username ?? null;
 
@@ -31,19 +31,19 @@ class PutUser extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.put_user');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutUser
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class PutUser extends AbstractEndpoint
         return $this;
     }
 
-    public function setUsername($username): PutUser
+    public function setUsername($username)
     {
         if (isset($username) !== true) {
             return $this;

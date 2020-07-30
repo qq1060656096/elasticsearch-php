@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Create extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->id) !== true) {
             throw new RuntimeException(
@@ -45,7 +45,7 @@ class Create extends AbstractEndpoint
         return "/$index/_create/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_active_shards',
@@ -58,12 +58,12 @@ class Create extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): Create
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -73,7 +73,7 @@ class Create extends AbstractEndpoint
         return $this;
     }
 
-    public function setId($id): Create
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

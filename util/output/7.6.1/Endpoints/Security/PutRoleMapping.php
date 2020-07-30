@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -21,7 +21,7 @@ class PutRoleMapping extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,19 +31,19 @@ class PutRoleMapping extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.put_role_mapping');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutRoleMapping
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class PutRoleMapping extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): PutRoleMapping
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

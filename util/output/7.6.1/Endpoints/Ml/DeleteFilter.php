@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class DeleteFilter extends AbstractEndpoint
 {
     protected $filter_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $filter_id = $this->filter_id ?? null;
 
@@ -31,17 +31,17 @@ class DeleteFilter extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_filter');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setFilterId($filter_id): DeleteFilter
+    public function setFilterId($filter_id)
     {
         if (isset($filter_id) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -20,7 +20,7 @@ class HasPrivileges extends AbstractEndpoint
 {
     protected $user;
 
-    public function getURI(): string
+    public function getURI()
     {
         $user = $this->user ?? null;
 
@@ -30,19 +30,19 @@ class HasPrivileges extends AbstractEndpoint
         return "/_security/user/_has_privileges";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): HasPrivileges
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -52,7 +52,7 @@ class HasPrivileges extends AbstractEndpoint
         return $this;
     }
 
-    public function setUser($user): HasPrivileges
+    public function setUser($user)
     {
         if (isset($user) !== true) {
             return $this;

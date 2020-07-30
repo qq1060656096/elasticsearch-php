@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Tests;
 
@@ -83,7 +83,7 @@ class ClientIntegrationTest extends \PHPUnit\Framework\TestCase
         }
     }
 
-    private function getLevelOutput(string $level, array $output): string
+    private function getLevelOutput(string $level, array $output)
     {
         foreach ($output as $out) {
             if (false !== strpos($out, $level)) {

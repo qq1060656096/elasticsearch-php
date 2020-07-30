@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Autoscaling;
 
@@ -21,7 +21,7 @@ class DeleteAutoscalingPolicy extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,17 +31,17 @@ class DeleteAutoscalingPolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint autoscaling.delete_autoscaling_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setName($name): DeleteAutoscalingPolicy
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

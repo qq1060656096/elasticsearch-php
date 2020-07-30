@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -19,13 +19,13 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class UpdateAliases extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_aliases";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',
@@ -33,12 +33,12 @@ class UpdateAliases extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): UpdateAliases
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

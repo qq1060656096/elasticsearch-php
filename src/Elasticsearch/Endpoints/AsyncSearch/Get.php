@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\AsyncSearch;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Get extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -30,7 +30,7 @@ class Get extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint async_search.get');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_completion_timeout',
@@ -39,7 +39,7 @@ class Get extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }

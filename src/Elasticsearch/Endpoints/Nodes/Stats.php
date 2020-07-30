@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Nodes;
 
@@ -22,7 +22,7 @@ class Stats extends AbstractEndpoint
     protected $metric;
     protected $index_metric;
 
-    public function getURI(): string
+    public function getURI()
     {
         $node_id = $this->node_id ?? null;
         $metric = $this->metric ?? null;
@@ -46,7 +46,7 @@ class Stats extends AbstractEndpoint
         return "/_nodes/stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'completion_fields',
@@ -60,12 +60,12 @@ class Stats extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Stats
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;
@@ -78,7 +78,7 @@ class Stats extends AbstractEndpoint
         return $this;
     }
 
-    public function setMetric($metric): Stats
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;
@@ -91,7 +91,7 @@ class Stats extends AbstractEndpoint
         return $this;
     }
 
-    public function setIndexMetric($index_metric): Stats
+    public function setIndexMetric($index_metric)
     {
         if (isset($index_metric) !== true) {
             return $this;

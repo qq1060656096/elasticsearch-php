@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch;
 
@@ -72,7 +72,7 @@ class Transport
      * Returns a single connection from the connection pool
      * Potentially performs a sniffing step before returning
      */
-    public function getConnection(): ConnectionInterface
+    public function getConnection()
     {
         return $this->connectionPool->nextConnection();
     }
@@ -88,7 +88,7 @@ class Transport
      *
      * @throws Common\Exceptions\NoNodesAvailableException|\Exception
      */
-    public function performRequest(string $method, string $uri, array $params = null, $body = null, array $options = []): FutureArrayInterface
+    public function performRequest(string $method, string $uri, array $params = null, $body = null, array $options = [])
     {
         try {
             $connection  = $this->getConnection();
@@ -147,7 +147,7 @@ class Transport
         return $result;
     }
 
-    public function shouldRetry(array $request): bool
+    public function shouldRetry(array $request)
     {
         if ($this->retryAttempts < $this->retries) {
             $this->retryAttempts += 1;
@@ -162,7 +162,7 @@ class Transport
      * Returns the last used connection so that it may be inspected.  Mainly
      * for debugging/testing purposes.
      */
-    public function getLastConnection(): ConnectionInterface
+    public function getLastConnection()
     {
         return $this->lastConnection;
     }

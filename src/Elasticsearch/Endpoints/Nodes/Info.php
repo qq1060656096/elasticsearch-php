@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Nodes;
 
@@ -21,7 +21,7 @@ class Info extends AbstractEndpoint
     protected $node_id;
     protected $metric;
 
-    public function getURI(): string
+    public function getURI()
     {
         $node_id = $this->node_id ?? null;
         $metric = $this->metric ?? null;
@@ -38,7 +38,7 @@ class Info extends AbstractEndpoint
         return "/_nodes";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'flat_settings',
@@ -46,12 +46,12 @@ class Info extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Info
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;
@@ -64,7 +64,7 @@ class Info extends AbstractEndpoint
         return $this;
     }
 
-    public function setMetric($metric): Info
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;

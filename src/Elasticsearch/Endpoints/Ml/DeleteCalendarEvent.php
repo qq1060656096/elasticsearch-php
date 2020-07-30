@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -22,7 +22,7 @@ class DeleteCalendarEvent extends AbstractEndpoint
     protected $calendar_id;
     protected $event_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $calendar_id = $this->calendar_id ?? null;
         $event_id = $this->event_id ?? null;
@@ -33,17 +33,17 @@ class DeleteCalendarEvent extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_calendar_event');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setCalendarId($calendar_id): DeleteCalendarEvent
+    public function setCalendarId($calendar_id)
     {
         if (isset($calendar_id) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class DeleteCalendarEvent extends AbstractEndpoint
         return $this;
     }
 
-    public function setEventId($event_id): DeleteCalendarEvent
+    public function setEventId($event_id)
     {
         if (isset($event_id) !== true) {
             return $this;

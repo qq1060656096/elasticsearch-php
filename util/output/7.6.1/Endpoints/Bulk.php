@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -26,7 +26,7 @@ class Bulk extends AbstractEndpoint
         $this->serializer = $serializer;
     }
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
         $type = $this->type ?? null;
@@ -43,7 +43,7 @@ class Bulk extends AbstractEndpoint
         return "/_bulk";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'wait_for_active_shards',
@@ -58,12 +58,12 @@ class Bulk extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
     
-    public function setBody($body): Bulk
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

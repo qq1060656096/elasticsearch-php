@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cat;
 
@@ -20,7 +20,7 @@ class MlJobs extends AbstractEndpoint
 {
     protected $job_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $job_id = $this->job_id ?? null;
 
@@ -30,7 +30,7 @@ class MlJobs extends AbstractEndpoint
         return "/_cat/ml/anomaly_detectors";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_jobs',
@@ -44,12 +44,12 @@ class MlJobs extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setJobId($job_id): MlJobs
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

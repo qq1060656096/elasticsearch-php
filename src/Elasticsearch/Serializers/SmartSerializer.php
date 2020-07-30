@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Serializers;
 
@@ -26,7 +26,7 @@ class SmartSerializer implements SerializerInterface
     /**
      * {@inheritdoc}
      */
-    public function serialize($data): string
+    public function serialize($data)
     {
         if (is_string($data) === true) {
             return $data;
@@ -69,7 +69,7 @@ class SmartSerializer implements SerializerInterface
      * @return array
      * @throws JsonErrorException
      */
-    private function decode(?string $data): array
+    private function decode(?string $data)
     {
         if ($data === null || strlen($data) === 0) {
             return [];

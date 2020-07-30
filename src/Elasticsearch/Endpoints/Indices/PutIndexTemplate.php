@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -21,7 +21,7 @@ class PutIndexTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,7 +31,7 @@ class PutIndexTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.put_index_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'create',
@@ -40,12 +40,12 @@ class PutIndexTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutIndexTemplate
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class PutIndexTemplate extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): PutIndexTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

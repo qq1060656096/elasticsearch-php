@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ccr;
 
@@ -21,7 +21,7 @@ class PauseAutoFollowPattern extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,17 +31,17 @@ class PauseAutoFollowPattern extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ccr.pause_auto_follow_pattern');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setName($name): PauseAutoFollowPattern
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

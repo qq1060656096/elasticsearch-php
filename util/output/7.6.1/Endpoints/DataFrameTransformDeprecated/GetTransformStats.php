@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\DataFrameTransformDeprecated;
 
@@ -21,7 +21,7 @@ class GetTransformStats extends AbstractEndpoint
 {
     protected $transform_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $transform_id = $this->transform_id ?? null;
 
@@ -31,7 +31,7 @@ class GetTransformStats extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint data_frame_transform_deprecated.get_transform_stats');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',
@@ -40,12 +40,12 @@ class GetTransformStats extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setTransformId($transform_id): GetTransformStats
+    public function setTransformId($transform_id)
     {
         if (isset($transform_id) !== true) {
             return $this;

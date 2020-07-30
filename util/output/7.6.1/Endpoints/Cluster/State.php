@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cluster;
 
@@ -20,7 +20,7 @@ class State extends AbstractEndpoint
 {
     protected $metric;
 
-    public function getURI(): string
+    public function getURI()
     {
         $metric = $this->metric ?? null;
         $index = $this->index ?? null;
@@ -34,7 +34,7 @@ class State extends AbstractEndpoint
         return "/_cluster/state";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'local',
@@ -48,12 +48,12 @@ class State extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setMetric($metric): State
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;

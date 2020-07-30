@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -20,7 +20,7 @@ class ChangePassword extends AbstractEndpoint
 {
     protected $username;
 
-    public function getURI(): string
+    public function getURI()
     {
         $username = $this->username ?? null;
 
@@ -30,19 +30,19 @@ class ChangePassword extends AbstractEndpoint
         return "/_security/user/_password";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'refresh'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): ChangePassword
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -52,7 +52,7 @@ class ChangePassword extends AbstractEndpoint
         return $this;
     }
 
-    public function setUsername($username): ChangePassword
+    public function setUsername($username)
     {
         if (isset($username) !== true) {
             return $this;

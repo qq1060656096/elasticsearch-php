@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\SearchableSnapshots;
 
@@ -21,7 +21,7 @@ class RepositoryStats extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
         $repository = $this->repository ?? null;
 
@@ -31,17 +31,17 @@ class RepositoryStats extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint searchable_snapshots.repository_stats');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setRepository($repository): RepositoryStats
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Tests\Serializers;
 
@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class SmartSerializerTest extends TestCase
 {
-    public function setUp(): void
+    public function setUp()
     {
         $this->serializer = new SmartSerializer();
     }

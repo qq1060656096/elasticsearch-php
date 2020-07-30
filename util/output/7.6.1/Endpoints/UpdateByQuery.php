@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class UpdateByQuery extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->index) !== true) {
             throw new RuntimeException(
@@ -39,7 +39,7 @@ class UpdateByQuery extends AbstractEndpoint
         return "/$index/_update_by_query";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'analyzer',
@@ -80,12 +80,12 @@ class UpdateByQuery extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): UpdateByQuery
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

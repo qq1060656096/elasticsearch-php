@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -20,7 +20,7 @@ class Stats extends AbstractEndpoint
 {
     protected $metric;
 
-    public function getURI(): string
+    public function getURI()
     {
         $metric = $this->metric ?? null;
         $index = $this->index ?? null;
@@ -37,7 +37,7 @@ class Stats extends AbstractEndpoint
         return "/_stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'completion_fields',
@@ -53,12 +53,12 @@ class Stats extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setMetric($metric): Stats
+    public function setMetric($metric)
     {
         if (isset($metric) !== true) {
             return $this;

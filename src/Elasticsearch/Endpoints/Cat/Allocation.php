@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cat;
 
@@ -20,7 +20,7 @@ class Allocation extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $node_id = $this->node_id ?? null;
 
@@ -30,7 +30,7 @@ class Allocation extends AbstractEndpoint
         return "/_cat/allocation";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',
@@ -44,12 +44,12 @@ class Allocation extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): Allocation
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

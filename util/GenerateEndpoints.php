@@ -4,7 +4,7 @@
  *
  * @author Enrico Zimuel (enrico.zimuel@elastic.co)
  */
-declare(strict_types = 1);
+
 
 use GitWrapper\GitWrapper;
 use Elasticsearch\Util\ClientEndpoint;
@@ -127,7 +127,7 @@ printf("\nGenerated %d endpoints and %d namespaces in %.3f seconds\n.", $countEn
 
 // End
 
-function print_usage_msg(): void
+function print_usage_msg()
 {
     printf("Usage: php %s <ES_VERSION>\n", basename(__FILE__));
     printf("where <ES_VERSION> is the Elasticsearch version to check (version must be >= 7.4.0).\n");

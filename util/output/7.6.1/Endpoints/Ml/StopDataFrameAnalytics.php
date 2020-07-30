@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class StopDataFrameAnalytics extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -30,7 +30,7 @@ class StopDataFrameAnalytics extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.stop_data_frame_analytics');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_match',
@@ -39,12 +39,12 @@ class StopDataFrameAnalytics extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): StopDataFrameAnalytics
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -54,7 +54,7 @@ class StopDataFrameAnalytics extends AbstractEndpoint
         return $this;
     }
 
-    public function setId($id): StopDataFrameAnalytics
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -19,25 +19,25 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class GetToken extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_security/oauth2/token";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): GetToken
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

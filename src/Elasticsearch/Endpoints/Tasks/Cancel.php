@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Tasks;
 
@@ -20,7 +20,7 @@ class Cancel extends AbstractEndpoint
 {
     protected $task_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $task_id = $this->task_id ?? null;
 
@@ -30,7 +30,7 @@ class Cancel extends AbstractEndpoint
         return "/_tasks/_cancel";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'nodes',
@@ -40,12 +40,12 @@ class Cancel extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setTaskId($task_id): Cancel
+    public function setTaskId($task_id)
     {
         if (isset($task_id) !== true) {
             return $this;

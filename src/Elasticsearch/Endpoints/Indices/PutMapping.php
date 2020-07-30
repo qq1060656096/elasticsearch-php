@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class PutMapping extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
         $type = $this->type ?? null;
@@ -40,7 +40,7 @@ class PutMapping extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.put_mapping');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',
@@ -52,12 +52,12 @@ class PutMapping extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutMapping
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

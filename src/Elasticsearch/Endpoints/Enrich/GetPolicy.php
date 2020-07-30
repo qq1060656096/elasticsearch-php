@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Enrich;
 
@@ -20,7 +20,7 @@ class GetPolicy extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -30,17 +30,17 @@ class GetPolicy extends AbstractEndpoint
         return "/_enrich/policy/";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetPolicy
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

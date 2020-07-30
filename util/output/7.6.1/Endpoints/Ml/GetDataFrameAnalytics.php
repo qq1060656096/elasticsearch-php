@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -19,7 +19,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class GetDataFrameAnalytics extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -29,7 +29,7 @@ class GetDataFrameAnalytics extends AbstractEndpoint
         return "/_ml/data_frame/analytics";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_match',
@@ -38,12 +38,12 @@ class GetDataFrameAnalytics extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setId($id): GetDataFrameAnalytics
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

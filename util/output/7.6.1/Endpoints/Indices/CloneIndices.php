@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -21,7 +21,7 @@ class CloneIndices extends AbstractEndpoint
 {
     protected $target;
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
         $target = $this->target ?? null;
@@ -32,7 +32,7 @@ class CloneIndices extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.clone');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',
@@ -41,12 +41,12 @@ class CloneIndices extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): CloneIndices
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -56,7 +56,7 @@ class CloneIndices extends AbstractEndpoint
         return $this;
     }
 
-    public function setTarget($target): CloneIndices
+    public function setTarget($target)
     {
         if (isset($target) !== true) {
             return $this;

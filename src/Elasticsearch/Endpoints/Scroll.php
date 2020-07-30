@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -20,7 +20,7 @@ class Scroll extends AbstractEndpoint
 {
     protected $scroll_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $scroll_id = $this->scroll_id ?? null;
         if (isset($scroll_id)) {
@@ -33,7 +33,7 @@ class Scroll extends AbstractEndpoint
         return "/_search/scroll";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'scroll',
@@ -42,12 +42,12 @@ class Scroll extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): Scroll
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -57,7 +57,7 @@ class Scroll extends AbstractEndpoint
         return $this;
     }
 
-    public function setScrollId($scroll_id): Scroll
+    public function setScrollId($scroll_id)
     {
         if (isset($scroll_id) !== true) {
             return $this;

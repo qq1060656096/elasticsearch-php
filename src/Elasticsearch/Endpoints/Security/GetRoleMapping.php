@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -20,7 +20,7 @@ class GetRoleMapping extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -30,19 +30,19 @@ class GetRoleMapping extends AbstractEndpoint
         return "/_security/role_mapping";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetRoleMapping
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

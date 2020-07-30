@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Watcher;
 
@@ -21,7 +21,7 @@ class ActivateWatch extends AbstractEndpoint
 {
     protected $watch_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $watch_id = $this->watch_id ?? null;
 
@@ -31,17 +31,17 @@ class ActivateWatch extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint watcher.activate_watch');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setWatchId($watch_id): ActivateWatch
+    public function setWatchId($watch_id)
     {
         if (isset($watch_id) !== true) {
             return $this;

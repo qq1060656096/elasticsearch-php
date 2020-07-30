@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cat;
 
@@ -20,7 +20,7 @@ class Templates extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -30,7 +30,7 @@ class Templates extends AbstractEndpoint
         return "/_cat/templates";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',
@@ -43,12 +43,12 @@ class Templates extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): Templates
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Helper\Iterators;
 
@@ -81,7 +81,7 @@ class SearchResponseIterator implements Iterator
      * @param  string $time_to_live
      * @return $this
      */
-    public function setScrollTimeout(string $time_to_live): SearchResponseIterator
+    public function setScrollTimeout(string $time_to_live)
     {
         $this->scroll_ttl = $time_to_live;
         return $this;
@@ -92,7 +92,7 @@ class SearchResponseIterator implements Iterator
      *
      * @return void
      */
-    private function clearScroll(): void
+    private function clearScroll()
     {
         if (!empty($this->scroll_id)) {
             $this->client->clearScroll(
@@ -113,7 +113,7 @@ class SearchResponseIterator implements Iterator
      * @return void
      * @see    Iterator::rewind()
      */
-    public function rewind(): void
+    public function rewind()
     {
         $this->clearScroll();
         $this->current_key = 0;
@@ -127,7 +127,7 @@ class SearchResponseIterator implements Iterator
      * @return void
      * @see    Iterator::next()
      */
-    public function next(): void
+    public function next()
     {
         $this->current_scrolled_response = $this->client->scroll(
             [
@@ -145,7 +145,7 @@ class SearchResponseIterator implements Iterator
      * @return bool
      * @see    Iterator::valid()
      */
-    public function valid(): bool
+    public function valid()
     {
         return isset($this->current_scrolled_response['hits']['hits'][0]);
     }
@@ -156,7 +156,7 @@ class SearchResponseIterator implements Iterator
      * @return array
      * @see    Iterator::current()
      */
-    public function current(): array
+    public function current()
     {
         return $this->current_scrolled_response;
     }
@@ -167,7 +167,7 @@ class SearchResponseIterator implements Iterator
      * @return int
      * @see    Iterator::key()
      */
-    public function key(): int
+    public function key()
     {
         return $this->current_key;
     }

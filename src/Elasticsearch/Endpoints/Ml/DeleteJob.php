@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class DeleteJob extends AbstractEndpoint
 {
     protected $job_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $job_id = $this->job_id ?? null;
 
@@ -31,7 +31,7 @@ class DeleteJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'force',
@@ -39,12 +39,12 @@ class DeleteJob extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setJobId($job_id): DeleteJob
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

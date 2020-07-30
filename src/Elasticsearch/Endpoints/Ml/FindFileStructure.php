@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -27,13 +27,13 @@ class FindFileStructure extends AbstractEndpoint
         $this->serializer = $serializer;
     }
 
-    public function getURI(): string
+    public function getURI()
     {
 
         return "/_ml/find_file_structure";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'lines_to_sample',
@@ -53,12 +53,12 @@ class FindFileStructure extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
     
-    public function setBody($body): FindFileStructure
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

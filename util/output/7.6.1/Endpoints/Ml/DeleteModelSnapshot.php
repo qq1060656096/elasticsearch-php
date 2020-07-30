@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -22,7 +22,7 @@ class DeleteModelSnapshot extends AbstractEndpoint
     protected $job_id;
     protected $snapshot_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $job_id = $this->job_id ?? null;
         $snapshot_id = $this->snapshot_id ?? null;
@@ -33,17 +33,17 @@ class DeleteModelSnapshot extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.delete_model_snapshot');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setJobId($job_id): DeleteModelSnapshot
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class DeleteModelSnapshot extends AbstractEndpoint
         return $this;
     }
 
-    public function setSnapshotId($snapshot_id): DeleteModelSnapshot
+    public function setSnapshotId($snapshot_id)
     {
         if (isset($snapshot_id) !== true) {
             return $this;

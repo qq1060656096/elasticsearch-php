@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Snapshot;
 
@@ -21,7 +21,7 @@ class VerifyRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
         $repository = $this->repository ?? null;
 
@@ -31,7 +31,7 @@ class VerifyRepository extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint snapshot.verify_repository');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -39,12 +39,12 @@ class VerifyRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setRepository($repository): VerifyRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

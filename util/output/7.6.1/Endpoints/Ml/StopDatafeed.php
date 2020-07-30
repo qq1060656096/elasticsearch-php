@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class StopDatafeed extends AbstractEndpoint
 {
     protected $datafeed_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $datafeed_id = $this->datafeed_id ?? null;
 
@@ -31,7 +31,7 @@ class StopDatafeed extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.stop_datafeed');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_datafeeds',
@@ -40,12 +40,12 @@ class StopDatafeed extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setDatafeedId($datafeed_id): StopDatafeed
+    public function setDatafeedId($datafeed_id)
     {
         if (isset($datafeed_id) !== true) {
             return $this;

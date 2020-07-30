@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -21,7 +21,7 @@ class GetFieldMapping extends AbstractEndpoint
 {
     protected $fields;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->fields) !== true) {
             throw new RuntimeException(
@@ -47,7 +47,7 @@ class GetFieldMapping extends AbstractEndpoint
         return "/_mapping/field/$fields";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'include_type_name',
@@ -59,12 +59,12 @@ class GetFieldMapping extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setFields($fields): GetFieldMapping
+    public function setFields($fields)
     {
         if (isset($fields) !== true) {
             return $this;

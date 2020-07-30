@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class PutTrainedModel extends AbstractEndpoint
 {
     protected $model_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $model_id = $this->model_id ?? null;
 
@@ -31,17 +31,17 @@ class PutTrainedModel extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_trained_model');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutTrainedModel
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class PutTrainedModel extends AbstractEndpoint
         return $this;
     }
 
-    public function setModelId($model_id): PutTrainedModel
+    public function setModelId($model_id)
     {
         if (isset($model_id) !== true) {
             return $this;

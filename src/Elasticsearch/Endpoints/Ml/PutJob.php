@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class PutJob extends AbstractEndpoint
 {
     protected $job_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $job_id = $this->job_id ?? null;
 
@@ -31,17 +31,17 @@ class PutJob extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.put_job');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutJob
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class PutJob extends AbstractEndpoint
         return $this;
     }
 
-    public function setJobId($job_id): PutJob
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

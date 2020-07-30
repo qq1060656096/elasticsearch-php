@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Transform;
 
@@ -20,7 +20,7 @@ class GetTransform extends AbstractEndpoint
 {
     protected $transform_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $transform_id = $this->transform_id ?? null;
 
@@ -30,7 +30,7 @@ class GetTransform extends AbstractEndpoint
         return "/_transform";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',
@@ -39,12 +39,12 @@ class GetTransform extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setTransformId($transform_id): GetTransform
+    public function setTransformId($transform_id)
     {
         if (isset($transform_id) !== true) {
             return $this;

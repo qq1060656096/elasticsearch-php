@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -21,7 +21,7 @@ class DeleteDataStream extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,19 +31,19 @@ class DeleteDataStream extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.delete_data_stream');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setName($name): DeleteDataStream
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

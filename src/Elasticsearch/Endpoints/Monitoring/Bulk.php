@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Monitoring;
 
@@ -27,7 +27,7 @@ class Bulk extends AbstractEndpoint
         $this->serializer = $serializer;
     }
 
-    public function getURI(): string
+    public function getURI()
     {
         $type = $this->type ?? null;
         if (isset($type)) {
@@ -40,7 +40,7 @@ class Bulk extends AbstractEndpoint
         return "/_monitoring/bulk";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'system_id',
@@ -49,12 +49,12 @@ class Bulk extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
     
-    public function setBody($body): Bulk
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

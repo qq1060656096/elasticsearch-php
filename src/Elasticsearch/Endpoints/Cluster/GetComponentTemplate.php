@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cluster;
 
@@ -20,7 +20,7 @@ class GetComponentTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -30,7 +30,7 @@ class GetComponentTemplate extends AbstractEndpoint
         return "/_component_template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -38,12 +38,12 @@ class GetComponentTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetComponentTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Nodes;
 
@@ -20,7 +20,7 @@ class HotThreads extends AbstractEndpoint
 {
     protected $node_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $node_id = $this->node_id ?? null;
 
@@ -30,7 +30,7 @@ class HotThreads extends AbstractEndpoint
         return "/_nodes/hot_threads";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'interval',
@@ -42,12 +42,12 @@ class HotThreads extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setNodeId($node_id): HotThreads
+    public function setNodeId($node_id)
     {
         if (isset($node_id) !== true) {
             return $this;

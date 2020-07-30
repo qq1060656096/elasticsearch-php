@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Watcher;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class PutWatch extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         $id = $this->id ?? null;
 
@@ -30,7 +30,7 @@ class PutWatch extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint watcher.put_watch');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'active',
@@ -40,12 +40,12 @@ class PutWatch extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutWatch
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class PutWatch extends AbstractEndpoint
         return $this;
     }
 
-    public function setId($id): PutWatch
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

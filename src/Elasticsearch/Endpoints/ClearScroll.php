@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -20,7 +20,7 @@ class ClearScroll extends AbstractEndpoint
 {
     protected $scroll_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $scroll_id = $this->scroll_id ?? null;
         if (isset($scroll_id)) {
@@ -33,19 +33,19 @@ class ClearScroll extends AbstractEndpoint
         return "/_search/scroll";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setBody($body): ClearScroll
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class ClearScroll extends AbstractEndpoint
         return $this;
     }
 
-    public function setScrollId($scroll_id): ClearScroll
+    public function setScrollId($scroll_id)
     {
         if (isset($scroll_id) !== true) {
             return $this;

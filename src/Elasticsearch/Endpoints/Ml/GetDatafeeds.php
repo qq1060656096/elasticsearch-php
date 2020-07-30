@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -20,7 +20,7 @@ class GetDatafeeds extends AbstractEndpoint
 {
     protected $datafeed_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $datafeed_id = $this->datafeed_id ?? null;
 
@@ -30,19 +30,19 @@ class GetDatafeeds extends AbstractEndpoint
         return "/_ml/datafeeds";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_datafeeds'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setDatafeedId($datafeed_id): GetDatafeeds
+    public function setDatafeedId($datafeed_id)
     {
         if (isset($datafeed_id) !== true) {
             return $this;

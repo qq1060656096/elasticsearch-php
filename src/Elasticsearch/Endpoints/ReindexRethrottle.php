@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -21,7 +21,7 @@ class ReindexRethrottle extends AbstractEndpoint
 {
     protected $task_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $task_id = $this->task_id ?? null;
 
@@ -31,19 +31,19 @@ class ReindexRethrottle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint reindex_rethrottle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'requests_per_second'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setTaskId($task_id): ReindexRethrottle
+    public function setTaskId($task_id)
     {
         if (isset($task_id) !== true) {
             return $this;

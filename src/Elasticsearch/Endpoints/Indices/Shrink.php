@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -21,7 +21,7 @@ class Shrink extends AbstractEndpoint
 {
     protected $target;
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
         $target = $this->target ?? null;
@@ -32,7 +32,7 @@ class Shrink extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint indices.shrink');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'copy_settings',
@@ -42,12 +42,12 @@ class Shrink extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): Shrink
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -57,7 +57,7 @@ class Shrink extends AbstractEndpoint
         return $this;
     }
 
-    public function setTarget($target): Shrink
+    public function setTarget($target)
     {
         if (isset($target) !== true) {
             return $this;

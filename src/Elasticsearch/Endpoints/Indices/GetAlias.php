@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -20,7 +20,7 @@ class GetAlias extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
         $index = $this->index ?? null;
@@ -37,7 +37,7 @@ class GetAlias extends AbstractEndpoint
         return "/_alias";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'ignore_unavailable',
@@ -47,12 +47,12 @@ class GetAlias extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetAlias
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

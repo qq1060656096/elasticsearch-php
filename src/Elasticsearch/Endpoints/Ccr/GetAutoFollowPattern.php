@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ccr;
 
@@ -20,7 +20,7 @@ class GetAutoFollowPattern extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -30,17 +30,17 @@ class GetAutoFollowPattern extends AbstractEndpoint
         return "/_ccr/auto_follow";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setName($name): GetAutoFollowPattern
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -20,7 +20,7 @@ use Elasticsearch\Endpoints\AbstractEndpoint;
 class Explain extends AbstractEndpoint
 {
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->id) !== true) {
             throw new RuntimeException(
@@ -45,7 +45,7 @@ class Explain extends AbstractEndpoint
         return "/$index/_explain/$id";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'analyze_wildcard',
@@ -63,12 +63,12 @@ class Explain extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): Explain
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -78,7 +78,7 @@ class Explain extends AbstractEndpoint
         return $this;
     }
 
-    public function setId($id): Explain
+    public function setId($id)
     {
         if (isset($id) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ilm;
 
@@ -21,7 +21,7 @@ class DeleteLifecycle extends AbstractEndpoint
 {
     protected $policy;
 
-    public function getURI(): string
+    public function getURI()
     {
         $policy = $this->policy ?? null;
 
@@ -31,19 +31,19 @@ class DeleteLifecycle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ilm.delete_lifecycle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setPolicy($policy): DeleteLifecycle
+    public function setPolicy($policy)
     {
         if (isset($policy) !== true) {
             return $this;

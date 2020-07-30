@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -26,7 +26,7 @@ class PostData extends AbstractEndpoint
         $this->serializer = $serializer;
     }
 
-    public function getURI(): string
+    public function getURI()
     {
         $job_id = $this->job_id ?? null;
 
@@ -36,7 +36,7 @@ class PostData extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.post_data');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'reset_start',
@@ -44,12 +44,12 @@ class PostData extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
     
-    public function setBody($body): PostData
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -69,7 +69,7 @@ class PostData extends AbstractEndpoint
         return $this;
     }
 
-    public function setJobId($job_id): PostData
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

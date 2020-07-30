@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Tests;
 
@@ -50,7 +50,7 @@ class RegisteredNamespaceTest extends \PHPUnit\Framework\TestCase
 // @codingStandardsIgnoreStart "Each class must be in a file by itself" - not worth the extra work here
 class FooNamespaceBuilder implements Elasticsearch\Namespaces\NamespaceBuilderInterface
 {
-    public function getName(): string
+    public function getName()
     {
         return "foo";
     }

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -22,7 +22,7 @@ class GetModelSnapshots extends AbstractEndpoint
     protected $job_id;
     protected $snapshot_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->job_id) !== true) {
             throw new RuntimeException(
@@ -38,7 +38,7 @@ class GetModelSnapshots extends AbstractEndpoint
         return "/_ml/anomaly_detectors/$job_id/model_snapshots";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',
@@ -50,12 +50,12 @@ class GetModelSnapshots extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
 
-    public function setBody($body): GetModelSnapshots
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -65,7 +65,7 @@ class GetModelSnapshots extends AbstractEndpoint
         return $this;
     }
 
-    public function setJobId($job_id): GetModelSnapshots
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;
@@ -75,7 +75,7 @@ class GetModelSnapshots extends AbstractEndpoint
         return $this;
     }
 
-    public function setSnapshotId($snapshot_id): GetModelSnapshots
+    public function setSnapshotId($snapshot_id)
     {
         if (isset($snapshot_id) !== true) {
             return $this;

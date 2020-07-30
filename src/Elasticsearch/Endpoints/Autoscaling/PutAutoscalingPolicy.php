@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Autoscaling;
 
@@ -21,7 +21,7 @@ class PutAutoscalingPolicy extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,17 +31,17 @@ class PutAutoscalingPolicy extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint autoscaling.put_autoscaling_policy');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutAutoscalingPolicy
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class PutAutoscalingPolicy extends AbstractEndpoint
         return $this;
     }
 
-    public function setName($name): PutAutoscalingPolicy
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -21,7 +21,7 @@ class ClearCachedRoles extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,19 +31,19 @@ class ClearCachedRoles extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.clear_cached_roles');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setName($name): ClearCachedRoles
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

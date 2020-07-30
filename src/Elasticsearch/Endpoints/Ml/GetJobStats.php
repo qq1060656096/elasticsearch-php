@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -20,7 +20,7 @@ class GetJobStats extends AbstractEndpoint
 {
     protected $job_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $job_id = $this->job_id ?? null;
 
@@ -30,19 +30,19 @@ class GetJobStats extends AbstractEndpoint
         return "/_ml/anomaly_detectors/_stats";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_jobs'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setJobId($job_id): GetJobStats
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Connections;
 
@@ -52,7 +52,7 @@ class ConnectionFactory implements ConnectionFactoryInterface
         $this->serializer       = $serializer;
     }
 
-    public function create(array $hostDetails): ConnectionInterface
+    public function create(array $hostDetails)
     {
         return new Connection(
             $this->handler,

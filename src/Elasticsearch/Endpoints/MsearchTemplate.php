@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints;
 
@@ -27,7 +27,7 @@ class MsearchTemplate extends AbstractEndpoint
         $this->serializer = $serializer;
     }
 
-    public function getURI(): string
+    public function getURI()
     {
         $index = $this->index ?? null;
         $type = $this->type ?? null;
@@ -44,7 +44,7 @@ class MsearchTemplate extends AbstractEndpoint
         return "/_msearch/template";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'search_type',
@@ -55,12 +55,12 @@ class MsearchTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return isset($this->body) ? 'POST' : 'GET';
     }
     
-    public function setBody($body): MsearchTemplate
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;

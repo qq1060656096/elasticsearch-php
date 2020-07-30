@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -20,7 +20,7 @@ class GetFilters extends AbstractEndpoint
 {
     protected $filter_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $filter_id = $this->filter_id ?? null;
 
@@ -30,7 +30,7 @@ class GetFilters extends AbstractEndpoint
         return "/_ml/filters";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'from',
@@ -38,12 +38,12 @@ class GetFilters extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setFilterId($filter_id): GetFilters
+    public function setFilterId($filter_id)
     {
         if (isset($filter_id) !== true) {
             return $this;

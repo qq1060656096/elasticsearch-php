@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Namespaces;
 
@@ -89,7 +89,7 @@ class ClusterNamespace extends AbstractNamespace
      * @note This API is EXPERIMENTAL and may be changed or removed completely in a future release
      *
      */
-    public function existsComponentTemplate(array $params = []): bool
+    public function existsComponentTemplate(array $params = [])
     {
         $name = $this->extractArgument($params, 'name');
 

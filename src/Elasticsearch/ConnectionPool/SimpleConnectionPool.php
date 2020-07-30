@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\ConnectionPool;
 
@@ -20,12 +20,12 @@ class SimpleConnectionPool extends AbstractConnectionPool implements ConnectionP
         parent::__construct($connections, $selector, $factory, $connectionPoolParams);
     }
 
-    public function nextConnection(bool $force = false): ConnectionInterface
+    public function nextConnection(bool $force = false)
     {
         return $this->selector->select($this->connections);
     }
 
-    public function scheduleCheck(): void
+    public function scheduleCheck()
     {
     }
 }

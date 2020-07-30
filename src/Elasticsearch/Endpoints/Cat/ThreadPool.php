@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cat;
 
@@ -20,7 +20,7 @@ class ThreadPool extends AbstractEndpoint
 {
     protected $thread_pool_patterns;
 
-    public function getURI(): string
+    public function getURI()
     {
         $thread_pool_patterns = $this->thread_pool_patterns ?? null;
 
@@ -30,7 +30,7 @@ class ThreadPool extends AbstractEndpoint
         return "/_cat/thread_pool";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',
@@ -44,12 +44,12 @@ class ThreadPool extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setThreadPoolPatterns($thread_pool_patterns): ThreadPool
+    public function setThreadPoolPatterns($thread_pool_patterns)
     {
         if (isset($thread_pool_patterns) !== true) {
             return $this;

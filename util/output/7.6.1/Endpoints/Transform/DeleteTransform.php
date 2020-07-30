@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Transform;
 
@@ -21,7 +21,7 @@ class DeleteTransform extends AbstractEndpoint
 {
     protected $transform_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $transform_id = $this->transform_id ?? null;
 
@@ -31,19 +31,19 @@ class DeleteTransform extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint transform.delete_transform');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'force'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setTransformId($transform_id): DeleteTransform
+    public function setTransformId($transform_id)
     {
         if (isset($transform_id) !== true) {
             return $this;

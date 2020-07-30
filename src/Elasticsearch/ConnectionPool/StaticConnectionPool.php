@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\ConnectionPool;
 
@@ -31,7 +31,7 @@ class StaticConnectionPool extends AbstractConnectionPool implements ConnectionP
         $this->scheduleCheck();
     }
 
-    public function nextConnection(bool $force = false): ConnectionInterface
+    public function nextConnection(bool $force = false)
     {
         $skipped = [];
 
@@ -64,14 +64,14 @@ class StaticConnectionPool extends AbstractConnectionPool implements ConnectionP
         throw new NoNodesAvailableException("No alive nodes found in your cluster");
     }
 
-    public function scheduleCheck(): void
+    public function scheduleCheck()
     {
         foreach ($this->connections as $connection) {
             $connection->markDead();
         }
     }
 
-    private function readyToRevive(Connection $connection): bool
+    private function readyToRevive(Connection $connection)
     {
         $timeout = min(
             $this->pingTimeout * pow(2, $connection->getPingFailures()),

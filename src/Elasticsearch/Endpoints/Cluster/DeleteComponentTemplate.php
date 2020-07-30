@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cluster;
 
@@ -21,7 +21,7 @@ class DeleteComponentTemplate extends AbstractEndpoint
 {
     protected $name;
 
-    public function getURI(): string
+    public function getURI()
     {
         $name = $this->name ?? null;
 
@@ -31,7 +31,7 @@ class DeleteComponentTemplate extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint cluster.delete_component_template');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'timeout',
@@ -39,12 +39,12 @@ class DeleteComponentTemplate extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'DELETE';
     }
 
-    public function setName($name): DeleteComponentTemplate
+    public function setName($name)
     {
         if (isset($name) !== true) {
             return $this;

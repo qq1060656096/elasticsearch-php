@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\ConnectionPool;
 
@@ -34,7 +34,7 @@ class SniffingConnectionPool extends AbstractConnectionPool implements Connectio
         $this->nextSniff = time() + $this->sniffingInterval;
     }
 
-    public function nextConnection(bool $force = false): ConnectionInterface
+    public function nextConnection(bool $force = false)
     {
         $this->sniff($force);
 
@@ -56,7 +56,7 @@ class SniffingConnectionPool extends AbstractConnectionPool implements Connectio
         return $this->nextConnection(true);
     }
 
-    public function scheduleCheck(): void
+    public function scheduleCheck()
     {
         $this->nextSniff = -1;
     }
@@ -95,7 +95,7 @@ class SniffingConnectionPool extends AbstractConnectionPool implements Connectio
         }
     }
 
-    private function sniffConnection(Connection $connection): bool
+    private function sniffConnection(Connection $connection)
     {
         try {
             $response = $connection->sniff();
@@ -124,7 +124,7 @@ class SniffingConnectionPool extends AbstractConnectionPool implements Connectio
         return true;
     }
 
-    private function parseClusterState(string $transportSchema, $nodeInfo): array
+    private function parseClusterState(string $transportSchema, $nodeInfo)
     {
         $pattern       = '/([^:]*):([0-9]+)/';
         $schemaAddress = $transportSchema . '_address';

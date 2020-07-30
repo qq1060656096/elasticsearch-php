@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Serializers;
 
@@ -25,7 +25,7 @@ class ArrayToJSONSerializer implements SerializerInterface
     /**
      * {@inheritdoc}
      */
-    public function serialize($data): string
+    public function serialize($data)
     {
         if (is_string($data) === true) {
             return $data;

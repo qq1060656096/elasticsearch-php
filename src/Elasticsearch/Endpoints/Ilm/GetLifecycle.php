@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ilm;
 
@@ -20,7 +20,7 @@ class GetLifecycle extends AbstractEndpoint
 {
     protected $policy;
 
-    public function getURI(): string
+    public function getURI()
     {
         $policy = $this->policy ?? null;
 
@@ -30,19 +30,19 @@ class GetLifecycle extends AbstractEndpoint
         return "/_ilm/policy";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setPolicy($policy): GetLifecycle
+    public function setPolicy($policy)
     {
         if (isset($policy) !== true) {
             return $this;

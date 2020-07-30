@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Security;
 
@@ -21,7 +21,7 @@ class ClearCachedRealms extends AbstractEndpoint
 {
     protected $realms;
 
-    public function getURI(): string
+    public function getURI()
     {
         $realms = $this->realms ?? null;
 
@@ -31,19 +31,19 @@ class ClearCachedRealms extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint security.clear_cached_realms');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'usernames'
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setRealms($realms): ClearCachedRealms
+    public function setRealms($realms)
     {
         if (isset($realms) !== true) {
             return $this;

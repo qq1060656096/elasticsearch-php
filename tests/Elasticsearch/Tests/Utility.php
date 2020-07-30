@@ -1,12 +1,12 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Tests;
 
 class Utility
 {
-    public static function getHost(): ?string
+    public static function getHost()
     {
         $url = getenv('ELASTICSEARCH_URL');
         if (false !== $url) {

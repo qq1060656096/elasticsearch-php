@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -21,7 +21,7 @@ class UpdateFilter extends AbstractEndpoint
 {
     protected $filter_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $filter_id = $this->filter_id ?? null;
 
@@ -31,17 +31,17 @@ class UpdateFilter extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.update_filter');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): UpdateFilter
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -51,7 +51,7 @@ class UpdateFilter extends AbstractEndpoint
         return $this;
     }
 
-    public function setFilterId($filter_id): UpdateFilter
+    public function setFilterId($filter_id)
     {
         if (isset($filter_id) !== true) {
             return $this;

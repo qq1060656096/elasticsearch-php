@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Connections;
 
@@ -15,5 +15,5 @@ namespace Elasticsearch\Connections;
  */
 interface ConnectionFactoryInterface
 {
-    public function create(array $hostDetails): ConnectionInterface;
+    public function create(array $hostDetails);
 }

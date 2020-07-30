@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\ConnectionPool\Selectors;
 
@@ -22,5 +22,5 @@ interface SelectorInterface
      *
      * @param \Elasticsearch\Connections\ConnectionInterface[] $connections an array of ConnectionInterface instances to choose from
      */
-    public function select(array $connections): ConnectionInterface;
+    public function select(array $connections);
 }

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\ConnectionPool;
 
@@ -17,7 +17,7 @@ use Elasticsearch\Connections\ConnectionInterface;
  */
 interface ConnectionPoolInterface
 {
-    public function nextConnection(bool $force = false): ConnectionInterface;
+    public function nextConnection(bool $force = false);
 
-    public function scheduleCheck(): void;
+    public function scheduleCheck();
 }

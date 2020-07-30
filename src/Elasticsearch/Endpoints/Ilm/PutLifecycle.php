@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ilm;
 
@@ -21,7 +21,7 @@ class PutLifecycle extends AbstractEndpoint
 {
     protected $policy;
 
-    public function getURI(): string
+    public function getURI()
     {
         $policy = $this->policy ?? null;
 
@@ -31,19 +31,19 @@ class PutLifecycle extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ilm.put_lifecycle');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setBody($body): PutLifecycle
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -53,7 +53,7 @@ class PutLifecycle extends AbstractEndpoint
         return $this;
     }
 
-    public function setPolicy($policy): PutLifecycle
+    public function setPolicy($policy)
     {
         if (isset($policy) !== true) {
             return $this;

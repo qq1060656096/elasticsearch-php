@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Cat;
 
@@ -20,7 +20,7 @@ class Fielddata extends AbstractEndpoint
 {
     protected $fields;
 
-    public function getURI(): string
+    public function getURI()
     {
         $fields = $this->fields ?? null;
 
@@ -30,7 +30,7 @@ class Fielddata extends AbstractEndpoint
         return "/_cat/fielddata";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'format',
@@ -43,12 +43,12 @@ class Fielddata extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setFields($fields): Fielddata
+    public function setFields($fields)
     {
         if (isset($fields) !== true) {
             return $this;

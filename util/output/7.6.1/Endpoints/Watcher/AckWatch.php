@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Watcher;
 
@@ -22,7 +22,7 @@ class AckWatch extends AbstractEndpoint
     protected $watch_id;
     protected $action_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         if (isset($this->watch_id) !== true) {
             throw new RuntimeException(
@@ -38,17 +38,17 @@ class AckWatch extends AbstractEndpoint
         return "/_watcher/watch/$watch_id/_ack";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'PUT';
     }
 
-    public function setWatchId($watch_id): AckWatch
+    public function setWatchId($watch_id)
     {
         if (isset($watch_id) !== true) {
             return $this;
@@ -58,7 +58,7 @@ class AckWatch extends AbstractEndpoint
         return $this;
     }
 
-    public function setActionId($action_id): AckWatch
+    public function setActionId($action_id)
     {
         if (isset($action_id) !== true) {
             return $this;

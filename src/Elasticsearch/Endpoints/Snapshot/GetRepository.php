@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Snapshot;
 
@@ -20,7 +20,7 @@ class GetRepository extends AbstractEndpoint
 {
     protected $repository;
 
-    public function getURI(): string
+    public function getURI()
     {
         $repository = $this->repository ?? null;
 
@@ -30,7 +30,7 @@ class GetRepository extends AbstractEndpoint
         return "/_snapshot";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'master_timeout',
@@ -38,12 +38,12 @@ class GetRepository extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setRepository($repository): GetRepository
+    public function setRepository($repository)
     {
         if (isset($repository) !== true) {
             return $this;

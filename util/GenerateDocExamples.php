@@ -4,7 +4,7 @@
  *
  * @author Enrico Zimuel (enrico.zimuel@elastic.co)
  */
-declare(strict_types = 1);
+
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -95,7 +95,7 @@ printf("Generated %d source examples in %.3f seconds\n", $parsed, $end - $start)
 /**
  * Generate the client source code from the parsed_source field
  */
-function getClientSourceCode(array $parsedSource): string
+function getClientSourceCode(array $parsedSource)
 {
     $tab4 = str_repeat(' ', 4);
     $code = '';
@@ -121,7 +121,7 @@ function getClientSourceCode(array $parsedSource): string
  * Print an associative array as source code
  * Note: it removes the number keys in scalar array
  */
-function prettyPrintArray(array $input, int $space): string
+function prettyPrintArray(array $input, int $space)
 {
     $output = '';
     $tab = str_repeat(' ', $space);
@@ -150,7 +150,7 @@ function prettyPrintArray(array $input, int $space): string
 /**
  * Normalize the api name for invoking the equivalent endpoint
  */
-function normalizeApiName(string $api): string
+function normalizeApiName(string $api)
 {
     $result = str_replace('_', '', lcfirst(ucwords($api, '_')));
     return str_replace('.', '()->', $result);
@@ -159,7 +159,7 @@ function normalizeApiName(string $api): string
 /**
  * Check if the generated code has a valid PHP syntax using Elasticsearch\Client
  */
-function checkIfCodeHasValidSyntax(string $code): void
+function checkIfCodeHasValidSyntax(string $code)
 {
     $script = sprintf("require_once '%s/vendor/autoload.php';\n", dirname(__DIR__));
     $script .= '$client = Elasticsearch\ClientBuilder::create()->build();' . "\n";
@@ -178,7 +178,7 @@ function checkIfCodeHasValidSyntax(string $code): void
 /**
  * Remove all files in a folder
  */
-function removeAllFiles(string $folder): void
+function removeAllFiles(string $folder)
 {
     $files = glob($folder); 
     foreach($files as $file) { 
@@ -191,7 +191,7 @@ function removeAllFiles(string $folder): void
 /**
  * Print the usage message in console
  */
-function printUsageMsg(): void
+function printUsageMsg()
 {
     printf("Usage: php %s <PATH_TO_JSON>\n", basename(__FILE__));
     printf("where <PATH_TO_JSON> is the `alternatives_report.spec.json` path file\n");

@@ -4,7 +4,7 @@
  *
  * @author Enrico Zimuel (enrico.zimuel@elastic.co)
  */
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Util;
 
@@ -28,7 +28,7 @@ class ClientEndpoint extends NamespaceEndpoint
         $this->version = $version;
     }
 
-    public function renderClass(): string
+    public function renderClass()
     {
         if (empty($this->endpoints)) {
             throw new Exception("No endpoints has been added. I cannot render the class");

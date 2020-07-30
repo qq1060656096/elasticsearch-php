@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -22,7 +22,7 @@ class UpdateModelSnapshot extends AbstractEndpoint
     protected $job_id;
     protected $snapshot_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $job_id = $this->job_id ?? null;
         $snapshot_id = $this->snapshot_id ?? null;
@@ -33,19 +33,19 @@ class UpdateModelSnapshot extends AbstractEndpoint
         throw new RuntimeException('Missing parameter for the endpoint ml.update_model_snapshot');
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'POST';
     }
 
-    public function setBody($body): UpdateModelSnapshot
+    public function setBody($body)
     {
         if (isset($body) !== true) {
             return $this;
@@ -55,7 +55,7 @@ class UpdateModelSnapshot extends AbstractEndpoint
         return $this;
     }
 
-    public function setJobId($job_id): UpdateModelSnapshot
+    public function setJobId($job_id)
     {
         if (isset($job_id) !== true) {
             return $this;
@@ -65,7 +65,7 @@ class UpdateModelSnapshot extends AbstractEndpoint
         return $this;
     }
 
-    public function setSnapshotId($snapshot_id): UpdateModelSnapshot
+    public function setSnapshotId($snapshot_id)
     {
         if (isset($snapshot_id) !== true) {
             return $this;

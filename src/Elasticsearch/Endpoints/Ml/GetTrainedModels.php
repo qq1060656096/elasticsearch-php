@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+
 
 namespace Elasticsearch\Endpoints\Ml;
 
@@ -20,7 +20,7 @@ class GetTrainedModels extends AbstractEndpoint
 {
     protected $model_id;
 
-    public function getURI(): string
+    public function getURI()
     {
         $model_id = $this->model_id ?? null;
 
@@ -30,7 +30,7 @@ class GetTrainedModels extends AbstractEndpoint
         return "/_ml/inference";
     }
 
-    public function getParamWhitelist(): array
+    public function getParamWhitelist()
     {
         return [
             'allow_no_match',
@@ -42,12 +42,12 @@ class GetTrainedModels extends AbstractEndpoint
         ];
     }
 
-    public function getMethod(): string
+    public function getMethod()
     {
         return 'GET';
     }
 
-    public function setModelId($model_id): GetTrainedModels
+    public function setModelId($model_id)
     {
         if (isset($model_id) !== true) {
             return $this;
