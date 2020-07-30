@@ -46,7 +46,7 @@ class SmartSerializer implements SerializerInterface
     /**
      * {@inheritdoc}
      */
-    public function deserialize(?string $data, array $headers)
+    public function deserialize($data, array $headers)
     {
         if (isset($headers['content_type']) === true) {
             if (strpos($headers['content_type'], 'json') !== false) {
@@ -69,7 +69,7 @@ class SmartSerializer implements SerializerInterface
      * @return array
      * @throws JsonErrorException
      */
-    private function decode(?string $data)
+    private function decode($data)
     {
         if ($data === null || strlen($data) === 0) {
             return [];

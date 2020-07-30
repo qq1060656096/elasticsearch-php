@@ -22,7 +22,7 @@ interface NamespaceBuilderInterface
      * Returns the name of the namespace.  This is what users will call, e.g. the name
      * "foo" will be invoked by the user as `$client->foo()`
      */
-    public function getName()
+    public function getName();
 
     /**
      * Returns the actual namespace object which contains your custom methods. The transport

@@ -22,12 +22,12 @@ interface ConnectionInterface
     /**
      * Get the transport schema for this connection
      */
-    public function getTransportSchema()
+    public function getTransportSchema();
 
     /**
      * Get the hostname for this connection
      */
-    public function getHost()
+    public function getHost();
 
     /**
      * Get the port for this connection
@@ -39,12 +39,12 @@ interface ConnectionInterface
     /**
      * Get the username:password string for this connection, null if not set
      */
-    public function getUserPass()
+    public function getUserPass();
 
     /**
      * Get the URL path suffix, null if not set
      */
-    public function getPath()
+    public function getPath();
 
     /**
      * Check to see if this instance is marked as 'alive'

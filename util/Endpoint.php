@@ -453,7 +453,7 @@ class Endpoint
         return $result;
     }
 
-    private function extractBodyDescription(int $space)
+    private function extractBodyDescription($space)
     {
         if (isset($this->content['body']) && isset($this->content['body']['description'])) {
             return sprintf(
@@ -466,7 +466,7 @@ class Endpoint
         return '';
     }
 
-    private function extractPartsDescription(int $space)
+    private function extractPartsDescription($space)
     {
         $result = '';
         if (empty($this->parts)) {
@@ -487,7 +487,7 @@ class Endpoint
         return $result;
     }
 
-    private function extractParamsDescription(int $space)
+    private function extractParamsDescription($space)
     {
         $result = '';
         if (!isset($this->content['params'])) {

@@ -69,12 +69,12 @@ abstract class AbstractEndpoint
     /**
      * @return string
      */
-    abstract public function getURI()
+    abstract public function getURI();
 
     /**
      * @return string
      */
-    abstract public function getMethod()
+    abstract public function getMethod();
 
 
     /**
@@ -139,7 +139,7 @@ abstract class AbstractEndpoint
      * @deprecated
      * @return     $this
      */
-    public function setType(?string $type)
+    public function setType($type)
     {
         if ($type === null) {
             return $this;

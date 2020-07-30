@@ -71,6 +71,7 @@ Version Matrix
 
 | Elasticsearch Version | Elasticsearch-PHP Branch |
 | --------------------- | ------------------------ |
+| >= 7.x                | 7.9-php5.6               |
 | >= 7.x                | 7.x                      |
 | >= 6.6, < 7.0         | 6.7.x                    |
 | >= 6.0, < 6.6         | 6.5.x                    |
@@ -144,6 +145,7 @@ extension to be version 1.3.7 or higher.
 | Elasticsearch-PHP Branch | PHP Version |
 | ----------- | ------------------------ |
 | 7.0         | >= 7.1.0                 |
+| 7.9-php5.6  |  ~ 5.6.*                 |
 | 6.0         | >= 7.0.0                 |
 | 5.0         | >= 5.6.6                 |
 | 2.0         | >= 5.4.0                 |

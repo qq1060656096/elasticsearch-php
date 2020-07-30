@@ -21,7 +21,7 @@ interface SerializerInterface
      * @param  mixed $data The data to encode
      * @return string
      */
-    public function serialize($data)
+    public function serialize($data);
 
     /**
      * Deserialize json encoded string into an associative array
@@ -30,5 +30,5 @@ interface SerializerInterface
      * @param  array  $headers Response Headers
      * @return string|array
      */
-    public function deserialize(?string $data, array $headers);
+    public function deserialize($data, array $headers);
 }

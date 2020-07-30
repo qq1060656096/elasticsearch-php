@@ -153,7 +153,7 @@ EOD;
      */
     public function tasksList(array $params = [])
     {
-        return $this->list($params);
+        return $this->listV1($params);
     }
 EOD;
     }

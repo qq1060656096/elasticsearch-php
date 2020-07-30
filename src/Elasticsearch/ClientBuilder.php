@@ -416,7 +416,7 @@ class ClientBuilder
         return $this;
     }
 
-    public function setRetries(int $retries)
+    public function setRetries($retries)
     {
         $this->retries = $retries;
 

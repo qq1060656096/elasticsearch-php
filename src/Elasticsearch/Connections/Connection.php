@@ -188,7 +188,7 @@ class Connection implements ConnectionInterface
      * @param  Transport $transport
      * @return mixed
      */
-    public function performRequest($method,  $uri, ?array $params = [], $body = null, array $options = [], Transport $transport = null)
+    public function performRequest($method,  $uri, array $params = [], $body = null, array $options = [], Transport $transport = null)
     {
         if ($body !== null) {
             $body = $this->serializer->serialize($body);
@@ -248,9 +248,7 @@ class Connection implements ConnectionInterface
 
             // Send the request using the wrapped handler.
             $response =  Core::proxy($handler($request), function ($response) use ($connection, $transport, $request, $options) {
-
                 $this->lastRequest['response'] = $response;
-
                 if (isset($response['error']) === true) {
                     if ($response['error'] instanceof ConnectException || $response['error'] instanceof RingException) {
                         $this->log->warning("Curl exception encountered.");
@@ -332,7 +330,7 @@ class Connection implements ConnectionInterface
         };
     }
 
-    private function getURI($uri, ?array $params)
+    private function getURI($uri, array $params)
     {
         if (isset($params) === true && !empty($params)) {
             array_walk(
@@ -353,7 +351,7 @@ class Connection implements ConnectionInterface
             $uri = $this->path . $uri;
         }
 
-        return $uri ?? '';
+        return isset($uri) ? $uri : '';
     }
 
     public function getHeaders()
@@ -381,7 +379,7 @@ class Connection implements ConnectionInterface
             array(
                 'method'    => $request['http_method'],
                 'uri'       => $response['effective_url'],
-                'port'      => $response['transfer_stats']['primary_port'] ?? '',
+                'port'      => isset($response['transfer_stats']['primary_port']) ? $response['transfer_stats']['primary_port'] : '',
                 'headers'   => $request['headers'],
                 'HTTP code' => $response['status'],
                 'duration'  => $response['transfer_stats']['total_time'],
@@ -422,7 +420,7 @@ class Connection implements ConnectionInterface
             array(
                 'method'    => $request['http_method'],
                 'uri'       => $response['effective_url'],
-                'port'      => $response['transfer_stats']['primary_port'] ?? '',
+                'port'      => isset($response['transfer_stats']['primary_port']) ? $response['transfer_stats']['primary_port'] : '',
                 'headers'   => $request['headers'],
                 'HTTP code' => $response['status'],
                 'duration'  => $response['transfer_stats']['total_time'],
@@ -526,7 +524,7 @@ class Connection implements ConnectionInterface
 
     public function getUserPass()
     {
-        return $this->connectionParams['client']['curl'][CURLOPT_USERPWD] ?? null;
+        return isset($this->connectionParams['client']['curl'][CURLOPT_USERPWD]) ? $this->connectionParams['client']['curl'][CURLOPT_USERPWD] : null;;
     }
 
     public function getPath()
@@ -581,7 +579,7 @@ class Connection implements ConnectionInterface
     /**
      * Construct a string cURL command
      */
-    private function buildCurlCommand($method,  $uri, ?string $body)
+    private function buildCurlCommand($method,  $uri, $body)
     {
         if (strpos($uri, '?') === false) {
             $uri .= '?pretty=true';
@@ -599,8 +597,11 @@ class Connection implements ConnectionInterface
         return $curlCommand;
     }
 
-    private function process4xxError(array $request, array $response, array $ignore)
+    private function process4xxError(array $request, array $response, $ignore)
     {
+        if ($ignore === null) {
+            $ignore = [];
+        }
         $statusCode = $response['status'];
         $responseBody = $response['body'];
 

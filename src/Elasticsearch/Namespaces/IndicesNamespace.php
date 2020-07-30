@@ -90,6 +90,7 @@ class IndicesNamespace extends AbstractNamespace
 
         return $this->performRequest($endpoint);
     }
+    
     /**
      * $params['index']                  = (string) The name of the source index to clone
      * $params['target']                 = (string) The name of the target index to clone into
@@ -102,19 +103,19 @@ class IndicesNamespace extends AbstractNamespace
      * @return array
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clone-index.html
      */
-    public function clone(array $params = [])
+    public function cloneV1(array $params = [])
     {
         $index = $this->extractArgument($params, 'index');
         $target = $this->extractArgument($params, 'target');
         $body = $this->extractArgument($params, 'body');
-
+        
         $endpointBuilder = $this->endpoints;
         $endpoint = $endpointBuilder('Indices\CloneIndices');
         $endpoint->setParams($params);
         $endpoint->setIndex($index);
         $endpoint->setTarget($target);
         $endpoint->setBody($body);
-
+        
         return $this->performRequest($endpoint);
     }
     /**

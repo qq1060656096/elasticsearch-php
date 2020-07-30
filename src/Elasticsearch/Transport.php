@@ -56,7 +56,7 @@ class Transport
      * @param ConnectionPool\AbstractConnectionPool $connectionPool
      * @param \Psr\Log\LoggerInterface              $log            Monolog logger object
      */
-    public function __construct(int $retries, AbstractConnectionPool $connectionPool, LoggerInterface $log, $sniffOnStart = false)
+    public function __construct($retries, AbstractConnectionPool $connectionPool, LoggerInterface $log, $sniffOnStart = false)
     {
         $this->log            = $log;
         $this->connectionPool = $connectionPool;
@@ -119,7 +119,7 @@ class Transport
             //onFailure
             function ($response) {
                 // Ignore 400 level errors, as that means the server responded just fine
-                if (!(isset($response['code']) && $response['code'] >=400 && $response['code'] < 500)) {
+                if (!($response->getCode() && $response->getCode() >=400 && $response->getCode() < 500)) {
                     // Otherwise schedule a check
                     $this->connectionPool->scheduleCheck();
                 }
