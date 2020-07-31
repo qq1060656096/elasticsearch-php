@@ -23,7 +23,7 @@ class PostCalendarEvents extends AbstractEndpoint
 
     public function getURI()
     {
-        $calendar_id = $this->calendar_id ?? null;
+        $calendar_id = isset($this->calendar_id) ? $this->calendar_id : null;
 
         if (isset($calendar_id)) {
             return "/_ml/calendars/$calendar_id/events";

@@ -30,7 +30,7 @@ class GetCategories extends AbstractEndpoint
             );
         }
         $job_id = $this->job_id;
-        $category_id = $this->category_id ?? null;
+        $category_id = isset($this->category_id) ? $this->category_id : null;
 
         if (isset($category_id)) {
             return "/_ml/anomaly_detectors/$job_id/results/categories/$category_id";

@@ -22,7 +22,7 @@ class PutPipeline extends AbstractEndpoint
 
     public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_ingest/pipeline/$id";

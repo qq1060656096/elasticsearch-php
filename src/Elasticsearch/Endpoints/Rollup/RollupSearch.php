@@ -28,7 +28,7 @@ class RollupSearch extends AbstractEndpoint
             );
         }
         $index = $this->index;
-        $type = $this->type ?? null;
+        $type = isset($this->type) ? $this->type : null;
         if (isset($type)) {
             @trigger_error('Specifying types in urls has been deprecated', E_USER_DEPRECATED);
         }

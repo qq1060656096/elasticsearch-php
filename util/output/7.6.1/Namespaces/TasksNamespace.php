@@ -86,6 +86,6 @@ class TasksNamespace extends AbstractNamespace
      */
     public function tasksList(array $params = [])
     {
-        return $this->list($params);
+        return $thislistV1($params);
     }
 }

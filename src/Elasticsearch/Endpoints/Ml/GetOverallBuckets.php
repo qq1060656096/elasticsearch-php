@@ -23,7 +23,7 @@ class GetOverallBuckets extends AbstractEndpoint
 
     public function getURI()
     {
-        $job_id = $this->job_id ?? null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
 
         if (isset($job_id)) {
             return "/_ml/anomaly_detectors/$job_id/results/overall_buckets";

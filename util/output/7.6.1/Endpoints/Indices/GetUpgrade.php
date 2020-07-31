@@ -21,7 +21,7 @@ class GetUpgrade extends AbstractEndpoint
 
     public function getURI()
     {
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_upgrade";

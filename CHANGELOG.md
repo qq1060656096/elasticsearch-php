@@ -356,6 +356,7 @@ Woo!
 - php7 syntax changed to php5.6
 - add phpunit5.7.27 "build/phpunit5.7.27-php5.6"
 - change code file src/Elasticsearch/Transport.php
+- add file src/files/func.php
 
 ### Docs
 
@@ -364,4 +365,6 @@ Woo!
 use php5.6 phpunit5.7.27
 /usr/local/Cellar/php@5.6/5.6.40/bin/php /usr/local/bin/composer install -vvv
 /usr/local/Cellar/php@5.6/5.6.40/bin/php build/phpunit5.7.27-php5.6 --bootstrap ./tests/bootstrap.php tests/Elasticsearch
+/usr/local/Cellar/php@5.6/5.6.40/bin/php vendor/bin/phpunit --bootstrap ./tests/bootstrap.php tests/Elasticsearch
+
 - [TEST] 

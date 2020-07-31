@@ -28,8 +28,8 @@ class TermVectors extends AbstractEndpoint
             );
         }
         $index = $this->index;
-        $id = $this->id ?? null;
-        $type = $this->type ?? null;
+        $id = isset($this->id) ? $this->id : null;
+        $type = isset($this->type) ? $this->type : null;
         if (isset($type)) {
             @trigger_error('Specifying types in urls has been deprecated', E_USER_DEPRECATED);
         }

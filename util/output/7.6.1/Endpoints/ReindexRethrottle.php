@@ -23,7 +23,7 @@ class ReindexRethrottle extends AbstractEndpoint
 
     public function getURI()
     {
-        $task_id = $this->task_id ?? null;
+        $task_id = isset($this->task_id) ? $this->task_id : null;
 
         if (isset($task_id)) {
             return "/_reindex/$task_id/_rethrottle";

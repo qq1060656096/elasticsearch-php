@@ -22,7 +22,7 @@ class MlJobs extends AbstractEndpoint
 
     public function getURI()
     {
-        $job_id = $this->job_id ?? null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
 
         if (isset($job_id)) {
             return "/_cat/ml/anomaly_detectors/$job_id";

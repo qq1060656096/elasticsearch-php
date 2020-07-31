@@ -70,5 +70,5 @@ interface ConnectionInterface
      * @param  null $body
      * @return mixed
      */
-    public function performRequest(string $method, string $uri, array $params = [], $body = null, array $options = [], Transport $transport = null);
+    public function performRequest($method, $uri, array $params = [], $body = null, array $options = [], Transport $transport = null);
 }

@@ -24,9 +24,9 @@ class Stats extends AbstractEndpoint
 
     public function getURI()
     {
-        $node_id = $this->node_id ?? null;
-        $metric = $this->metric ?? null;
-        $index_metric = $this->index_metric ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
+        $metric = isset($this->metric) ? $this->metric : null;
+        $index_metric = isset($this->index_metric) ? $this->index_metric : null;
 
         if (isset($node_id) && isset($metric) && isset($index_metric)) {
             return "/_nodes/$node_id/stats/$metric/$index_metric";

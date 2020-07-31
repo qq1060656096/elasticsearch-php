@@ -188,7 +188,7 @@ class Connection implements ConnectionInterface
      * @param  Transport $transport
      * @return mixed
      */
-    public function performRequest(string $method, string $uri, ?array $params = [], $body = null, array $options = [], Transport $transport = null)
+    public function performRequest($method, $uri, array $params = [], $body = null, array $options = [], Transport $transport = null)
     {
         if ($body !== null) {
             $body = $this->serializer->serialize($body);
@@ -308,15 +308,15 @@ class Connection implements ConnectionInterface
                     }
 
                     if ($response['status'] >= 400 && $response['status'] < 500) {
-                        $ignore = $request['client']['ignore'] ?? [];
+                        $ignore = isset($request['client']['ignore']) ? $request['client']['ignore'] :  [];
                         // Skip 404 if succeeded true in the body (e.g. clear_scroll)
-                        $body = $response['body'] ?? '';
+                        $body = isset($response['body']) ? $response['body'] :  '';
                         if (strpos($body, '"succeeded":true') !== false) {
                              $ignore[] = 404;
                         }
                         $this->process4xxError($request, $response, $ignore);
                     } elseif ($response['status'] >= 500) {
-                        $ignore = $request['client']['ignore'] ?? [];
+                        $ignore = isset($request['client']['ignore']) ? $request['client']['ignore'] :  [];
                         $this->process5xxError($request, $response, $ignore);
                     }
 
@@ -332,7 +332,7 @@ class Connection implements ConnectionInterface
         };
     }
 
-    private function getURI(string $uri, ?array $params)
+    private function getURI($uri, array $params)
     {
         if (isset($params) === true && !empty($params)) {
             array_walk(
@@ -353,7 +353,7 @@ class Connection implements ConnectionInterface
             $uri = $this->path . $uri;
         }
 
-        return $uri ?? '';
+        return isset($uri) ? $uri : '';
     }
 
     public function getHeaders()
@@ -381,7 +381,7 @@ class Connection implements ConnectionInterface
             array(
                 'method'    => $request['http_method'],
                 'uri'       => $response['effective_url'],
-                'port'      => $response['transfer_stats']['primary_port'] ?? '',
+                'port'      => isset($response['transfer_stats']['primary_port']) ? $response['transfer_stats']['primary_port'] : '',
                 'headers'   => $request['headers'],
                 'HTTP code' => $response['status'],
                 'duration'  => $response['transfer_stats']['total_time'],
@@ -422,7 +422,7 @@ class Connection implements ConnectionInterface
             array(
                 'method'    => $request['http_method'],
                 'uri'       => $response['effective_url'],
-                'port'      => $response['transfer_stats']['primary_port'] ?? '',
+                'port'      => isset($response['transfer_stats']['primary_port']) ? $response['transfer_stats']['primary_port'] : '',
                 'headers'   => $request['headers'],
                 'HTTP code' => $response['status'],
                 'duration'  => $response['transfer_stats']['total_time'],
@@ -526,7 +526,7 @@ class Connection implements ConnectionInterface
 
     public function getUserPass()
     {
-        return $this->connectionParams['client']['curl'][CURLOPT_USERPWD] ?? null;
+        return isset($this->connectionParams['client']['curl'][CURLOPT_USERPWD]) ? $this->connectionParams['client']['curl'][CURLOPT_USERPWD] : null;;
     }
 
     public function getPath()
@@ -581,7 +581,7 @@ class Connection implements ConnectionInterface
     /**
      * Construct a string cURL command
      */
-    private function buildCurlCommand(string $method, string $uri, ?string $body)
+    private function buildCurlCommand($method, $uri, $body)
     {
         if (strpos($uri, '?') === false) {
             $uri .= '?pretty=true';
@@ -680,7 +680,7 @@ class Connection implements ConnectionInterface
         return $this->tryDeserializeError($response, ServerErrorResponseException::class);
     }
 
-    private function tryDeserializeError(array $response, string $errorClass)
+    private function tryDeserializeError(array $response, $errorClass)
     {
         $error = $this->serializer->deserialize($response['body'], $response['transfer_stats']);
         if (is_array($error) === true) {

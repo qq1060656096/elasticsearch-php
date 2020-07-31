@@ -22,7 +22,7 @@ class Stats extends AbstractEndpoint
 
     public function getURI()
     {
-        $node_id = $this->node_id ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
 
         if (isset($node_id)) {
             return "/_cluster/stats/nodes/$node_id";

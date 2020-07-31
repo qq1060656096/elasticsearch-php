@@ -22,7 +22,7 @@ class HasPrivileges extends AbstractEndpoint
 
     public function getURI()
     {
-        $user = $this->user ?? null;
+        $user = isset($this->user) ? $this->user : null;
 
         if (isset($user)) {
             return "/_security/user/$user/_has_privileges";

@@ -22,8 +22,8 @@ class GetSettings extends AbstractEndpoint
 
     public function getURI()
     {
-        $index = $this->index ?? null;
-        $name = $this->name ?? null;
+        $index = isset($this->index) ? $this->index : null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($index) && isset($name)) {
             return "/$index/_settings/$name";

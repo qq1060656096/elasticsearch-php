@@ -24,8 +24,8 @@ class UpdateModelSnapshot extends AbstractEndpoint
 
     public function getURI()
     {
-        $job_id = $this->job_id ?? null;
-        $snapshot_id = $this->snapshot_id ?? null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
+        $snapshot_id = isset($this->snapshot_id) ? $this->snapshot_id : null;
 
         if (isset($job_id) && isset($snapshot_id)) {
             return "/_ml/anomaly_detectors/$job_id/model_snapshots/$snapshot_id/_update";

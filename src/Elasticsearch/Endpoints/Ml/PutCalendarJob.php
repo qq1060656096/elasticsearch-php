@@ -24,8 +24,8 @@ class PutCalendarJob extends AbstractEndpoint
 
     public function getURI()
     {
-        $calendar_id = $this->calendar_id ?? null;
-        $job_id = $this->job_id ?? null;
+        $calendar_id = isset($this->calendar_id) ? $this->calendar_id : null;
+        $job_id = isset($this->job_id) ? $this->job_id : null;
 
         if (isset($calendar_id) && isset($job_id)) {
             return "/_ml/calendars/$calendar_id/jobs/$job_id";

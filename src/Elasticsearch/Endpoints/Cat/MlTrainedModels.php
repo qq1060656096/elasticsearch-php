@@ -22,7 +22,7 @@ class MlTrainedModels extends AbstractEndpoint
 
     public function getURI()
     {
-        $model_id = $this->model_id ?? null;
+        $model_id = isset($this->model_id) ? $this->model_id : null;
 
         if (isset($model_id)) {
             return "/_cat/ml/trained_models/$model_id";

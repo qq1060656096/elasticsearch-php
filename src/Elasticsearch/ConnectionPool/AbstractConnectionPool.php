@@ -81,7 +81,7 @@ abstract class AbstractConnectionPool implements ConnectionPoolInterface
         $this->connectionFactory    = $factory;
     }
 
-    abstract public function nextConnection(bool $force = false);
+    abstract public function nextConnection($force = false);
 
     abstract public function scheduleCheck();
 }

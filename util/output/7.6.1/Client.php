@@ -1486,7 +1486,7 @@ class Client
      * @return object
      * @throws BadMethodCallException if the namespace cannot be found
      */
-    public function __call(string $name, array $arguments)
+    public function __call($name, array $arguments)
     {
         if (isset($this->registeredNamespaces[$name])) {
             return $this->registeredNamespaces[$name];
@@ -1497,7 +1497,7 @@ class Client
     /**
      * @return null|mixed
      */
-    public function extractArgument(array &$params, string $arg)
+    public function extractArgument(array &$params, $arg)
     {
         if (array_key_exists($arg, $params) === true) {
             $value = $params[$arg];
@@ -1514,7 +1514,7 @@ class Client
     /**
      * @return callable|array
      */
-    private function performRequest(AbstractEndpoint $endpoint)
+    private function performRequest(AbstractEndpo$endpoint)
     {
         $promise =  $this->transport->performRequest(
             $endpoint->getMethod(),

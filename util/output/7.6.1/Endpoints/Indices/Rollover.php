@@ -30,7 +30,7 @@ class Rollover extends AbstractEndpoint
             );
         }
         $alias = $this->alias;
-        $new_index = $this->new_index ?? null;
+        $new_index = isset($this->new_index) ? $this->new_index : null;
 
         if (isset($new_index)) {
             return "/$alias/_rollover/$new_index";

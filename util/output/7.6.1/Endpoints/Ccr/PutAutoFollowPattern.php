@@ -23,7 +23,7 @@ class PutAutoFollowPattern extends AbstractEndpoint
 
     public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_ccr/auto_follow/$name";

@@ -29,7 +29,7 @@ class PutScript extends AbstractEndpoint
             );
         }
         $id = $this->id;
-        $context = $this->context ?? null;
+        $context = isset($this->context) ? $this->context : null;
 
         if (isset($context)) {
             return "/_scripts/$id/$context";

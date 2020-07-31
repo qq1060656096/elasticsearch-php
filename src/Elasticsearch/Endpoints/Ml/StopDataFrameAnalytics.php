@@ -22,7 +22,7 @@ class StopDataFrameAnalytics extends AbstractEndpoint
 
     public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_ml/data_frame/analytics/$id/_stop";

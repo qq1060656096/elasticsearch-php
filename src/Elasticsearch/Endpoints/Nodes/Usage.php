@@ -23,8 +23,8 @@ class Usage extends AbstractEndpoint
 
     public function getURI()
     {
-        $node_id = $this->node_id ?? null;
-        $metric = $this->metric ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
+        $metric = isset($this->metric) ? $this->metric : null;
 
         if (isset($node_id) && isset($metric)) {
             return "/_nodes/$node_id/usage/$metric";

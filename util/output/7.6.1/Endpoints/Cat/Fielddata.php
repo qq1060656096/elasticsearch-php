@@ -22,7 +22,7 @@ class Fielddata extends AbstractEndpoint
 
     public function getURI()
     {
-        $fields = $this->fields ?? null;
+        $fields = isset($this->fields) ? $this->fields : null;
 
         if (isset($fields)) {
             return "/_cat/fielddata/$fields";

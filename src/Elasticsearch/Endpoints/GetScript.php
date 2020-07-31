@@ -22,7 +22,7 @@ class GetScript extends AbstractEndpoint
 
     public function getURI()
     {
-        $id = $this->id ?? null;
+        $id = isset($this->id) ? $this->id : null;
 
         if (isset($id)) {
             return "/_scripts/$id";

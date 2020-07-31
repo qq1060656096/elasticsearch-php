@@ -73,7 +73,7 @@ class TasksNamespace extends AbstractNamespace
      * @return array
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/tasks.html
      */
-    public function list(array $params = [])
+    public function listV1(array $params = [])
     {
 
         $endpointBuilder = $this->endpoints;
@@ -87,6 +87,6 @@ class TasksNamespace extends AbstractNamespace
      */
     public function tasksList(array $params = [])
     {
-        return $this->list($params);
+        return $thislistV1($params);
     }
 }

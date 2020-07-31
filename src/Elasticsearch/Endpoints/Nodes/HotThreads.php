@@ -22,7 +22,7 @@ class HotThreads extends AbstractEndpoint
 
     public function getURI()
     {
-        $node_id = $this->node_id ?? null;
+        $node_id = isset($this->node_id) ? $this->node_id : null;
 
         if (isset($node_id)) {
             return "/_nodes/$node_id/hot_threads";

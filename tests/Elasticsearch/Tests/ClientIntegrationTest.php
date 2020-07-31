@@ -83,7 +83,7 @@ class ClientIntegrationTest extends \PHPUnit\Framework\TestCase
         }
     }
 
-    private function getLevelOutput(string $level, array $output)
+    private function getLevelOutput($level, array $output)
     {
         foreach ($output as $out) {
             if (false !== strpos($out, $level)) {

@@ -30,7 +30,7 @@ class DeleteForecast extends AbstractEndpoint
             );
         }
         $job_id = $this->job_id;
-        $forecast_id = $this->forecast_id ?? null;
+        $forecast_id = isset($this->forecast_id) ? $this->forecast_id : null;
 
         if (isset($forecast_id)) {
             return "/_ml/anomaly_detectors/$job_id/_forecast/$forecast_id";

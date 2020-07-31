@@ -1532,7 +1532,7 @@ class Client
      * @return object
      * @throws BadMethodCallException if the namespace cannot be found
      */
-    public function __call(string $name, array $arguments)
+    public function __call($name, array $arguments)
     {
         if (isset($this->registeredNamespaces[$name])) {
             return $this->registeredNamespaces[$name];
@@ -1543,11 +1543,11 @@ class Client
     /**
      * @return null|mixed
      */
-    public function extractArgument(array &$params, string $arg)
+    public function extractArgument(array &$params, $arg)
     {
         if (array_key_exists($arg, $params) === true) {
             $value = $params[$arg];
-            $value = (is_object($value) && !is_iterable($value)) ?
+            $value = (is_object($value) && !\is_iterable($value)) ?
                 (array) $value :
                 $value;
             unset($params[$arg]);

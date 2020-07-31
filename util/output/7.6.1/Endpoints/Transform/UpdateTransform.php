@@ -23,7 +23,7 @@ class UpdateTransform extends AbstractEndpoint
 
     public function getURI()
     {
-        $transform_id = $this->transform_id ?? null;
+        $transform_id = isset($this->transform_id) ? $this->transform_id : null;
 
         if (isset($transform_id)) {
             return "/_transform/$transform_id/_update";

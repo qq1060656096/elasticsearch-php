@@ -34,7 +34,7 @@ class SniffingConnectionPool extends AbstractConnectionPool implements Connectio
         $this->nextSniff = time() + $this->sniffingInterval;
     }
 
-    public function nextConnection(bool $force = false)
+    public function nextConnection($force = false)
     {
         $this->sniff($force);
 
@@ -61,7 +61,7 @@ class SniffingConnectionPool extends AbstractConnectionPool implements Connectio
         $this->nextSniff = -1;
     }
 
-    private function sniff(bool $force = false)
+    private function sniff($force = false)
     {
         if ($force === false && $this->nextSniff >= time()) {
             return;
@@ -124,7 +124,7 @@ class SniffingConnectionPool extends AbstractConnectionPool implements Connectio
         return true;
     }
 
-    private function parseClusterState(string $transportSchema, $nodeInfo)
+    private function parseClusterState($transportSchema, $nodeInfo)
     {
         $pattern       = '/([^:]*):([0-9]+)/';
         $schemaAddress = $transportSchema . '_address';

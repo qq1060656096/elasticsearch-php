@@ -23,7 +23,7 @@ class StartTransform extends AbstractEndpoint
 
     public function getURI()
     {
-        $transform_id = $this->transform_id ?? null;
+        $transform_id = isset($this->transform_id) ? $this->transform_id : null;
 
         if (isset($transform_id)) {
             return "/_data_frame/transforms/$transform_id/_start";

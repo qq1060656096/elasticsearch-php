@@ -22,7 +22,7 @@ class GetUser extends AbstractEndpoint
 
     public function getURI()
     {
-        $username = $this->username ?? null;
+        $username = isset($this->username) ? $this->username : null;
 
         if (isset($username)) {
             return "/_security/user/$username";

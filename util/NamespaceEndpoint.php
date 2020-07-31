@@ -23,7 +23,7 @@ class NamespaceEndpoint
     protected $endpointNames = [];
     protected $version; /* Elasticsearch version used to generate the class */
 
-    public function __construct(string $name, string $version)
+    public function __construct($name, $version)
     {
         $this->name = $name;
         $this->version = $version;
@@ -55,7 +55,7 @@ class NamespaceEndpoint
         return str_replace(':version', $this->version, $class);
     }
 
-    public function addEndpoint(Endpoint $endpoint)
+    public function addEndpoint(Endpo$endpoint)
     {
         if (in_array($endpoint->name, $this->endpointNames)) {
             throw new Exception(sprintf(
@@ -69,7 +69,7 @@ class NamespaceEndpoint
         return $this;
     }
 
-    protected function renderEndpoint(Endpoint $endpoint)
+    protected function renderEndpoint(Endpo$endpoint)
     {
         $code = file_get_contents(
             $endpoint->getMethod() === ['HEAD']
@@ -106,7 +106,7 @@ class NamespaceEndpoint
         return str_replace(':EndpointClass', $endpointClass, $code);
     }
 
-    public static function normalizeName(string $name)
+    public static function normalizeName($name)
     {
         return str_replace('_', '', ucwords($name, '_'));
     }
@@ -116,7 +116,7 @@ class NamespaceEndpoint
         return $this->normalizeName($this->name);
     }
 
-    protected function getEndpointName(string $name)
+    protected function getEndpointName($name)
     {
         return preg_replace_callback(
             '/_(.?)/',
@@ -153,7 +153,7 @@ EOD;
      */
     public function tasksList(array $params = [])
     {
-        return $this->list($params);
+        return $thislistV1($params);
     }
 EOD;
     }

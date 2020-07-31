@@ -139,7 +139,7 @@ abstract class AbstractEndpoint
      * @deprecated
      * @return     $this
      */
-    public function setType(?string $type)
+    public function setType($type)
     {
         if ($type === null) {
             return $this;
@@ -156,7 +156,7 @@ abstract class AbstractEndpoint
     }
 
     /**
-     * @param int|string $docID
+     * @param int|$docID
      *
      * @return $this
      */
@@ -183,7 +183,7 @@ abstract class AbstractEndpoint
         return $this->body;
     }
 
-    protected function getOptionalURI(string $endpoint)
+    protected function getOptionalURI($endpoint)
     {
         $uri = [];
         $uri[] = $this->getOptionalIndex();

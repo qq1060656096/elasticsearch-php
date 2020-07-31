@@ -174,11 +174,11 @@ class ClientBuilder
      * Unknown keys will throw an exception by default, but this can be silenced
      * by setting `quiet` to true
      *
-     * @param  bool $quiet False if unknown settings throw exception, true to silently
+     * @param  $quiet False if unknown settings throw exception, true to silently
      *                     ignore unknown settings
      * @throws Common\Exceptions\RuntimeException
      */
-    public static function fromConfig(array $config, bool $quiet = false)
+    public static function fromConfig(array $config, $quiet = false)
     {
         $builder = new self;
         foreach ($config as $key => $value) {
@@ -249,7 +249,7 @@ class ClientBuilder
     }
 
     /**
-     * @param  AbstractConnectionPool|string $connectionPool
+     * @param  AbstractConnectionPool|$connectionPool
      * @throws \InvalidArgumentException
      */
     public function setConnectionPool($connectionPool, array $args = [])
@@ -321,7 +321,7 @@ class ClientBuilder
     }
 
     /**
-     * @param \Elasticsearch\Serializers\SerializerInterface|string $serializer
+     * @param \Elasticsearch\Serializers\SerializerInterface|$serializer
      */
     public function setSerializer($serializer)
     {
@@ -344,7 +344,7 @@ class ClientBuilder
      *
      * @throws AuthenticationConfigException
      */
-    public function setApiKey(string $id, string $apiKey)
+    public function setApiKey($id, $apiKey)
     {
         if (isset($this->connectionParams['client']['curl'][CURLOPT_HTTPAUTH]) === true) {
             throw new AuthenticationConfigException("You can't use APIKey - and Basic Authenication together.");
@@ -360,12 +360,12 @@ class ClientBuilder
     /**
      * Set the APIKey Pair, consiting of the API Id and the ApiKey of the Response from /_security/api_key
      *
-     * @param string $username
-     * @param string $password
+     * @param $username
+     * @param $password
      *
      * @throws AuthenticationConfigException
      */
-    public function setBasicAuthentication(string $username, string $password)
+    public function setBasicAuthentication($username, $password)
     {
         if (isset($this->connectionParams['client']['headers']['Authorization']) === true) {
             throw new AuthenticationConfigException("You can't use APIKey - and Basic Authenication together.");
@@ -388,9 +388,9 @@ class ClientBuilder
      *
      * @link  https://elastic.co/cloud
      *
-     * @param string $cloudId
+     * @param $cloudId
      */
-    public function setElasticCloudId(string $cloudId)
+    public function setElasticCloudId($cloudId)
     {
         // Register the Hosts array
         $this->setHosts([
@@ -416,7 +416,7 @@ class ClientBuilder
         return $this;
     }
 
-    public function setRetries(int $retries)
+    public function setRetries($retries)
     {
         $this->retries = $retries;
 
@@ -424,7 +424,7 @@ class ClientBuilder
     }
 
     /**
-     * @param \Elasticsearch\ConnectionPool\Selectors\SelectorInterface|string $selector
+     * @param \Elasticsearch\ConnectionPool\Selectors\SelectorInterface|$selector
      */
     public function setSelector($selector)
     {
@@ -433,7 +433,7 @@ class ClientBuilder
         return $this;
     }
 
-    public function setSniffOnStart(bool $sniffOnStart)
+    public function setSniffOnStart($sniffOnStart)
     {
         $this->sniffOnStart = $sniffOnStart;
 
@@ -441,9 +441,9 @@ class ClientBuilder
     }
 
     /**
-     * @param string $cert The name of a file containing a PEM formatted certificate.
+     * @param $cert The name of a file containing a PEM formatted certificate.
      */
-    public function setSSLCert(string $cert, string $password = null)
+    public function setSSLCert($cert, $password = null)
     {
         $this->sslCert = [$cert, $password];
 
@@ -451,9 +451,9 @@ class ClientBuilder
     }
 
     /**
-     * @param string $key The name of a file containing a private SSL key.
+     * @param $key The name of a file containing a private SSL key.
      */
-    public function setSSLKey(string $key, string $password = null)
+    public function setSSLKey($key, $password = null)
     {
         $this->sslKey = [$key, $password];
 
@@ -461,7 +461,7 @@ class ClientBuilder
     }
 
     /**
-     *  @param bool|string $value
+     *  @param bool|$value
      */
     public function setSSLVerification($value = true)
     {
@@ -474,7 +474,7 @@ class ClientBuilder
      * Include the port in Host header
      * @see https://github.com/elastic/elasticsearch-php/issues/993
      */
-    public function includePortInHostHeader(bool $enable)
+    public function includePortInHostHeader($enable)
     {
         $this->includePortInHostHeader = $enable;
 
@@ -686,7 +686,7 @@ class ClientBuilder
     /**
      * @throws InvalidArgumentException
      */
-    private function extractURIParts(string $host)
+    private function extractURIParts($host)
     {
         $parts = parse_url($host);
 
@@ -701,7 +701,7 @@ class ClientBuilder
         return $parts;
     }
 
-    private function prependMissingScheme(string $host)
+    private function prependMissingScheme($host)
     {
         if (!preg_match("/^https?:\/\//", $host)) {
             $host = 'http://' . $host;
@@ -713,13 +713,13 @@ class ClientBuilder
     /**
      * Parse the Elastic Cloud Params from the CloudId
      *
-     * @param string $cloudId
+     * @param $cloudId
      *
      * @return string
      *
      * @throws ElasticCloudIdParseException
      */
-    private function parseElasticCloudId(string $cloudId)
+    private function parseElasticCloudId($cloudId)
     {
         try {
             list($name, $encoded) = explode(':', $cloudId);

@@ -23,8 +23,8 @@ class Status extends AbstractEndpoint
 
     public function getURI()
     {
-        $repository = $this->repository ?? null;
-        $snapshot = $this->snapshot ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
+        $snapshot = isset($this->snapshot) ? $this->snapshot : null;
 
         if (isset($repository) && isset($snapshot)) {
             return "/_snapshot/$repository/$snapshot/_status";

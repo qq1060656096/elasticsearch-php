@@ -30,7 +30,7 @@ class AckWatch extends AbstractEndpoint
             );
         }
         $watch_id = $this->watch_id;
-        $action_id = $this->action_id ?? null;
+        $action_id = isset($this->action_id) ? $this->action_id : null;
 
         if (isset($action_id)) {
             return "/_watcher/watch/$watch_id/_ack/$action_id";

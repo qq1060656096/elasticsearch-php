@@ -45,7 +45,7 @@ class ArrayToJSONSerializer implements SerializerInterface
     /**
      * {@inheritdoc}
      */
-    public function deserialize(?string $data, array $headers)
+    public function deserialize($data, array $headers)
     {
         return json_decode($data, true);
     }

@@ -29,7 +29,7 @@ class ExistsAlias extends AbstractEndpoint
             );
         }
         $name = $this->name;
-        $index = $this->index ?? null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index)) {
             return "/$index/_alias/$name";

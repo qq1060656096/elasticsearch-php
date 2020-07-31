@@ -23,8 +23,8 @@ class Split extends AbstractEndpoint
 
     public function getURI()
     {
-        $index = $this->index ?? null;
-        $target = $this->target ?? null;
+        $index = isset($this->index) ? $this->index : null;
+        $target = isset($this->target) ? $this->target : null;
 
         if (isset($index) && isset($target)) {
             return "/$index/_split/$target";

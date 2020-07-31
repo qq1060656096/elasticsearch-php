@@ -30,7 +30,7 @@ class GetModelSnapshots extends AbstractEndpoint
             );
         }
         $job_id = $this->job_id;
-        $snapshot_id = $this->snapshot_id ?? null;
+        $snapshot_id = isset($this->snapshot_id) ? $this->snapshot_id : null;
 
         if (isset($snapshot_id)) {
             return "/_ml/anomaly_detectors/$job_id/model_snapshots/$snapshot_id";

@@ -22,7 +22,7 @@ class GetRole extends AbstractEndpoint
 
     public function getURI()
     {
-        $name = $this->name ?? null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($name)) {
             return "/_security/role/$name";

@@ -22,7 +22,7 @@ class MlDatafeeds extends AbstractEndpoint
 
     public function getURI()
     {
-        $datafeed_id = $this->datafeed_id ?? null;
+        $datafeed_id = isset($this->datafeed_id) ? $this->datafeed_id : null;
 
         if (isset($datafeed_id)) {
             return "/_cat/ml/datafeeds/$datafeed_id";

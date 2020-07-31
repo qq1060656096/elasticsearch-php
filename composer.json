@@ -33,7 +33,8 @@
   },
   "autoload": {
     "files": [
-      "src/autoload.php"
+      "src/autoload.php",
+      "src/files/func.php"
     ],
     "psr-4": {
       "Elasticsearch\\": "src/Elasticsearch/"

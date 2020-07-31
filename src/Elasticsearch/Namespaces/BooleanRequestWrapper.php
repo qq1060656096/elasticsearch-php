@@ -27,7 +27,7 @@ trait BooleanRequestWrapper
      * @throws Missing404Exception
      * @throws RoutingMissingException
      */
-    public static function performRequest(AbstractEndpoint $endpoint, Transport $transport)
+    public static function performRequest(AbstractEndpo$endpoint, Transport $transport)
     {
         try {
             $response = $transport->performRequest(

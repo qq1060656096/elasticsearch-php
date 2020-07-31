@@ -30,7 +30,7 @@ class GetBuckets extends AbstractEndpoint
             );
         }
         $job_id = $this->job_id;
-        $timestamp = $this->timestamp ?? null;
+        $timestamp = isset($this->timestamp) ? $this->timestamp : null;
 
         if (isset($timestamp)) {
             return "/_ml/anomaly_detectors/$job_id/results/buckets/$timestamp";

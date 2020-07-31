@@ -23,7 +23,7 @@ class DeleteLifecycle extends AbstractEndpoint
 
     public function getURI()
     {
-        $policy_id = $this->policy_id ?? null;
+        $policy_id = isset($this->policy_id) ? $this->policy_id : null;
 
         if (isset($policy_id)) {
             return "/_slm/policy/$policy_id";

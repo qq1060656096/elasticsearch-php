@@ -20,7 +20,7 @@ class SimpleConnectionPool extends AbstractConnectionPool implements ConnectionP
         parent::__construct($connections, $selector, $factory, $connectionPoolParams);
     }
 
-    public function nextConnection(bool $force = false)
+    public function nextConnection($force = false)
     {
         return $this->selector->select($this->connections);
     }

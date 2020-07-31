@@ -24,8 +24,8 @@ class DeletePrivileges extends AbstractEndpoint
 
     public function getURI()
     {
-        $application = $this->application ?? null;
-        $name = $this->name ?? null;
+        $application = isset($this->application) ? $this->application : null;
+        $name = isset($this->name) ? $this->name : null;
 
         if (isset($application) && isset($name)) {
             return "/_security/privilege/$application/$name";

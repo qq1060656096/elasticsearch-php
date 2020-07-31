@@ -22,7 +22,7 @@ class GetTrainedModelsStats extends AbstractEndpoint
 
     public function getURI()
     {
-        $model_id = $this->model_id ?? null;
+        $model_id = isset($this->model_id) ? $this->model_id : null;
 
         if (isset($model_id)) {
             return "/_ml/inference/$model_id/_stats";

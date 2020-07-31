@@ -23,7 +23,7 @@ class DeleteFilter extends AbstractEndpoint
 
     public function getURI()
     {
-        $filter_id = $this->filter_id ?? null;
+        $filter_id = isset($this->filter_id) ? $this->filter_id : null;
 
         if (isset($filter_id)) {
             return "/_ml/filters/$filter_id";

@@ -23,7 +23,7 @@ class ClearCachedRealms extends AbstractEndpoint
 
     public function getURI()
     {
-        $realms = $this->realms ?? null;
+        $realms = isset($this->realms) ? $this->realms : null;
 
         if (isset($realms)) {
             return "/_security/realm/$realms/_clear_cache";

@@ -56,7 +56,7 @@ class Transport
      * @param ConnectionPool\AbstractConnectionPool $connectionPool
      * @param \Psr\Log\LoggerInterface              $log            Monolog logger object
      */
-    public function __construct(int $retries, AbstractConnectionPool $connectionPool, LoggerInterface $log, bool $sniffOnStart = false)
+    public function __construct($retries, AbstractConnectionPool $connectionPool, LoggerInterface $log, $sniffOnStart = false)
     {
         $this->log            = $log;
         $this->connectionPool = $connectionPool;
@@ -80,15 +80,15 @@ class Transport
     /**
      * Perform a request to the Cluster
      *
-     * @param string $method  HTTP method to use
-     * @param string $uri     HTTP URI to send request to
+     * @param $method  HTTP method to use
+     * @param $uri     HTTP URI to send request to
      * @param array  $params  Optional query parameters
      * @param null   $body    Optional query body
      * @param array  $options
      *
      * @throws Common\Exceptions\NoNodesAvailableException|\Exception
      */
-    public function performRequest(string $method, string $uri, array $params = null, $body = null, array $options = [])
+    public function performRequest($method, $uri, array $params = null, $body = null, array $options = [])
     {
         try {
             $connection  = $this->getConnection();
@@ -119,7 +119,7 @@ class Transport
             //onFailure
             function ($response) {
                 // Ignore 400 level errors, as that means the server responded just fine
-                if (!(isset($response['code']) && $response['code'] >=400 && $response['code'] < 500)) {
+                if (!($response->getCode() && $response->getCode() >=400 && $response->getCode() < 500)) {
                     // Otherwise schedule a check
                     $this->connectionPool->scheduleCheck();
                 }

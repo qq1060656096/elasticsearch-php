@@ -22,8 +22,8 @@ class GetAlias extends AbstractEndpoint
 
     public function getURI()
     {
-        $name = $this->name ?? null;
-        $index = $this->index ?? null;
+        $name = isset($this->name) ? $this->name : null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($index) && isset($name)) {
             return "/$index/_alias/$name";

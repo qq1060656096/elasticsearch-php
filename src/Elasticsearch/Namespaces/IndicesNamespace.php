@@ -76,7 +76,7 @@ class IndicesNamespace extends AbstractNamespace
      * @return array
      * @see https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clone-index.html
      */
-    public function clone(array $params = [])
+    public function cloneV1(array $params = [])
     {
         $index = $this->extractArgument($params, 'index');
         $target = $this->extractArgument($params, 'target');

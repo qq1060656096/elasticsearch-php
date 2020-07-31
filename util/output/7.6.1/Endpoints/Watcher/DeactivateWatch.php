@@ -23,7 +23,7 @@ class DeactivateWatch extends AbstractEndpoint
 
     public function getURI()
     {
-        $watch_id = $this->watch_id ?? null;
+        $watch_id = isset($this->watch_id) ? $this->watch_id : null;
 
         if (isset($watch_id)) {
             return "/_watcher/watch/$watch_id/_deactivate";

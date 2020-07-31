@@ -22,7 +22,7 @@ class Stats extends AbstractEndpoint
 
     public function getURI()
     {
-        $metric = $this->metric ?? null;
+        $metric = isset($this->metric) ? $this->metric : null;
 
         if (isset($metric)) {
             return "/_watcher/stats/$metric";

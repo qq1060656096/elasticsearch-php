@@ -23,7 +23,7 @@ class PutLifecycle extends AbstractEndpoint
 
     public function getURI()
     {
-        $policy = $this->policy ?? null;
+        $policy = isset($this->policy) ? $this->policy : null;
 
         if (isset($policy)) {
             return "/_ilm/policy/$policy";

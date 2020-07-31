@@ -22,7 +22,7 @@ class Snapshots extends AbstractEndpoint
 
     public function getURI()
     {
-        $repository = $this->repository ?? null;
+        $repository = isset($this->repository) ? $this->repository : null;
 
         if (isset($repository)) {
             return "/_cat/snapshots/$repository";

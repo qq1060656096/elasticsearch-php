@@ -22,8 +22,8 @@ class State extends AbstractEndpoint
 
     public function getURI()
     {
-        $metric = $this->metric ?? null;
-        $index = $this->index ?? null;
+        $metric = isset($this->metric) ? $this->metric : null;
+        $index = isset($this->index) ? $this->index : null;
 
         if (isset($metric) && isset($index)) {
             return "/_cluster/state/$metric/$index";

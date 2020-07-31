@@ -78,10 +78,10 @@ class SearchResponseIterator implements Iterator
     /**
      * Sets the time to live duration of a scroll window
      *
-     * @param  string $time_to_live
+     * @param  $time_to_live
      * @return $this
      */
-    public function setScrollTimeout(string $time_to_live)
+    public function setScrollTimeout($time_to_live)
     {
         $this->scroll_ttl = $time_to_live;
         return $this;

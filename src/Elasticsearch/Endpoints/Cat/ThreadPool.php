@@ -22,7 +22,7 @@ class ThreadPool extends AbstractEndpoint
 
     public function getURI()
     {
-        $thread_pool_patterns = $this->thread_pool_patterns ?? null;
+        $thread_pool_patterns = isset($this->thread_pool_patterns) ? $this->thread_pool_patterns : null;
 
         if (isset($thread_pool_patterns)) {
             return "/_cat/thread_pool/$thread_pool_patterns";
